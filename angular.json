@@ -3,13 +3,9 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "admin-pro-angular-lite": {
+    "fogbankFamily": {
       "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
-      },
+      "schematics": {},
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -17,27 +13,44 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "allowedCommonJsDependencies": [
-              "ng-apexcharts",
-              "apexcharts"
-            ],
-            "outputPath": "dist/admin-pro-angular-lite",
+            "outputPath": "dist/fogbank-family",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
               "zone.js"
             ],
             "tsConfig": "tsconfig.app.json",
-            "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/assets/scss/style.scss",
-              "src/styles.scss"
+              "src/styles.css",
+              "src/assets/css/bootstrap.min.css",
+              "src/assets/plugins/fontawesome/css/fontawesome.min.css",
+              "src/assets/plugins/fontawesome/css/all.min.css",
+              "src/assets/css/owl.carousel.min.css",
+              "src/assets/css/owl.theme.default.min.css",
+              "src/assets/plugins/feather/feather.css",
+              "src/assets/plugins/slick/slick.css",
+              "src/assets/plugins/slick/slick-theme.css",
+              "src/assets/plugins/select2/css/select2.min.css",
+              "src/assets/plugins/swiper/css/swiper.min.css",
+              "src/assets/plugins/aos/aos.css",
+              "src/assets/css/style.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/jquery-3.7.1.min.js",
+              "src/assets/js/bootstrap.bundle.min.js",
+              "src/assets/js/owl.carousel.min.js",
+              "src/assets/plugins/aos/aos.js",
+              "src/assets/js/jquery.waypoints.js",
+              "src/assets/js/jquery.counterup.min.js",
+              "src/assets/plugins/select2/js/select2.min.js",
+              "src/assets/plugins/slick/slick.js",
+              "src/assets/plugins/swiper/js/swiper.min.js",
+              "src/assets/js/script.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -70,10 +83,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "admin-pro-angular-lite:build:production"
+              "browserTarget": "fogbankFamily:build:production"
             },
             "development": {
-              "browserTarget": "admin-pro-angular-lite:build:development"
+              "browserTarget": "fogbankFamily:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -81,7 +94,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "admin-pro-angular-lite:build"
+            "browserTarget": "fogbankFamily:build"
           }
         },
         "test": {
@@ -92,13 +105,12 @@
               "zone.js/testing"
             ],
             "tsConfig": "tsconfig.spec.json",
-            "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.css"
             ],
             "scripts": []
           }
@@ -107,6 +119,6 @@
     }
   },
   "cli": {
-    "analytics": false
+    "analytics": "d1de8651-e82b-4143-9fc9-59f8c16870cc"
   }
 }
