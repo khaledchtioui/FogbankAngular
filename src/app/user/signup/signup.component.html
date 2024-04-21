@@ -51,19 +51,24 @@
             </div>
           </div>
           <h1>Sign up</h1>
-          <form action="https://dreamslms.dreamstechnologies.com/html/login.html">
+
+          <form (ngSubmit)="signup()">
             <div class="input-block">
-              <label class="form-control-label">Full Name</label>
-              <input type="text" class="form-control" placeholder="Enter your Full Name">
+              <label class="form-control-label">First Name</label>
+              <input type="text" class="form-control" placeholder="Enter your First Name" name="firstname" [(ngModel)]="signUpRequest.firstname">
+            </div>
+            <div class="input-block">
+              <label class="form-control-label">Last Name</label>
+              <input type="text" class="form-control" placeholder="Enter your Last Name" name="lastname" [(ngModel)]="signUpRequest.lastname">
             </div>
             <div class="input-block">
               <label class="form-control-label">Email</label>
-              <input type="email" class="form-control" placeholder="Enter your email address">
+              <input type="email" class="form-control" placeholder="Enter your email address" name="email" [(ngModel)]="signUpRequest.email">
             </div>
             <div class="input-block">
               <label class="form-control-label">Password</label>
               <div class="pass-group" id="passwordInput">
-                <input type="password" class="form-control pass-input" placeholder="Enter your password">
+                <input type="password" class="form-control pass-input" placeholder="Enter your password" name="password" [(ngModel)]="signUpRequest.password">
                 <span class="toggle-password feather-eye"></span>
                 <span class="pass-checked"><i class="feather-check"></i></span>
               </div>
@@ -78,13 +83,15 @@
 
             <div class="form-check remember-me">
               <label class="form-check-label mb-0">
-                <input class="form-check-input" type="checkbox" name="remember"> I agree to the <a [routerLink]="['/termsconditions']">Terms of Service</a> and <a href="/privacypolicy">Privacy Policy.</a>
+                <input class="form-check-input" type="checkbox" name="remember" [(ngModel)]="signUpRequest.rememberMe"> I agree to the <a [routerLink]="['/termsconditions']">Terms of Service</a> and <a href="/privacypolicy">Privacy Policy.</a>
               </label>
             </div>
             <div class="d-grid">
               <button class="btn btn-primary btn-start" type="submit">Create Account</button>
             </div>
           </form>
+
+
         </div>
         <div class="google-bg text-center">
           <span><a href="#">Or sign in with</a></span>
