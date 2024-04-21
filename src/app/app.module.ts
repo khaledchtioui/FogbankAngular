@@ -35,6 +35,7 @@ import { SignupComponent } from './user/signup/signup.component';
 import { ComingsoonComponent } from './errors/comingsoon/comingsoon.component';
 import { AdmineditprofileComponent } from './backoffice/admin/admineditprofile/admineditprofile.component';
 import {HttpClientModule} from "@angular/common/http";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -74,7 +75,8 @@ import {HttpClientModule} from "@angular/common/http";
     BrowserModule,
     AppRoutingModule,
     NgOptimizedImage,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

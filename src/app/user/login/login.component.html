@@ -53,31 +53,31 @@
 									</div>
 								</div>
 								<h1>Sign into Your Account</h1>
-								<form action="https://dreamslms.dreamstechnologies.com/html/instructor-dashboard.html">
-									<div class="input-block">
-										<label class="form-control-label">Email</label>
-										<input type="email" class="form-control" placeholder="Enter your email address">
-									</div>
-									<div class="input-block">
-										<label class="form-control-label">Password</label>
-										<div class="pass-group">
-											<input type="password" class="form-control pass-input" placeholder="Enter your password">
-											<span class="feather-eye toggle-password"></span>
-										</div>
-									</div>
-									<div class="forgot">
-										<span><a class="forgot-link" [routerLink]="['/forgotpassword']">Forgot Password ?</a></span>
-									</div>
-									<div class="remember-me">
-										<label class="custom_check mr-2 mb-0 d-inline-flex remember-me"> Remember me
-											<input type="checkbox" name="radio">
-											<span class="checkmark"></span>
-										</label>
-									</div>
-									<div class="d-grid">
-										<button class="btn btn-primary btn-start" type="submit">Sign In</button>
-									</div>
-								</form>
+                <form (ngSubmit)="signin()">
+                  <div class="input-block">
+                    <label class="form-control-label">Email</label>
+                    <input type="email" class="form-control" placeholder="Enter your email address" name="email" [(ngModel)]="signinRequest.email">
+                  </div>
+                  <div class="input-block">
+                    <label class="form-control-label">Password</label>
+                    <div class="pass-group">
+                      <input type="password" class="form-control pass-input" placeholder="Enter your password" name="password" [(ngModel)]="signinRequest.password">
+                      <span class="feather-eye toggle-password"></span>
+                    </div>
+                  </div>
+                  <div class="forgot">
+                    <span><a class="forgot-link" [routerLink]="['/forgotpassword']">Forgot Password ?</a></span>
+                  </div>
+                  <div class="remember-me">
+                    <label class="custom_check mr-2 mb-0 d-inline-flex remember-me"> Remember me
+                      <input type="checkbox" name="rememberMe" >
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                  <div class="d-grid">
+                    <button class="btn btn-primary btn-start" type="submit">Sign In</button>
+                  </div>
+                </form>
 							</div>
 						</div>
 						<div class="google-bg text-center">

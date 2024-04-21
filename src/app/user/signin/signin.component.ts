@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {SigninRequest} from "../../models/SigninRequest";
+import {AuthServiceService} from "../../service/user/auth-service.service";
 
 @Component({
   selector: 'app-signin',
@@ -6,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./signin.component.css']
 })
 export class SigninComponent {
+
 
 }
