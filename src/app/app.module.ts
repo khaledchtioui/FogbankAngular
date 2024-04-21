@@ -34,6 +34,7 @@ import { AllarticleComponent } from './backoffice/admin/allarticle/allarticle.co
 import { SignupComponent } from './user/signup/signup.component';
 import { ComingsoonComponent } from './errors/comingsoon/comingsoon.component';
 import { AdmineditprofileComponent } from './backoffice/admin/admineditprofile/admineditprofile.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -73,6 +74,7 @@ import { AdmineditprofileComponent } from './backoffice/admin/admineditprofile/a
     BrowserModule,
     AppRoutingModule,
     NgOptimizedImage,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
