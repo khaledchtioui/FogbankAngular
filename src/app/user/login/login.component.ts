@@ -24,7 +24,7 @@ export class LoginComponent {
     this.authService.signin(this.signinRequest).subscribe(
       (response) => {
         console.log('Connexion réussie :', response);
-        // Gérer la réponse de succès ici
+        this.authService.handleAuthentication(response);
       },
       (error) => {
         console.error('Erreur lors de la connexion :', error);
