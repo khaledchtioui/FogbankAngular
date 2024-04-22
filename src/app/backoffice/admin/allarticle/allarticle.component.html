@@ -58,149 +58,42 @@
                       <!-- Referred Users-->
                       <table class="table table-nowrap mb-2">
                         <thead>
-                        <tr>
-                          <th>COURSES</th>
-                          <th>STUDENTS</th>
-                          <th>STATUS</th>
-                        </tr>
+                          <tr>
+                            <th>COURSES</th>
+                            <th>STUDENTS</th>
+                            <th>STATUS</th>
+                          </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                          <td>
-                            <div class="sell-table-group d-flex align-items-center">
-                              <div class="sell-group-img">
-                                <a href="course-details.html">
-                                  <img src="assets/img/course/course-10.jpg" class="img-fluid " alt="">
-                                </a>
-                              </div>
-                              <div class="sell-tabel-info">
-                                <p><a href="course-details.html">Information About UI/UX Design Degree</a></p>
-                                <div class="course-info d-flex align-items-center border-bottom-0 pb-0">
-                                  <div class="rating-img d-flex align-items-center">
-                                    <img src="assets/img/icon/icon-01.svg" alt="">
-                                    <p>10+ Lesson</p>
-                                  </div>
-                                  <div class="course-view d-flex align-items-center">
-                                    <img src="assets/img/icon/timer-start.svg" alt="">
-                                    <p>7hr 20min</p>
+                          <tr *ngFor="let article of articles">
+                            <td>
+                              <div class="sell-table-group d-flex align-items-center">
+                                <div class="sell-group-img">
+                                  <a href="course-details.html">
+                                    <img [src]="'assets/img/course/' " class="img-fluid" alt="">
+                                  </a>
+                                </div>
+                                <div class="sell-tabel-info">
+                                  <p><a href="course-details.html">{{ article.titre }}</a></p>
+                                  <div class="course-info d-flex align-items-center border-bottom-0 pb-0">
+                                    <div class="rating-img d-flex align-items-center">
+                                      <img src="assets/img/icon/icon-01.svg" alt="">
+                                      <p>{{ article.auteur }}+ Lesson</p>
+                                    </div>
+                                    <div class="course-view d-flex align-items-center">
+                                      <img src="assets/img/icon/timer-start.svg" alt="">
+                                      <p>{{ article.contenu }}</p>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
-                            </div>
-                          </td>
-                          <td>3200</td>
-                          <td><span class="badge info-low">Live</span></td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <div class="sell-table-group d-flex align-items-center">
-                              <div class="sell-group-img">
-                                <a href="course-details.html">
-                                  <img src="assets/img/course/course-11.jpg" class="img-fluid " alt="">
-                                </a>
-                              </div>
-                              <div class="sell-tabel-info">
-                                <p><a href="course-details.html">Wordpress for Beginners - Master Wordpress Quickly</a></p>
-                                <div class="course-info d-flex align-items-center border-bottom-0 pb-0">
-                                  <div class="rating-img d-flex align-items-center">
-                                    <img src="assets/img/icon/icon-01.svg" alt="">
-                                    <p>10+ Lesson</p>
-                                  </div>
-                                  <div class="course-view d-flex align-items-center">
-                                    <img src="assets/img/icon/timer-start.svg" alt="">
-                                    <p>7hr 20min</p>
-                                  </div>
-                                </div>
-                                <div class="course-stip progress-stip">
-                                  <div class="progress-bar bg-success progress-bar-striped active-stip"></div>
-                                </div>
-                              </div>
-                            </div>
-                          </td>
-                          <td>0</td>
-                          <td><span class="badge info-inter">Darft</span></td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <div class="sell-table-group d-flex align-items-center">
-                              <div class="sell-group-img">
-                                <a href="course-details.html">
-                                  <img src="assets/img/course/course-12.jpg" class="img-fluid " alt="">
-                                </a>
-                              </div>
-                              <div class="sell-tabel-info">
-                                <p><a href="course-details.html">Sketch from A to Z (2022):  Become an app designer</a></p>
-                                <div class="course-info d-flex align-items-center border-bottom-0 pb-0">
-                                  <div class="rating-img d-flex align-items-center">
-                                    <img src="assets/img/icon/icon-01.svg" alt="">
-                                    <p>10+ Lesson</p>
-                                  </div>
-                                  <div class="course-view d-flex align-items-center">
-                                    <img src="assets/img/icon/timer-start.svg" alt="">
-                                    <p>7hr 20min</p>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </td>
-                          <td>1500</td>
-                          <td><span class="badge info-low">Live</span></td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <div class="sell-table-group d-flex align-items-center">
-                              <div class="sell-group-img">
-                                <a href="course-details.html">
-                                  <img src="assets/img/course/course-13.jpg" class="img-fluid " alt="">
-                                </a>
-                              </div>
-                              <div class="sell-tabel-info">
-                                <p><a href="course-details.html">C# Developers Double Your Coding Speed  with Visual Studio</a></p>
-                                <div class="course-info d-flex align-items-center border-bottom-0 pb-0">
-                                  <div class="rating-img d-flex align-items-center">
-                                    <img src="assets/img/icon/icon-01.svg" alt="">
-                                    <p>10+ Lesson</p>
-                                  </div>
-                                  <div class="course-view d-flex align-items-center">
-                                    <img src="assets/img/icon/timer-start.svg" alt="">
-                                    <p>7hr 20min</p>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </td>
-                          <td>0</td>
-                          <td><span class="badge info-medium">Pending</span></td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <div class="sell-table-group d-flex align-items-center">
-                              <div class="sell-group-img">
-                                <a href="course-details.html">
-                                  <img src="assets/img/course/course-14.jpg" class="img-fluid " alt="">
-                                </a>
-                              </div>
-                              <div class="sell-tabel-info">
-                                <p><a href="course-details.html">Build Responsive Real World Websites with HTML5 and CSS3</a></p>
-                                <div class="course-info d-flex align-items-center border-bottom-0 pb-0">
-                                  <div class="rating-img d-flex align-items-center">
-                                    <img src="assets/img/icon/icon-01.svg" alt="">
-                                    <p>10+ Lesson</p>
-                                  </div>
-                                  <div class="course-view d-flex align-items-center">
-                                    <img src="assets/img/icon/timer-start.svg" alt="">
-                                    <p>7hr 20min</p>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </td>
-                          <td>0</td>
-                          <td><span class="badge info-high">Deleted</span></td>
-                        </tr>
+                            </td>
+                            <td>{{ article.date }}</td>
+                            <td><span class="badge info-low">{{ article.date }}</span></td>
+                          </tr>
                         </tbody>
                       </table>
-                      <!-- /Referred Users-->
+                             <!-- /Referred Users-->
 
                     </div>
                   </div>
