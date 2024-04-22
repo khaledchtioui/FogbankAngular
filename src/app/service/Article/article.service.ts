@@ -8,8 +8,8 @@ import { Article } from 'src/app/models/Article';
 })
 export class ArticleService {
 
-  
-  private baseUrl = 'http://localhost:8080/Articles'; // URL de base pour votre API Spring
+
+  private baseUrl = 'http://localhost:8087/Articles'; // URL de base pour votre API Spring
 
   constructor(private http: HttpClient) { }
 
