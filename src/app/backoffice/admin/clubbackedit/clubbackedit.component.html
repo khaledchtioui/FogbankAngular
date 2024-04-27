@@ -1,0 +1,113 @@
+
+
+<!-- Main Wrapper -->
+<div class="main-wrapper">
+
+    <!-- Header -->
+  <app-navbar3></app-navbar3>
+    <!-- /Header -->
+  
+    <!--Dashbord Student -->
+    <div class="page-content">
+      <div class="container">
+        <div class="row">
+  
+          <!-- Sidebar -->
+          <div class="col-xl-3 col-lg-4 col-md-12 theiaStickySidebar">
+       <app-sidebar2></app-sidebar2>
+          </div>
+          <!-- /Sidebar -->
+  
+          <!-- Profile Details -->
+          <div class="col-xl-9 col-md-8">
+            <div class="settings-widget profile-details">
+              <div class="settings-menu p-0">
+                <div class="profile-heading">
+                  <h3>Edit the Club</h3>
+                  <p>You have full control to edit your own club information.</p>
+                </div>
+                <div class="course-group mb-0 d-flex">
+                  <div class="course-group-img d-flex align-items-center">
+                    <a href="instructor-profile.html"><img src="assets/img/icon/icon-07.svg"  alt="" class="img-fluid"></a>
+                    <div class="course-name">
+                      <h4><a href="instructor-profile.html">Club Logo</a></h4>
+                      <p>PNG or JPG no bigger than 800px wide and tall.</p>
+                    </div>
+                  </div>
+                  <div class="profile-share d-flex align-items-center justify-content-center">
+                    <a href="javascript:void(0);" class="btn btn-success"(click)="updateClub()">Update</a>
+                    <a [routerLink]="['/admin/club/delete', clubId]"href="javascript:void(0);" class="btn btn-danger">Delete</a>
+                  </div>
+                </div>
+                <div class="checkout-form personal-address add-course-info">
+                  <div class="personal-info-head">
+                    <h4>Club Details</h4>
+                    <p>Edit Club Informations Here.</p>
+                  </div>
+                  <form (submit)="updateClub()">
+                    <div class="row">
+                      <div class="col-lg-6">
+                        <div class="input-block">
+                          <label class="form-control-label">Name</label>
+                          <input type="text" class="form-control" placeholder="Enter your Club Name" [(ngModel)]="club.nom" name="nom">
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div class="input-block">
+                          <label class="form-control-label">Email</label>
+                          <input type="text" class="form-control" placeholder="Enter your Club Email"[(ngModel)]="club.email" name="email">
+                        </div>
+                      </div>
+                      
+                      
+                      
+                      <div class="col-lg-6">
+                        <div class="input-block">
+                          <label  class="form-label">Category</label>
+                          <select class="form-select select country-select"  name="cat" [(ngModel)]="club.cat">
+                            <option>Select Category</option>
+                            <option>SPORTS</option>
+                            <option>ACADEMIC</option>
+                            <option>CULTURAL</option>
+                            <option>SOCIAL</option>
+                            <option>PROFESSIONAL</option>
+                            <option>SPECIAL_INTEREST</option>
+                            <option>OTHER</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div class="input-block">
+                          <label class="form-control-label">Facebook Page</label>
+                          <input type="text" class="form-control" placeholder="Facebook"[(ngModel)]="club.rs" name="rs">
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div class="input-block">
+                          <label class="form-control-label">Description</label>
+                          <input type="text" class="form-control" placeholder="Club Description"style="width: 910px;height: 150px;padding-bottom: 100px;"[(ngModel)]="club.description" name="description">
+                        </div>
+                      </div>
+                      
+                      
+                      
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Profile Details -->
+  
+        </div>
+      </div>
+    </div>
+    <!-- /Dashbord Student -->
+  
+    <!-- Footer -->
+  <app-footer></app-footer>
+    <!-- /Footer -->
+  
+  </div>
+  <!-- /Main Wrapper -->
+  

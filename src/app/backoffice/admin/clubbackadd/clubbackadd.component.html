@@ -1,0 +1,120 @@
+
+
+<!-- Main Wrapper -->
+<div class="main-wrapper">
+
+    <!-- Header -->
+  <app-navbar3></app-navbar3>
+    <!-- /Header -->
+  
+    <!--Dashbord Student -->
+    <div class="page-content">
+      <div class="container">
+        <div class="row">
+  
+          <!-- Sidebar -->
+          <div class="col-xl-3 col-lg-4 col-md-12 theiaStickySidebar">
+       <app-sidebar2></app-sidebar2>
+          </div>
+          <!-- /Sidebar -->
+  
+          <!-- Profile Details -->
+          <div class="col-xl-9 col-md-8">
+            <div class="settings-widget profile-details">
+              <div class="settings-menu p-0">
+                <div class="profile-heading">
+                  <h3>Add new Club</h3>
+                  <p>Here you can add a new Club to Esprit</p>
+                </div>
+                <div class="course-group mb-0 d-flex">
+                  <div class="course-group-img d-flex align-items-center">
+                    <a href="instructor-profile.html"><img src="assets/img/icon/icon-07.svg" alt="" class="img-fluid"></a>
+                    <div class="course-name">
+                      <h4><a href="instructor-profile.html">Club Logo</a></h4>
+                      <p>PNG or JPG no bigger than 800px wide and tall.</p>
+                    </div>
+                  </div>
+                  <div class="profile-share d-flex align-items-center justify-content-center">
+                    
+                  </div>
+                </div>
+                <div class="checkout-form personal-address add-course-info">
+                  <div class="personal-info-head">
+                    <h4>Club Details</h4>
+                    <p>Edit Club Informations Here</p>
+                  </div>
+                  <form [formGroup]="clubForm" (ngSubmit)="addClub()">
+                    <div class="row">
+                      <div class="col-lg-6">
+                        <div class="input-block">
+                          <label class="form-control-label">Name</label>
+                          <input type="text" class="form-control" placeholder="Enter your Club Name" formControlName="nom">
+
+                          <div *ngIf="clubForm.get('nom')?.invalid && clubForm.get('nom')?.touched" class="text-danger">
+                            <div *ngIf="clubForm.get('nom')?.errors?.['required']">Name is required</div>
+                            <div *ngIf="clubForm.get('nom')?.errors?.['invalidName']">Invalid name format</div>
+                          </div>
+
+                        </div>
+                      </div>
+                      
+                      
+                      <div class="col-lg-6">
+                        <div class="input-block">
+                          <label class="form-control-label">Email</label>
+                          <input type="text" class="form-control" placeholder="Enter your Club Email"formControlName="email">
+
+                          <div *ngIf="clubForm.get('email')?.invalid && clubForm.get('email')?.touched" class="text-danger">
+                            <div *ngIf="clubForm.get('email')?.errors?.['required']">Email is required</div>
+                            <div *ngIf="clubForm.get('email')?.errors?.['email']">Invalid email format</div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div class="col-lg-6">
+                        <div class="input-block">
+                          <label  class="form-label">Category</label>
+                          <select class="form-select select country-select"  formControlName="cat">
+                            <option value="Select Category">Select Category</option>
+                            <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div class="input-block">
+                          <label class="form-control-label">Facebook Page</label>
+                          <input type="text" class="form-control" placeholder="Facebook"formControlName="rs">
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div class="input-block">
+                          <label class="form-control-label" >Description</label>
+                          <input type="text" class="form-control" placeholder="Club Description" style="width: 910px;height: 150px;padding-bottom: 100px;"formControlName="description">
+                          <div *ngIf="clubForm.get('description')?.invalid && clubForm.get('description')?.touched" class="text-danger">Description is required</div>
+                        </div>
+                      </div>
+                      
+                      
+                      <div class="update-profile">
+                        <button type="submit" class="btn btn-primary">ADD CLUB</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Profile Details -->
+  
+        </div>
+      </div>
+    </div>
+    <!-- /Dashbord Student -->
+  
+    <!-- Footer -->
+  <app-footer></app-footer>
+    <!-- /Footer -->
+  
+  </div>
+  <!-- /Main Wrapper -->
+  
