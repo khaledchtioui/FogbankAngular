@@ -35,7 +35,14 @@ import { SignupComponent } from './user/signup/signup.component';
 import { ComingsoonComponent } from './errors/comingsoon/comingsoon.component';
 import { AdmineditprofileComponent } from './backoffice/admin/admineditprofile/admineditprofile.component';
 import {HttpClientModule} from "@angular/common/http";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { ClubbackComponent } from './backoffice/admin/clubback/clubback.component';
+import { ClubbackaddComponent } from './backoffice/admin/clubbackadd/clubbackadd.component';
+import { ClubbackdeleteComponent } from './backoffice/admin/clubbackdelete/clubbackdelete.component';
+import { ClubbackeditComponent } from './backoffice/admin/clubbackedit/clubbackedit.component';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
+import {VerifyotpComponent} from "./user/verifyotp/verifyotp.component";
 
 @NgModule({
   declarations: [
@@ -69,14 +76,23 @@ import {FormsModule} from "@angular/forms";
     AllarticleComponent,
     SignupComponent,
     ComingsoonComponent,
+    ClubbackComponent,
+    ClubbackaddComponent,
+    ClubbackdeleteComponent,
+    ClubbackeditComponent,
+    VerifyotpComponent,
     AdmineditprofileComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgOptimizedImage,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatSnackBarModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

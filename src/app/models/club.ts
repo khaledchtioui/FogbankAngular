@@ -1,0 +1,19 @@
+export interface Club {
+    idclub?: number;
+    description: string;
+    email: string;
+    nom: string;
+    rs: string;
+    cat: string;
+    Adhésions: Adhésion[]; // Assuming Adhésion is another entity/interface
+    users: User[]; // Assuming User is another entity/interface
+  }
+  
+  interface Adhésion {
+    // Define Adhésion properties if necessary
+  }
+  
+  interface User {
+    // Define User properties if necessary
+  }
+  
