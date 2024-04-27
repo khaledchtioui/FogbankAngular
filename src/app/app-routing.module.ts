@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {Injectable, NgModule} from '@angular/core';
+import {CanActivate, Router, RouterModule, Routes} from '@angular/router';
 import { BaseFrontComponent } from './base-front/base-front.component';
 import {Error404Component} from "./errors/error404/error404.component";
 import {Error500Component} from "./errors/error500/error500.component";
@@ -24,6 +24,23 @@ import {AllarticleComponent} from "./backoffice/admin/allarticle/allarticle.comp
 import {SignupComponent} from "./user/signup/signup.component";
 import {ComingsoonComponent} from "./errors/comingsoon/comingsoon.component";
 import {AdmineditprofileComponent} from "./backoffice/admin/admineditprofile/admineditprofile.component";
+import {TokenStorageService} from "./service/user/token-storage.service";
+
+
+@Injectable() // Ajoutez ce décorateur
+export class AuthGuard implements CanActivate {
+
+  constructor(private router: Router, private tokenStorageService: TokenStorageService) {}
+
+  canActivate(): boolean {
+    if (this.tokenStorageService.getAccessToken()) {
+      return true; // L'utilisateur est authentifié
+    } else {
+      this.router.navigate(['/login']);
+      return false;
+    }
+  }
+}
 
 const appRoutes: Routes = [
 
@@ -39,7 +56,7 @@ const appRoutes: Routes = [
   {path:"student/dahboard",component:DashboardComponent},
   {path:"privacypolicy",component:PrivacyPolicyComponent},
   {path:"admin/dahboard",component:DashboardAdminComponent},
-  {path:"admin/users",component:UserlistComponent},
+  {path:"admin/users",component:UserlistComponent,canActivate: [AuthGuard] },
   {path:"student/edit",component:EditprofileComponent},
   {path:"admin/edit",component:AdmineditprofileComponent},
   {path:"student/delete",component:DeleteprofileComponent},
@@ -66,9 +83,10 @@ const appRoutes: Routes = [
 ];
 @NgModule({
   imports: [RouterModule.forRoot(appRoutes)],
-  exports: [RouterModule]
-})
+  exports: [RouterModule],
+  providers: [AuthGuard]
 
+})
 
 
 export class AppRoutingModule { }

@@ -321,8 +321,9 @@
                   <img src="assets/img/instructor/profile-avatar.jpg" alt="User Image" class="avatar-img rounded-circle">
                 </div>
                 <div class="user-text">
-                  <h6>Jenny Wilson</h6>
-                  <p class="text-muted mb-0">Instructor</p>
+
+                  <h6>{{ currentUser.lastname }}</h6>
+                  <p class="text-muted mb-0">{{ currentUser.role }}</p>
                 </div>
               </div>
               <a class="dropdown-item" [routerLink]="['/admin/dahboard']"><i class="feather-home me-1"></i> Dashboard</a>

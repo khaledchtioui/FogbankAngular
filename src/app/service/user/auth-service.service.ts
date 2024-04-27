@@ -30,7 +30,17 @@ export class AuthServiceService {
     this.tokenStorageService.saveRefreshToken(response.refreshToken);
   }
 
-
+  getCurrentUser(): any {
+    const accessToken = this.tokenStorageService.getAccessToken();
+    if (accessToken) {
+      const tokenParts = accessToken.split('.');
+      if (tokenParts.length === 3) {
+        const payload = JSON.parse(atob(tokenParts[1]));
+        return payload;
+      }
+    }
+    return null;
+  }
 
 
 }
