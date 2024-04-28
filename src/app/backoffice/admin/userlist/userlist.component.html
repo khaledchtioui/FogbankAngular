@@ -1,0 +1,115 @@
+
+
+<!-- Main Wrapper -->
+<div class="main-wrapper">
+
+  <!-- Header -->
+<app-navbar3></app-navbar3>
+  <!-- /Header -->
+
+
+
+  <!-- Page Wrapper -->
+  <div class="page-content">
+    <div class="container">
+      <div class="row">
+
+        <!-- Sidebar -->
+        <div class="col-xl-3 col-lg-4 col-md-12 theiaStickySidebar">
+<app-sidebar2></app-sidebar2>
+        </div>
+        <!-- /Sidebar -->
+
+        <!-- Instructor Dashboard -->
+        <div class="col-xl-9 col-lg-8 col-md-12">
+          <div class="tak-instruct-group">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="settings-widget">
+                  <div class="settings-inner-blk p-0">
+                    <div class="sell-course-head student-meet-head comman-space border-0">
+                      <div class="tak-head d-flex align-items-center">
+                        <div>
+                          <h3>Students</h3>
+                          <p>Meet people taking your course.</p>
+                        </div>
+                        <div class="view-icons">
+                          <a [routerLink]="['/admin/usersgrid']" class="grid-view active"><i class="feather-grid"></i></a>
+                          <a [routerLink]="['/admin/users']" class="list-view"><i class="feather-list"></i></a>
+                        </div>
+                      </div>
+                      <form>
+                        <div class="student-search-form d-flex ">
+                          <div class="input-block mb-0">
+                            <input type="text" class="form-control" placeholder="Twitter Profile Name">
+                          </div>
+                          <div class="export-cvv-btn">
+                            <button class="btn btn-primary">Export CSV</button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+                <div class="settings-widget">
+                  <div class="settings-inner-blk p-0">
+                    <div class="comman-space pb-0">
+                      <div class="settings-referral-blk table-responsive">
+
+                        <!-- Instructor Users-->
+                        <table class="table table-nowrap">
+                          <thead>
+                          <tr>
+                            <th>Firstname</th>
+                            <th>Lastname</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Actions</th> <!-- Nouvelle colonne pour les boutons d'action -->
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr *ngFor="let user of listUsers">
+                            <td>
+                              <img src="assets/img/students/refer-img1.png" class="rounded-circle me-2" alt="Referred User Info">
+
+                              {{ user.firstname }}</td>
+                            <td>{{ user.lastname }}</td>
+                            <td>{{ user.email }}</td>
+                            <td>{{ user.role }}</td>
+                            <td>
+                              <!-- Utilisation de classes Bootstrap pour styliser les liens -->
+                              <div class="btn-group" role="group">
+                                <!-- Bouton de modification -->
+                                <a style="margin-right: 10px; font-size: 20px;" href="#" role="button"><i class="feather feather-edit"></i></a>
+                                <!-- Bouton de suppression -->
+                                <a style="font-size: 20px;" href="#" role="button" (click)="deleteUser(user)"><i class="feather feather-trash-2"></i></a>
+                              </div>
+                            </td>
+                          </tr>
+                          </tbody>
+                        </table>
+
+                        <!-- /Instructor List-->
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <!-- /Instructor Dashboard -->
+
+      </div>
+    </div>
+  </div>
+  <!-- /Page Wrapper -->
+
+  <!-- Footer -->
+<app-footer></app-footer>
+  <!-- /Footer -->
+
+</div>
+<!-- /Main Wrapper -->
