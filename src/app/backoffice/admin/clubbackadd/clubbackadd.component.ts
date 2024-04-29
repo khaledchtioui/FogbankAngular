@@ -3,6 +3,8 @@ import { FormBuilder,FormControl, FormGroup, Validators , AbstractControl, Valid
 import { Router } from '@angular/router';
 import { Club } from 'src/app/models/club';
 import { ClubService } from '../../../service/Club/club.service';
+import ImageCompressor from 'image-compressor.js';
+
 
 @Component({
   selector: 'app-clubbackadd',
@@ -19,6 +21,7 @@ export class ClubbackaddComponent implements OnInit{
     email: '',
     rs: '',
     cat: 'Select Category',
+    image: '',
     Adhésions: [],
     users: []
   };
@@ -46,6 +49,7 @@ export class ClubbackaddComponent implements OnInit{
       description: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       rs:  ['', Validators.required],
+      image:  ['', Validators.required],
       cat: ['Select Category', Validators.required]
     });
   }
@@ -61,8 +65,9 @@ export class ClubbackaddComponent implements OnInit{
   }
   
 
+  
 
-
+  
   addClub() {
     
     if (this.clubForm.invalid) {
@@ -81,6 +86,30 @@ export class ClubbackaddComponent implements OnInit{
       }
     );
   }
+
+  onFileSelected(event: any) {
+    const file: File = event.target.files[0];
+    if (file) {
+      new ImageCompressor(file, {
+        quality: 0.6, // Vous pouvez ajuster la qualité de compression ici
+        success: (compressedFile) => {
+          const reader = new FileReader();
+          reader.readAsDataURL(compressedFile);
+          reader.onload = () => {
+            const imageUrl: string = reader.result as string;
+            console.log('Selected image URL:', imageUrl);
+            this.clubForm.patchValue({
+              image: imageUrl // Set the image value in the form
+            });
+          };
+        },
+        error: (error) => {
+          console.error('Error compressing image:', error);
+        },
+      });
+    }
+  }
+  
 
 
 

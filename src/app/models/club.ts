@@ -5,6 +5,7 @@ export interface Club {
     nom: string;
     rs: string;
     cat: string;
+    image?: string;
     Adhésions: Adhésion[]; // Assuming Adhésion is another entity/interface
     users: User[]; // Assuming User is another entity/interface
   }

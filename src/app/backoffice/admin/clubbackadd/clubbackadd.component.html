@@ -28,7 +28,10 @@
                 </div>
                 <div class="course-group mb-0 d-flex">
                   <div class="course-group-img d-flex align-items-center">
-                    <a href="instructor-profile.html"><img src="assets/img/icon/icon-07.svg" alt="" class="img-fluid"></a>
+                    <label for="fileInput">
+                        <img src="assets/img/icon/icon-07.svg" alt="" class="img-fluid">
+                    </label>
+                    <input type="file" id="fileInput" style="display: none" (change)="onFileSelected($event)">
                     <div class="course-name">
                       <h4><a href="instructor-profile.html">Club Logo</a></h4>
                       <p>PNG or JPG no bigger than 800px wide and tall.</p>
