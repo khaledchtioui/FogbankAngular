@@ -28,7 +28,10 @@
                 </div>
                 <div class="course-group mb-0 d-flex">
                   <div class="course-group-img d-flex align-items-center">
-                    <a href="instructor-profile.html"><img src="assets/img/icon/icon-07.svg"  alt="" class="img-fluid"></a>
+                    <label for="fileInput">
+                      <img src="assets/img/icon/icon-07.svg" alt="" class="img-fluid">
+                  </label>
+                  <input type="file" id="fileInput" style="display: none" (change)="onFileSelected($event)">
                     <div class="course-name">
                       <h4><a href="instructor-profile.html">Club Logo</a></h4>
                       <p>PNG or JPG no bigger than 800px wide and tall.</p>
@@ -44,18 +47,29 @@
                     <h4>Club Details</h4>
                     <p>Edit Club Informations Here.</p>
                   </div>
-                  <form (submit)="updateClub()">
+                  <form [formGroup]="clubForm" (submit)="updateClub()">
                     <div class="row">
                       <div class="col-lg-6">
                         <div class="input-block">
                           <label class="form-control-label">Name</label>
-                          <input type="text" class="form-control" placeholder="Enter your Club Name" [(ngModel)]="club.nom" name="nom">
+                          <input type="text" class="form-control" placeholder="Enter your Club Name" formControlName="nom">
+
+                          <div *ngIf="clubForm.get('nom')?.invalid && clubForm.get('nom')?.touched" class="text-danger">
+                            <div *ngIf="clubForm.get('nom')?.errors?.['required']">Name is required</div>
+                            <div *ngIf="clubForm.get('nom')?.errors?.['invalidName']">Invalid name format</div>
+                          </div>
+
                         </div>
                       </div>
                       <div class="col-lg-6">
                         <div class="input-block">
                           <label class="form-control-label">Email</label>
-                          <input type="text" class="form-control" placeholder="Enter your Club Email"[(ngModel)]="club.email" name="email">
+                          <input type="text" class="form-control" placeholder="Enter your Club Email"formControlName="email">
+
+                          <div *ngIf="clubForm.get('email')?.invalid && clubForm.get('email')?.touched" class="text-danger">
+                            <div *ngIf="clubForm.get('email')?.errors?.['required']">Email is required</div>
+                            <div *ngIf="clubForm.get('email')?.errors?.['email']">Invalid email format</div>
+                          </div>
                         </div>
                       </div>
                       
@@ -64,28 +78,23 @@
                       <div class="col-lg-6">
                         <div class="input-block">
                           <label  class="form-label">Category</label>
-                          <select class="form-select select country-select"  name="cat" [(ngModel)]="club.cat">
-                            <option>Select Category</option>
-                            <option>SPORTS</option>
-                            <option>ACADEMIC</option>
-                            <option>CULTURAL</option>
-                            <option>SOCIAL</option>
-                            <option>PROFESSIONAL</option>
-                            <option>SPECIAL_INTEREST</option>
-                            <option>OTHER</option>
+                          <select class="form-select select country-select"  formControlName="cat">
+                            <option value="Select Category">Select Category</option>
+                            <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
                           </select>
                         </div>
                       </div>
                       <div class="col-lg-6">
                         <div class="input-block">
                           <label class="form-control-label">Facebook Page</label>
-                          <input type="text" class="form-control" placeholder="Facebook"[(ngModel)]="club.rs" name="rs">
+                          <input type="text" class="form-control" placeholder="Facebook"formControlName="rs">
                         </div>
                       </div>
                       <div class="col-lg-6">
                         <div class="input-block">
-                          <label class="form-control-label">Description</label>
-                          <input type="text" class="form-control" placeholder="Club Description"style="width: 910px;height: 150px;padding-bottom: 100px;"[(ngModel)]="club.description" name="description">
+                          <label class="form-control-label" >Description</label>
+                          <input type="text" class="form-control" placeholder="Club Description" style="width: 910px;height: 150px;padding-bottom: 100px;"formControlName="description">
+                          <div *ngIf="clubForm.get('description')?.invalid && clubForm.get('description')?.touched" class="text-danger">Description is required</div>
                         </div>
                       </div>
                       
