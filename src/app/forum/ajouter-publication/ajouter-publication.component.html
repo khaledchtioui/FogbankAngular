@@ -1,0 +1,18 @@
+<!-- Comment -->
+<div class="card comment-sec">
+  <div class="card-body">
+    <h5 class="subs-title">Ajouter un post</h5>
+    <form [formGroup]="myForm" (ngSubmit)="ajouter()">
+         <div class="input-block">
+        <input type="text" formControlName="titre" class="form-control" placeholder="Titre">
+      </div>
+      <div class="input-block">
+        <textarea rows="4" class="form-control"  formControlName="sujet" placeholder="Contenu"></textarea>
+      </div>
+      <div class="submit-section">
+        <button class="btn submit-btn" type="submit">publier</button>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- /Comment -->

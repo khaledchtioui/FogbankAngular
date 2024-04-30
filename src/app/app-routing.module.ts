@@ -30,6 +30,10 @@ import { ClubbackaddComponent } from './backoffice/admin/clubbackadd/clubbackadd
 import { ClubbackeditComponent } from './backoffice/admin/clubbackedit/clubbackedit.component';
 import { ClubbackdeleteComponent } from './backoffice/admin/clubbackdelete/clubbackdelete.component';
 import {VerifyotpComponent} from "./user/verifyotp/verifyotp.component";
+import {AccueilForumComponent} from "./forum/accueil-forum/accueil-forum.component";
+import {DetailsPublicationComponent} from "./forum/details-publication/details-publication.component";
+import {AjouterPublicationComponent} from "./forum/ajouter-publication/ajouter-publication.component";
+import {ModifierPublicationComponent} from "./forum/modifier-publication/modifier-publication.component";
 
 
 
@@ -68,6 +72,11 @@ const appRoutes: Routes = [
   {path:"admin/edit",component:AdmineditprofileComponent},
   {path:"student/delete",component:DeleteprofileComponent},
   {path:"admin/usersgrid",component:UsergridComponent},
+
+  {path:"forum",component:AccueilForumComponent},
+  { path: 'publication/:id', component: DetailsPublicationComponent },
+  { path: 'modifierPublication/:id', component: ModifierPublicationComponent },
+  {path:'ajouterPublication',component:AjouterPublicationComponent},
 
   {path:"article",component:ArticlefrontComponent},
   {path:"article/list",component:ArticlelistComponent},

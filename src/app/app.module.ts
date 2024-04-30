@@ -43,6 +43,11 @@ import { ClubbackeditComponent } from './backoffice/admin/clubbackedit/clubbacke
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {VerifyotpComponent} from "./user/verifyotp/verifyotp.component";
+import { AccueilForumComponent } from './forum/accueil-forum/accueil-forum.component';
+import { DetailsPublicationComponent } from './forum/details-publication/details-publication.component';
+import { PublicationComponent } from './forum/publication/publication.component';
+import { AjouterPublicationComponent } from './forum/ajouter-publication/ajouter-publication.component';
+import { ModifierPublicationComponent } from './forum/modifier-publication/modifier-publication.component';
 
 @NgModule({
   declarations: [
@@ -81,13 +86,17 @@ import {VerifyotpComponent} from "./user/verifyotp/verifyotp.component";
     ClubbackdeleteComponent,
     ClubbackeditComponent,
     VerifyotpComponent,
-    AdmineditprofileComponent
+    AdmineditprofileComponent,
+    AccueilForumComponent,
+    DetailsPublicationComponent,
+    PublicationComponent,
+    AjouterPublicationComponent,
+    ModifierPublicationComponent
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgOptimizedImage,
     HttpClientModule,
     FormsModule,
     MatSnackBarModule,
