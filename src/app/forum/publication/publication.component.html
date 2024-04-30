@@ -16,14 +16,16 @@
       </h1>
 
       <p class="rev-info">{{post.description}}</p>
-      <a href="javascript:void(0);" class="btn btn-reply"><i class="feather-corner-up-left"></i> Respond</a>
-      <a [routerLink]="['/modifierPublication',post.idPublication]">modifier</a>
-
       <div class="course-share d-flex  justify-content-center">
         <p>{{post.likePublicationList.length}}</p>
-        <a href="#rate"><i class="fa-regular fa-heart"></i></a>
+        <button button (click)="like()"><i class="fa-regular fa-heart"></i></button>
       </div>
+      <p>Nombre de réponse:{{post.reponsePublicationList.length}}</p>
+      <a [routerLink]="['/modifierPublication',post.idPublication]" class="card-button">modifier</a>
+
+
 
     </div>
   </div>
 </div>
+

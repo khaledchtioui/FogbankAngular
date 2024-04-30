@@ -1,0 +1,14 @@
+<div class="card comment-sec">
+  <div class="card-body">
+
+    <form [formGroup]="myForm" (ngSubmit)="ajouter()">
+
+      <div class="input-block">
+        <textarea rows="4" class="form-control"  formControlName="sujet" placeholder="Contenu"></textarea>
+      </div>
+      <div class="submit-section">
+        <button class="btn submit-btn" type="submit">Repondre</button>
+      </div>
+    </form>
+  </div>
+</div>

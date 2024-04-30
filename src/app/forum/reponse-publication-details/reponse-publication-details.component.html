@@ -10,18 +10,15 @@
         </div>
 
       </div>
-      <h1>{{post.titre}}</h1>
-      <p class="rev-info">{{post.description}}</p>
+
+      <!-- <h1>{{reponseSurUnePublication.user.firstname}}</h1> -->
+
+      <p class="rev-info">{{reponseSurUnePublication.description}}</p>
       <div class="course-share d-flex  justify-content-center">
-        <p>{{post.likePublicationList.length}}</p>
+        <p>{{reponseSurUnePublication.likePublicationList.length}}</p>
         <a href="#rate"><i class="fa-regular fa-heart"></i></a>
       </div>
 
     </div>
   </div>
 </div>
-
-<app-reponse-publication-details *ngFor="let reponseSurUnePublication of post.reponsePublicationList" [reponseSurUnePublication]="reponseSurUnePublication"></app-reponse-publication-details>
-
-
-<app-ajouter-reponse [publicationInitiale]="post"></app-ajouter-reponse>

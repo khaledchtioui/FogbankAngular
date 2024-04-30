@@ -48,6 +48,8 @@ import { DetailsPublicationComponent } from './forum/details-publication/details
 import { PublicationComponent } from './forum/publication/publication.component';
 import { AjouterPublicationComponent } from './forum/ajouter-publication/ajouter-publication.component';
 import { ModifierPublicationComponent } from './forum/modifier-publication/modifier-publication.component';
+import { ReponsePublicationDetailsComponent } from './forum/reponse-publication-details/reponse-publication-details.component';
+import { AjouterReponseComponent } from './forum/ajouter-reponse/ajouter-reponse.component';
 
 @NgModule({
   declarations: [
@@ -91,7 +93,9 @@ import { ModifierPublicationComponent } from './forum/modifier-publication/modif
     DetailsPublicationComponent,
     PublicationComponent,
     AjouterPublicationComponent,
-    ModifierPublicationComponent
+    ModifierPublicationComponent,
+    ReponsePublicationDetailsComponent,
+    AjouterReponseComponent
 
   ],
   imports: [
