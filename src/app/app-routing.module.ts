@@ -65,9 +65,11 @@ const appRoutes: Routes = [
   {path:"admin/dahboard",component:DashboardAdminComponent},
   {path:"admin/users",component:UserlistComponent,canActivate: [AuthGuard] },
   {path:"student/edit",component:EditprofileComponent},
-  {path:"admin/edit",component:AdmineditprofileComponent},
+  {path:"admin/edit",component:EditprofileComponent},
   {path:"student/delete",component:DeleteprofileComponent},
   {path:"admin/usersgrid",component:UsergridComponent},
+  { path: "admin/edit", component: EditprofileComponent },
+  {path:"signin",component:SigninComponent},
 
   {path:"article",component:ArticlefrontComponent},
   {path:"article/list",component:ArticlelistComponent},
