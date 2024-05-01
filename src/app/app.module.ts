@@ -40,6 +40,8 @@ import { ClubbackComponent } from './backoffice/admin/clubback/clubback.componen
 import { ClubbackaddComponent } from './backoffice/admin/clubbackadd/clubbackadd.component';
 import { ClubbackdeleteComponent } from './backoffice/admin/clubbackdelete/clubbackdelete.component';
 import { ClubbackeditComponent } from './backoffice/admin/clubbackedit/clubbackedit.component';
+import { ClubfrontComponent } from './clubfront/clubfront.component';
+import { AdhesionfrontComponent } from './adhesionfront/adhesionfront.component';
 
 @NgModule({
   declarations: [
@@ -77,7 +79,9 @@ import { ClubbackeditComponent } from './backoffice/admin/clubbackedit/clubbacke
     ClubbackaddComponent,
     ClubbackdeleteComponent,
     ClubbackeditComponent,
-    AdmineditprofileComponent
+    AdmineditprofileComponent,
+    ClubfrontComponent,
+    AdhesionfrontComponent
   ],
   imports: [
     BrowserModule,

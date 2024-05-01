@@ -1,0 +1,128 @@
+
+
+		<!-- Main Wrapper -->
+		<div class="main-wrapper">
+		
+			<app-navbar3></app-navbar3>			
+			
+			<!-- New Course -->
+			<section class="page-content course-sec">
+				<div class="container">
+					<div class="row align-items-center">
+						<div class="col-md-12">
+							<div class="add-course-header">
+								<h2>Please complete the club application form below</h2>
+								
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="card">
+
+								<!-- Course Wizard -->
+								<div class="widget-set">
+									
+									<div class="widget-content multistep-form">
+										<form [formGroup]="adhesionForm" (ngSubmit)="addAdhesion()">
+										<fieldset id="first">
+											<div class="add-course-info">
+												<div class="widget-btn" style="margin-bottom: -30px;">
+													<div class="add-course-inner-header">
+                                                        <h4>Club-specific Questions</h4>
+                                                    </div>
+												</div>
+												<div class="add-course-form">
+													
+														<div class="input-block">
+															<label class="add-course-label">Why are you interested in joining this particular club ?</label>
+															<input type="text" class="form-control" placeholder="Course Title" formControlName="questionOne">
+														</div>
+														<div class="input-block">
+															<label class="add-course-label">What relevant skills or experiences do you have that make you a good fit for the club ?</label>
+															<input type="text" class="form-control" placeholder="Course Title" formControlName="questionTwo">
+														</div>
+														<div class="input-block">
+															<label class="add-course-label">Have you been involved in similar clubs or activities before ?</label>
+															<input type="text" class="form-control" placeholder="Course Title" formControlName="questionThree">
+														</div>
+														<div class="input-block">
+															<label class="add-course-label">Do you have any ideas or suggestions for club activities or initiatives ?</label>
+															<input type="text" class="form-control" placeholder="Course Title" formControlName="questionFour">
+														</div>
+                                                        <div class="input-block">
+															<label class="add-course-label">Are you willing to commit to attending regular club meetings/events ?</label>
+															<input type="text" class="form-control" placeholder="Course Title" formControlName="questionFive">
+														</div>
+													
+												</div>
+                                               
+												<div class="widget-btn" style="margin-bottom: -30px;">
+													<div class="add-course-inner-header">
+                                                        <h4>Availability</h4>
+                                                    </div>
+												</div>
+                                                <div class="add-course-form">
+													
+														<div class="input-block">
+															<label class="add-course-label">How many hours per week can you commit to the club ?</label>
+															<input type="text" class="form-control" placeholder="Course Title" formControlName="questionSix">
+														</div>
+                                                        <div class="input-block">
+															<label class="add-course-label">Are there any specific days/times you are unavailable ?</label>
+															<input type="text" class="form-control" placeholder="Course Title" formControlName="questionSeven">
+														</div>
+													
+												</div>
+                                                <div class="widget-btn" style="margin-bottom: -30px;">
+													<div class="add-course-inner-header">
+                                                        <h4>Additional Informations</h4>
+                                                    </div>
+												</div>
+                                                <div class="add-course-form">
+													
+														<div class="input-block">
+															<label class="add-course-label">Is there anything else you would like us to know about you ?</label>
+															<input type="text" class="form-control" placeholder="Course Title" formControlName="questionEight">
+														</div>
+                                                        <div class="input-block">
+															<label class="add-course-label">Do you have any special requirements or accommodations that we should be aware of ?</label>
+															<input type="text" class="form-control" placeholder="Course Title" formControlName="questionNine">
+														</div>
+													
+												</div>
+                                                <div class="widget-btn">
+													<a class="btn btn-black">Back to Clubs List</a>
+													<button type="submit" class="btn btn-success-dark">Save</button>
+												</div>
+											</div>
+										</fieldset>
+										<fieldset class="field-card">
+											<div class="add-course-info">
+												<div class="add-course-msg">
+													<i class="fas fa-circle-check"></i>
+													<h4>The Course Added Succesfully</h4>
+													<p>Admin will be Approve soon.</p>
+												</div>
+											</div>
+										</fieldset>
+										</form>
+									</div>
+								</div>
+								<!-- /Course Wizard -->
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- /New Course -->
+			
+            <app-footer></app-footer>
+            <!-- HTML Code -->
+
+		   
+		</div>
+        
+        
+        

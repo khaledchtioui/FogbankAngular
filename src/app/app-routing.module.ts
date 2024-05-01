@@ -25,10 +25,13 @@ import {SignupComponent} from "./user/signup/signup.component";
 import {ComingsoonComponent} from "./errors/comingsoon/comingsoon.component";
 import {AdmineditprofileComponent} from "./backoffice/admin/admineditprofile/admineditprofile.component";
 import {TokenStorageService} from "./service/user/token-storage.service";
+
 import { ClubbackComponent } from './backoffice/admin/clubback/clubback.component';
 import { ClubbackaddComponent } from './backoffice/admin/clubbackadd/clubbackadd.component';
 import { ClubbackeditComponent } from './backoffice/admin/clubbackedit/clubbackedit.component';
 import { ClubbackdeleteComponent } from './backoffice/admin/clubbackdelete/clubbackdelete.component';
+import { ClubfrontComponent } from './clubfront/clubfront.component';
+import { AdhesionfrontComponent } from './adhesionfront/adhesionfront.component';
 
 
 
@@ -79,6 +82,8 @@ const appRoutes: Routes = [
   {path:"admin/club/add",component:ClubbackaddComponent},
   {path:"admin/club/edit/:id",component:ClubbackeditComponent},
   {path:"admin/club/delete/:id",component:ClubbackdeleteComponent},
+  {path:"student/club",component:ClubfrontComponent},
+  {path:"student/club/apply",component:AdhesionfrontComponent},
 
   {path:"error404",component:Error404Component},
   {path:"error500",component:Error500Component},
