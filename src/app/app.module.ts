@@ -43,6 +43,11 @@ import { ClubbackeditComponent } from './backoffice/admin/clubbackedit/clubbacke
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {VerifyotpComponent} from "./user/verifyotp/verifyotp.component";
+import {AddEventsComponent} from "./event/add-events/add-events.component";
+import { UserEventComponent } from './user-event/user-event.component';
+import {UpdateEventsComponent} from "./event/update-events/update-events.component";
+import {GetEventsComponent} from "./event/get-events/get-events.component";
+import {DeleteEventsComponent} from "./event/delete-events/delete-events.component";
 
 @NgModule({
   declarations: [
@@ -81,7 +86,12 @@ import {VerifyotpComponent} from "./user/verifyotp/verifyotp.component";
     ClubbackdeleteComponent,
     ClubbackeditComponent,
     VerifyotpComponent,
-    AdmineditprofileComponent
+    AddEventsComponent,
+    UpdateEventsComponent,
+    GetEventsComponent,
+    DeleteEventsComponent,
+    AdmineditprofileComponent,
+    UserEventComponent
 
   ],
   imports: [

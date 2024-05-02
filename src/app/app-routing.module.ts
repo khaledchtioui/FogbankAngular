@@ -30,6 +30,11 @@ import { ClubbackaddComponent } from './backoffice/admin/clubbackadd/clubbackadd
 import { ClubbackeditComponent } from './backoffice/admin/clubbackedit/clubbackedit.component';
 import { ClubbackdeleteComponent } from './backoffice/admin/clubbackdelete/clubbackdelete.component';
 import {VerifyotpComponent} from "./user/verifyotp/verifyotp.component";
+import {GetEventsComponent} from "./event/get-events/get-events.component";
+import {AddEventsComponent} from "./event/add-events/add-events.component";
+import {DeleteEventsComponent} from "./event/delete-events/delete-events.component";
+import {UpdateEventsComponent} from "./event/update-events/update-events.component";
+import {UserEventComponent} from "./user-event/user-event.component";
 
 
 
@@ -84,6 +89,19 @@ const appRoutes: Routes = [
   {path:"admin/club/add",component:ClubbackaddComponent},
   {path:"admin/club/edit/:id",component:ClubbackeditComponent},
   {path:"admin/club/delete/:id",component:ClubbackdeleteComponent},
+
+
+
+  {path:"admin/events",component:GetEventsComponent },
+  {path: "admin/events/createEvents",component:AddEventsComponent },
+  {path: "admin/events/delete/:id",component: DeleteEventsComponent },
+  {path: "admin/events/edit/:id",component: UpdateEventsComponent },
+  {path: "user/events", component: UserEventComponent },
+  {path: "user/events/participate/:id", component: UserEventComponent },
+
+
+
+
 
   {path:"error404",component:Error404Component},
   {path:"error500",component:Error500Component},

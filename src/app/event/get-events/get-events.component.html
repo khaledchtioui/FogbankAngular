@@ -1,0 +1,65 @@
+<div class="main-wrapper">
+    <app-navbar2></app-navbar2>
+
+
+  <div class="page-content">
+    <div class="container">
+      <div class="row">
+
+        <!-- Sidebar -->
+        <div class="col-xl-3 col-lg-4 col-md-12 theiaStickySidebar">
+          <app-sidebar2></app-sidebar2>
+        </div>
+        <!-- /Sidebar -->
+
+        <!-- Instructor Dashboard -->
+        <div class="col-xl-9 col-lg-8 col-md-12">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="settings-widget">
+                <section class="event-list">
+                  <div class="container">
+                    <div class="event-wrapper">
+                      <div class="row">
+                        <div class="col-md-4" *ngFor="let event of events">
+                          <div class="event-item">
+                            <div class="event-img">
+                              <img [src]="event.imageUrl" alt="Event Image">
+                              <div class="price-amt">
+                                <h4>{{ event.price }}</h4>
+                              </div>
+                            </div>
+                            <div class="event-info">
+                              <h3><strong>Titre</strong>: <strong>{{ event.titre }}</strong></h3>
+                              <div class="event-details">
+                                <p><strong>Description:</strong> {{ event.description }}</p>
+                                <p><strong>Lieu:</strong> {{ event.lieu }}</p>
+                                <p><strong>Date début:</strong> {{ event.dateDebut | date }}</p>
+                                <p><strong>Date fin:</strong> {{ event.dateFin | date }}</p>
+                              </div>
+                              <a [routerLink]="['/admin/events/edit', event.id]">Modifier</a>
+                              <button (click)="deleteEvent(event.id)">Supprimer</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /Instructor Dashboard -->
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+    <app-footer></app-footer>
+</div>
