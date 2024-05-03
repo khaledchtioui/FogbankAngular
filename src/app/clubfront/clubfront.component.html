@@ -89,9 +89,18 @@
 													<h3 class="title"><a href="course-details.html">{{club.nom}}</a></h3>
 													
 													<div class="all-btn all-category d-flex align-items-center">
-														<a (click)="navigateToAdhesionFront()" class="btn btn-primary">APPLY FOR MEMBERSHIP</a>
-														
+														<!-- Conditionally display the button based on adhesion status -->
+														<ng-container *ngIf="isMembershipApplied(club.idclub)">
+															<button [style.background-color]="getButtonColor(club.idclub)" class="btn btn-secondary" disabled style="width: 150px; font-size: 12px; text-align: center;">
+																{{ club.idclub !== undefined && getAdhesionStatus(club.idclub) !== undefined ? getAdhesionStatus(club.idclub) : '' }}
+															</button>
+															
+														</ng-container>
+														<ng-container *ngIf="!isMembershipApplied(club.idclub)">
+															<a [routerLink]="['/student/club/apply', club.idclub]" class="btn btn-primary">APPLY FOR MEMBERSHIP</a>
+														</ng-container>
 													</div>
+
 												</div>
 												<p>{{club.description}}</p>
 												<div class="course-info border-bottom-0 pb-0 d-flex align-items-center">

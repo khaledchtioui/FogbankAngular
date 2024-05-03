@@ -32,6 +32,7 @@ import { ClubbackeditComponent } from './backoffice/admin/clubbackedit/clubbacke
 import { ClubbackdeleteComponent } from './backoffice/admin/clubbackdelete/clubbackdelete.component';
 import { ClubfrontComponent } from './clubfront/clubfront.component';
 import { AdhesionfrontComponent } from './adhesionfront/adhesionfront.component';
+import { AdhesionbackComponent } from './backoffice/admin/adhesionback/adhesionback.component';
 
 
 
@@ -82,8 +83,9 @@ const appRoutes: Routes = [
   {path:"admin/club/add",component:ClubbackaddComponent},
   {path:"admin/club/edit/:id",component:ClubbackeditComponent},
   {path:"admin/club/delete/:id",component:ClubbackdeleteComponent},
+  {path:"admin/club/apply",component:AdhesionbackComponent},
   {path:"student/club",component:ClubfrontComponent},
-  {path:"student/club/apply",component:AdhesionfrontComponent},
+  {path:"student/club/apply/:id",component:AdhesionfrontComponent},
 
   {path:"error404",component:Error404Component},
   {path:"error500",component:Error500Component},

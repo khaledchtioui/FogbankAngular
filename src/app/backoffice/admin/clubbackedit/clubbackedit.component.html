@@ -20,6 +20,7 @@
   
           <!-- Profile Details -->
           <div class="col-xl-9 col-md-8">
+            <div class="row">
             <div class="settings-widget profile-details">
               <div class="settings-menu p-0">
                 <div class="profile-heading">
@@ -106,6 +107,49 @@
               </div>
             </div>
           </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="settings-widget">
+                  <div class="settings-inner-blk p-0">
+                    <div class="sell-course-head comman-space">
+                      <h3>Memberships</h3>
+                      <p>Manage All Membership Demands From Here.</p>
+                    </div>
+                    <div class="comman-space pb-0">
+                      <div class="settings-tickets-blk course-instruct-blk table-responsive">
+
+                        <!-- Referred Users-->
+                        <table class="table table-nowrap mb-0">
+                          <thead>
+                            <tr>
+                            <th>FIRSTNAME</th>
+                            <th>LASTNAME</th>
+                            <th>EMAIL</th>
+                            <th>DATE</th>
+                            <th>STATUS</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let adhesion of adhesions">
+                              <td>{{ adhesion.user?.firstname }}</td>
+                              <td>{{ adhesion.user?.lastname }}</td>
+                              <td>{{ adhesion.user?.email }}</td>
+                              <td>{{ adhesion.dateAdhesion }}</td>
+                              <td>{{ adhesion.status }}</td>
+                            </tr>
+                          </tbody>
+                          </table>
+                        <!-- /Referred Users-->	
+
+                      </div>									
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
           <!-- Profile Details -->
   
         </div>

@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder,FormControl, FormGroup, Validators , AbstractControl, ValidationErrors, ReactiveFormsModule} from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Adhésion } from '../models/adhésion';
 import { AdhésionService } from '../service/Adhésion/adhésion.service';
+import { Club } from '../models/club';
+import { ClubService } from '../service/Club/club.service';
+import { AuthServiceService } from '../service/user/auth-service.service';
 
 @Component({
   selector: 'app-adhesionfront',
@@ -11,9 +14,10 @@ import { AdhésionService } from '../service/Adhésion/adhésion.service';
 })
 export class AdhesionfrontComponent implements OnInit{
   adhesionForm!: FormGroup;
+  club!: Club;
+  clubId: string = '';
 
   adhesion: Adhésion = {
-    //dateAdhesion: null, // Initialize club properties as needed
     status: 'PENDING',
     questionOne: '',
     questionTwo: '',
@@ -26,12 +30,21 @@ export class AdhesionfrontComponent implements OnInit{
     questionNine: '',
     IDAdhesion: 0,
     dateAdhesion: new Date(2024, 3, 25),
-    club: undefined
+    club: undefined,
+    user: undefined
   };
 
-  constructor(private formBuilder: FormBuilder,private adhesionService:AdhésionService, private router: Router) {}
+  constructor(private route: ActivatedRoute,private clubService: ClubService,private formBuilder: FormBuilder,private adhesionService:AdhésionService, private router: Router,private authService : AuthServiceService) {}
 
   ngOnInit(): void {
+    this.route.paramMap.subscribe(params => {
+      const id = params.get('id');
+      if (id !== null) {
+        this.clubId = id;
+        this.getClubById();
+      } 
+      else {}
+    });
     this.initForm();
   }
 
@@ -50,6 +63,19 @@ export class AdhesionfrontComponent implements OnInit{
     });
   }
 
+  getClubById(): void {
+    this.clubService.getClubById(this.clubId).subscribe(
+      (club: Club) => {
+        this.club = club;
+        this.initForm();
+      },
+      (error) => {
+        console.error('Error fetching club:', error);
+      }
+    );
+  }
+  
+
 
   addAdhesion() {
     
@@ -57,11 +83,15 @@ export class AdhesionfrontComponent implements OnInit{
       return; 
     }
     this.adhesion = this.adhesionForm.value;
+    this.adhesion.club = this.club;
+    this.adhesion.user = this.authService.getCurrentUser();
+    this.adhesion.status = 'PENDING';
 
     this.adhesionService.addAdhésion(this.adhesion).subscribe(
       (response) => {
         console.log('Club added successfully:', response);
-        // Optionally, navigate to another page after adding the club
+        console.log(this.adhesion.club);
+        console.log(this.adhesion.user);
         this.router.navigate(['/admin/clubs']);
       },
       (error) => {
@@ -69,5 +99,4 @@ export class AdhesionfrontComponent implements OnInit{
       }
     );
   }
-
 }

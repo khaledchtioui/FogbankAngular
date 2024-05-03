@@ -10,6 +10,7 @@ import { Adhésion } from 'src/app/models/adhésion';
 export class AdhésionService {
   private baseUrl = 'http://localhost:8087/api/v1/admin/retrieveAllAdhésion';
   private addUrl  = 'http://localhost:8087/api/v1/admin/addAdhésion'; 
+  private getUrl  = 'http://localhost:8087/api/v1/admin/adhesions/user'; 
 
   constructor(private http: HttpClient) { }
 
@@ -20,5 +21,9 @@ export class AdhésionService {
   addAdhésion(adhésion: Adhésion): Observable<Adhésion> {
     return this.http.post<Adhésion>(`${this.addUrl}`, adhésion);
 }
+
+  retrieveUserAdhesions(userId: number): Observable<Adhésion[]> {
+  return this.http.get<Adhésion[]>(`${this.getUrl}/${userId}`);
+  }
 
 }

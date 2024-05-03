@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Club } from 'src/app/models/club';
 import { ClubService } from '../../../service/Club/club.service';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
+import { Adhésion } from 'src/app/models/adhésion';
+import { AdhésionService } from 'src/app/service/Adhésion/adhésion.service';
 import ImageCompressor from 'image-compressor.js';
 
 @Component({
@@ -13,6 +15,7 @@ import ImageCompressor from 'image-compressor.js';
 
 export class ClubbackeditComponent implements OnInit{
   clubForm!: FormGroup;
+  adhesions: Adhésion[] = [];
 
   clubId: string = '';
   club: Club = {
@@ -37,7 +40,7 @@ export class ClubbackeditComponent implements OnInit{
     'OTHER'
   ];
 
-  constructor(private route: ActivatedRoute,private router: Router,private clubService: ClubService,private formBuilder: FormBuilder) {}
+  constructor(private route: ActivatedRoute,private router: Router,private adhesionService: AdhésionService,private clubService: ClubService,private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
   this.route.paramMap.subscribe(params => {
@@ -45,7 +48,7 @@ export class ClubbackeditComponent implements OnInit{
     if (id !== null) {
       this.clubId = id;
       this.getClubById();
-      
+      this.getAdhesionsByClubId();
     } else {
       // Handle the case where the id is null, maybe redirect or show an error message
     }
@@ -115,6 +118,19 @@ setFormValues(): void {
       },
       (error) => {
         console.error('Error fetching club:', error);
+      }
+    );
+  }
+
+  getAdhesionsByClubId(): void {
+    this.adhesionService.retrieveAllAdhésion().subscribe(
+      (adhesions: Adhésion[]) => {
+        // Filter adhesions to get only those belonging to the current club
+        this.adhesions = adhesions.filter(adhesion => adhesion.club?.idclub === this.club.idclub);
+        console.log('les adhesion ::',this.adhesions);
+      },
+      (error) => {
+        console.error('Error fetching adhesions:', error);
       }
     );
   }

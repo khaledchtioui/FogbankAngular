@@ -1,4 +1,5 @@
 import { Club } from "./club";
+import { User } from "./User";
 
 export interface Adhésion {
     IDAdhesion: number;
@@ -14,4 +15,5 @@ export interface Adhésion {
     questionEight: string;
     questionNine: string;
     club?: Club;
+    user?: User;
 }
