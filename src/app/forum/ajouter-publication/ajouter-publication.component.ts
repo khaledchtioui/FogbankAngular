@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {CrudServiceService} from "../../service/forum/crud-service.service";
 import {PublicationInitiale} from "../../models/PublicationInitiale";
 import {ToastrService} from "ngx-toastr";
+import {AuthServiceService} from "../../service/user/auth-service.service";
 
 @Component({
   selector: 'app-ajouter-publication',
@@ -14,7 +15,7 @@ export class AjouterPublicationComponent implements OnInit{
   myForm!: FormGroup;
   publication: PublicationInitiale=new PublicationInitiale();
 
-  constructor(private fb: FormBuilder,private crudService:CrudServiceService ) {}
+  constructor(private fb: FormBuilder,private crudService:CrudServiceService ,private userService: AuthServiceService) {}
 
   ngOnInit(): void {
     this.myForm = this.fb.group({
@@ -36,11 +37,13 @@ export class AjouterPublicationComponent implements OnInit{
       this.publication.titre=this.myForm.get('titre').value;
       // @ts-ignore
       this.publication.description=this.myForm.get('sujet').value;
+      this.publication.user=this.userService.getCurrentUser()
       this.crudService.ajouter(this.publication,"/PublicationInitiale").subscribe(
         (data) => {
           if (data !=null)
           {
             console.log("succes")
+
 
           }
           else console.log("fail");

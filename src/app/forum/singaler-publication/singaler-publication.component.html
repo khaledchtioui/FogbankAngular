@@ -1,0 +1,16 @@
+<!-- Comment -->
+<div class="card comment-sec">
+  <div class="card-body">
+    <h5 class="subs-title">Signaler ce post</h5>
+    <form [formGroup]="myForm" (ngSubmit)="ajouter()">
+      <div class="input-block">
+        <input type="text" formControlName="commentaire" class="form-control" placeholder="commentaire">
+      </div>
+
+      <div class="submit-section">
+        <button class="btn submit-btn" type="submit">Signaler</button>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- /Comment -->

@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {PublicationInitiale} from "../../models/PublicationInitiale";
 import {CrudServiceService} from "../../service/forum/crud-service.service";
 import {ReponseSurUnePublication} from "../../models/ReponseSurUnePublication";
+import {AuthServiceService} from "../../service/user/auth-service.service";
 
 
 
@@ -18,7 +19,7 @@ export class AjouterReponseComponent implements OnInit{
   myForm!: FormGroup;
   reponseSurUnePublication: ReponseSurUnePublication=new ReponseSurUnePublication();
 
-  constructor(private fb: FormBuilder,private crudService:CrudServiceService) {}
+  constructor(private fb: FormBuilder,private crudService:CrudServiceService,private serviceUser:AuthServiceService) {}
 
   ngOnInit(): void {
     this.myForm = this.fb.group({
@@ -42,12 +43,15 @@ export class AjouterReponseComponent implements OnInit{
       this.reponseSurUnePublication.description=this.myForm.get('sujet').value;
 
       console.log(this.reponseSurUnePublication)
+      this.reponseSurUnePublication.user=this.serviceUser.getCurrentUser()
+
       this.crudService.ajouter(this.reponseSurUnePublication,"/ReponsePublication").subscribe(
         (data) => {
           if (data !=null)
           {
             console.log("succes")
             window.location.reload();
+
           }
           else console.log("fail");
         },

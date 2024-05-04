@@ -50,6 +50,8 @@ import { AjouterPublicationComponent } from './forum/ajouter-publication/ajouter
 import { ModifierPublicationComponent } from './forum/modifier-publication/modifier-publication.component';
 import { ReponsePublicationDetailsComponent } from './forum/reponse-publication-details/reponse-publication-details.component';
 import { AjouterReponseComponent } from './forum/ajouter-reponse/ajouter-reponse.component';
+import { SingalerPublicationComponent } from './forum/singaler-publication/singaler-publication.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -95,7 +97,9 @@ import { AjouterReponseComponent } from './forum/ajouter-reponse/ajouter-reponse
     AjouterPublicationComponent,
     ModifierPublicationComponent,
     ReponsePublicationDetailsComponent,
-    AjouterReponseComponent
+    AjouterReponseComponent,
+    SingalerPublicationComponent,
+
 
   ],
   imports: [
@@ -105,7 +109,8 @@ import { AjouterReponseComponent } from './forum/ajouter-reponse/ajouter-reponse
     FormsModule,
     MatSnackBarModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

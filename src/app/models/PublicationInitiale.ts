@@ -10,4 +10,5 @@ export class PublicationInitiale{
   reponsePublicationList!:ReponseSurUnePublication[];
   user!:User;
   titre!:string;
+  vue!:number
 }
