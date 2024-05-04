@@ -12,7 +12,7 @@
 
         <!-- Sidebar -->
         <div class="col-xl-3 col-lg-4 col-md-12 theiaStickySidebar">
-<app-sidebar1></app-sidebar1>
+<app-sidebar2></app-sidebar2>
         </div>
         <!-- /Sidebar -->
 
@@ -42,76 +42,51 @@
                   <h4>Personal Details</h4>
                   <p>Edit your personal information and address.</p>
                 </div>
-                <form action="#">
+                <form [formGroup]="userForm" (ngSubmit)="updateUser()">
                   <div class="row">
                     <div class="col-lg-6">
                       <div class="input-block">
                         <label class="form-control-label">First Name</label>
-                        <input type="text" class="form-control" placeholder="Enter your first Name">
+                        <input type="text" class="form-control" formControlName="firstname" placeholder="Enter your first Name">
                       </div>
                     </div>
                     <div class="col-lg-6">
                       <div class="input-block">
                         <label class="form-control-label">Last Name</label>
-                        <input type="text" class="form-control" placeholder="Enter your last Name">
+                        <input type="text" class="form-control" formControlName="lastname" placeholder="Enter your last Name">
                       </div>
                     </div>
                     <div class="col-lg-6">
                       <div class="input-block">
                         <label class="form-control-label">Phone</label>
-                        <input type="text" class="form-control" placeholder="Enter your Phone">
+                        <input type="text" class="form-control" formControlName="mobilePhone" placeholder="Enter your Phone">
                       </div>
                     </div>
                     <div class="col-lg-6">
                       <div class="input-block">
                         <label class="form-control-label">Email</label>
-                        <input type="text" class="form-control" placeholder="Enter your Email">
+                        <input type="text" class="form-control" formControlName="email" placeholder="Enter your Email">
                       </div>
                     </div>
-                    <div class="col-lg-6">
+
+                    <div class="col-lg-12">
                       <div class="input-block">
-                        <label class="form-control-label">Birthday</label>
-                        <input type="text" class="form-control" placeholder="Birth of Date">
+                        <label class="form-control-label">Address Line</label>
+                        <input type="text" class="form-control" formControlName="address" placeholder="Address">
                       </div>
                     </div>
-                    <div class="col-lg-6">
+
+                    <div class="col-lg-12">
                       <div class="input-block">
-                        <label  class="form-label">Country</label>
-                        <select class="form-select select country-select"  name="sellist1">
-                          <option>Select country</option>
-                          <option>India</option>
-                          <option>America</option>
-                          <option>London</option>
-                        </select>
+                        <label class="form-control-label">Bio</label>
+                        <textarea class="form-control" formControlName="bio" placeholder="Enter your Bio"></textarea>
                       </div>
                     </div>
-                    <div class="col-lg-6">
-                      <div class="input-block">
-                        <label class="form-control-label">Address Line 1</label>
-                        <input type="text" class="form-control" placeholder="Address">
-                      </div>
-                    </div>
-                    <div class="col-lg-6">
-                      <div class="input-block">
-                        <label class="form-control-label">Address Line 2 (Optional)</label>
-                        <input type="text" class="form-control" placeholder="Address">
-                      </div>
-                    </div>
-                    <div class="col-lg-6">
-                      <div class="input-block">
-                        <label class="form-control-label">City</label>
-                        <input type="text" class="form-control" placeholder="Enter your City">
-                      </div>
-                    </div>
-                    <div class="col-lg-6">
-                      <div class="input-block">
-                        <label class="form-control-label">ZipCode</label>
-                        <input type="text" class="form-control" placeholder="Enter your Zipcode" >
-                      </div>
-                    </div>
+
                     <div class="update-profile">
-                      <button type="button" class="btn btn-primary">Update Profile</button>
+                      <button type="submit" class="btn btn-primary">Update Profile</button>
                     </div>
+
                   </div>
                 </form>
               </div>

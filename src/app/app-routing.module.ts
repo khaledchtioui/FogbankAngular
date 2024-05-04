@@ -34,6 +34,11 @@ import {AccueilForumComponent} from "./forum/accueil-forum/accueil-forum.compone
 import {DetailsPublicationComponent} from "./forum/details-publication/details-publication.component";
 import {AjouterPublicationComponent} from "./forum/ajouter-publication/ajouter-publication.component";
 import {ModifierPublicationComponent} from "./forum/modifier-publication/modifier-publication.component";
+import {GetEventsComponent} from "./event/get-events/get-events.component";
+import {AddEventsComponent} from "./event/add-events/add-events.component";
+import {DeleteEventsComponent} from "./event/delete-events/delete-events.component";
+import {UpdateEventsComponent} from "./event/update-events/update-events.component";
+import {UserEventComponent} from "./user-event/user-event.component";
 
 
 
@@ -72,6 +77,8 @@ const appRoutes: Routes = [
   {path:"admin/edit",component:AdmineditprofileComponent},
   {path:"student/delete",component:DeleteprofileComponent},
   {path:"admin/usersgrid",component:UsergridComponent},
+  { path: "admin/edit", component: EditprofileComponent },
+  {path:"signin",component:SigninComponent},
 
   {path:"forum",component:AccueilForumComponent},
   { path: 'publication/:id', component: DetailsPublicationComponent },
@@ -91,6 +98,19 @@ const appRoutes: Routes = [
   {path:"admin/club/add",component:ClubbackaddComponent},
   {path:"admin/club/edit/:id",component:ClubbackeditComponent},
   {path:"admin/club/delete/:id",component:ClubbackdeleteComponent},
+
+
+
+  {path:"admin/events",component:GetEventsComponent },
+  {path: "admin/events/createEvents",component:AddEventsComponent },
+  {path: "admin/events/delete/:id",component: DeleteEventsComponent },
+  {path: "admin/events/edit/:id",component: UpdateEventsComponent },
+  {path: "user/events", component: UserEventComponent },
+  {path: "user/events/participate/:id", component: UserEventComponent },
+
+
+
+
 
   {path:"error404",component:Error404Component},
   {path:"error500",component:Error500Component},

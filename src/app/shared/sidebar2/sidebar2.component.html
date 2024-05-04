@@ -5,7 +5,9 @@
       <h5>Beginner</h5>
       <img src="assets/img/instructor-profile-bg.jpg" alt="">
       <div class="profile-img">
-        <a href="instructor-profile.html"><img src="assets/img/user/user15.jpg" alt=""></a>
+        <a href="instructor-profile.html">
+          <img [src]="userPhotoUrl || 'assets/img/instructor/profile-avatar.jpg'" alt="">
+        </a>
       </div>
     </div>
     <div class="profile-group">
@@ -40,6 +42,11 @@
           <i class="feather-users"></i> Users
         </a>
       </li>
+      <li class="nav-item">
+        <a [routerLink]="['/admin/events']" class="nav-link">
+          <i class="feather-calendar"></i> Events
+        </a>
+      </li>
 
     </ul>
     <div class="instructor-title">
@@ -47,6 +54,8 @@
     </div>
     <ul>
       <li class="nav-item">
+
+
         <a [routerLink]="['/admin/edit']" class="nav-link ">
           <i class="feather-settings"></i> Edit Profile
         </a>
@@ -60,8 +69,8 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link">
-          <i class="feather-power"  (click)="logout()" ></i> Sign Out
+        <a class="nav-link" (click)="logOut()">
+          <i class="feather-power"></i> Sign Out
         </a>
       </li>
     </ul>
