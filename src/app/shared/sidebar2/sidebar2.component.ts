@@ -13,7 +13,7 @@ export class Sidebar2Component  implements OnInit{
   currentUser: any;
   userPhotoUrl!: string;
   idUser!:number;
-  constructor(private router:Router, private tokenStorageService: TokenStorageService , private authService: AuthServiceService) {}
+  constructor(protected router:Router, private tokenStorageService: TokenStorageService , private authService: AuthServiceService) {}
 
 
 

@@ -35,6 +35,7 @@ import {AddEventsComponent} from "./event/add-events/add-events.component";
 import {DeleteEventsComponent} from "./event/delete-events/delete-events.component";
 import {UpdateEventsComponent} from "./event/update-events/update-events.component";
 import {UserEventComponent} from "./user-event/user-event.component";
+import {AddArticleComponent} from "./article/add-article/add-article.component";
 
 
 
@@ -82,6 +83,11 @@ const appRoutes: Routes = [
   {path:"article/details",component:ArticledetailsComponent},
   {path:"student/myarticle",component:MyarticleComponent},
   {path:"admin/allarticle",component:AllarticleComponent},
+  { path: 'admin/articledetails/:id', component: ArticledetailsComponent },
+  { path: 'admin/articleadd', component: AddArticleComponent },
+
+
+
   { path: "otp", component: VerifyotpComponent }, // Assuming 'OtpComponent' is the component for the OTP page
 
 

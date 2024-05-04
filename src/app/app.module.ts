@@ -48,6 +48,7 @@ import { UserEventComponent } from './user-event/user-event.component';
 import {UpdateEventsComponent} from "./event/update-events/update-events.component";
 import {GetEventsComponent} from "./event/get-events/get-events.component";
 import {DeleteEventsComponent} from "./event/delete-events/delete-events.component";
+import {AddArticleComponent} from "./article/add-article/add-article.component";
 
 @NgModule({
   declarations: [
@@ -91,7 +92,8 @@ import {DeleteEventsComponent} from "./event/delete-events/delete-events.compone
     GetEventsComponent,
     DeleteEventsComponent,
     AdmineditprofileComponent,
-    UserEventComponent
+    UserEventComponent,
+    AddArticleComponent
 
   ],
   imports: [
