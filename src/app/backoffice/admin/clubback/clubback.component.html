@@ -44,8 +44,8 @@
                               </div>
                               <div class="col-md-6 col-lg-6 col-item">
                                 <div class="input-block select-form mb-0">
-                                  <select class="form-select select"  name="sellist1">
-                                    <option>Choose</option>
+                                  <select class="form-select select"  name="sellist1" [(ngModel)]="selectedCategory" (change)="filterClubsByCategory()">
+                                    <option>All Clubs</option>
                                     <option>SPORTS</option>
                                     <option>ACADEMIC</option>
                                     <option>CULTURAL</option>
