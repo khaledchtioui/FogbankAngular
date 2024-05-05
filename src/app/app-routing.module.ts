@@ -83,7 +83,7 @@ const appRoutes: Routes = [
   {path:"admin/club/add",component:ClubbackaddComponent},
   {path:"admin/club/edit/:id",component:ClubbackeditComponent},
   {path:"admin/club/delete/:id",component:ClubbackdeleteComponent},
-  {path:"admin/club/apply",component:AdhesionbackComponent},
+  {path:"admin/club/apply/:id",component:AdhesionbackComponent},
   {path:"student/club",component:ClubfrontComponent},
   {path:"student/club/apply/:id",component:AdhesionfrontComponent},
 

@@ -102,52 +102,21 @@
                       
                       
                     </div>
+                    <div class="go-dashboard text-center d-flex justify-content-between">
+                      <a (click)="navigateToApplyConfirmation(clubId)" class="btn btn-primary">Manage {{ clubForm.get('nom')?.value }} Memberships</a>
+                      <a href="add-course.html" class="btn btn-primary" title="Enter Club">Enter Club</a>
+                    </div>
+
                   </form>
+                  
                 </div>
               </div>
             </div>
           </div>
 
-            <div class="row">
-              <div class="col-md-12">
-                <div class="settings-widget">
-                  <div class="settings-inner-blk p-0">
-                    <div class="sell-course-head comman-space">
-                      <h3>Memberships</h3>
-                      <p>Manage All Membership Demands From Here.</p>
-                    </div>
-                    <div class="comman-space pb-0">
-                      <div class="settings-tickets-blk course-instruct-blk table-responsive">
+            
 
-                        <!-- Referred Users-->
-                        <table class="table table-nowrap mb-0">
-                          <thead>
-                            <tr>
-                            <th>FIRSTNAME</th>
-                            <th>LASTNAME</th>
-                            <th>EMAIL</th>
-                            <th>DATE</th>
-                            <th>STATUS</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr *ngFor="let adhesion of adhesions">
-                              <td>{{ adhesion.user?.firstname }}</td>
-                              <td>{{ adhesion.user?.lastname }}</td>
-                              <td>{{ adhesion.user?.email }}</td>
-                              <td>{{ adhesion.dateAdhesion }}</td>
-                              <td>{{ adhesion.status }}</td>
-                            </tr>
-                          </tbody>
-                          </table>
-                        <!-- /Referred Users-->	
-
-                      </div>									
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          
           </div>
           
           <!-- Profile Details -->

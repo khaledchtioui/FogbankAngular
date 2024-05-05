@@ -14,11 +14,6 @@
 						<div class="col-md-12 col-12">
 							<div class="breadcrumb-list">
 								<nav aria-label="breadcrumb" class="page-breadcrumb">
-									<ol class="breadcrumb">
-										<li class="breadcrumb-item"><a href="index.html">Home</a></li>
-										<li class="breadcrumb-item">Pages</li>
-										<li class="breadcrumb-item" >FAQ</li>
-									</ol>
 								</nav>
 							</div>
 						</div>
@@ -32,7 +27,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12 col-12">
-							<h1 class="mb-0">Most frequently asked questions</h1>
+							<h1 class="mb-0">Club Memberships Demands</h1>
 						</div>
 					</div>
 				</div>
@@ -46,24 +41,23 @@
 					<div class="row">
 						<div class="col-lg-6">
 							<div class="help-title">
-								<h1>Most frequently asked questions</h1>
-								<p>Here are the most frequently asked questions you may check before getting started</p>
+								<h1>Memberships Demands</h1>
+								<p>Treat Memberships answers for Club questions from here</p>
 							</div>
 						</div>
 					</div>
 					
-					<div class="row">
+					<div class="row" *ngFor="let adhesion of adhesions">
 						<div class="col-lg-6">
 						
 							<!-- Faq -->							
 							<div class="faq-card">
 								<h6 class="faq-title">
-									<a class="collapsed" data-bs-toggle="collapse" href="#faqone" aria-expanded="false">Is there a 14-days trial?</a>
+									<a class="collapsed" data-bs-toggle="collapse" href="#faqone" aria-expanded="false">Why are you interested in joining this particular club ?</a>
 								</h6>
 								<div id="faqone" class="collapse">
 									<div class="faq-detail">
-										<p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.</p>
-										<p>If several languages coalesce, the grammar of the resulting language is more simple and regular than that of the individual languages. The new common language will be more simple and regular than the existing European languages.</p>
+										<p>{{ adhesion.questionOne }}</p>
 									</div>
 								</div>
 							</div>
@@ -71,25 +65,44 @@
 														
 							<div class="faq-card">
 								<h6 class="faq-title">
-									<a class="collapsed" data-bs-toggle="collapse" href="#faqtwo" aria-expanded="false">How much time I will need to learn this app?</a>
+									<a class="collapsed" data-bs-toggle="collapse" href="#faqtwo" aria-expanded="false">What relevant skills or experiences do you have that make you a good fit for the club ?</a>
 								</h6>
 								<div id="faqtwo" class="collapse">
 									<div class="faq-detail">
-										<p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.</p>
-										<p>If several languages coalesce, the grammar of the resulting language is more simple and regular than that of the individual languages. The new common language will be more simple and regular than the existing European languages.</p>
-									</div>
+										<p>{{ adhesion.questionTwo }}</p>									</div>
 								</div>
 							</div>
 							
 														
 							<div class="faq-card">
 								<h6 class="faq-title">
-									<a class="collapsed" data-bs-toggle="collapse" href="#faqthree" aria-expanded="false">Is there a month-to-month payment option?</a>
+									<a class="collapsed" data-bs-toggle="collapse" href="#faqthree" aria-expanded="false">Have you been involved in similar clubs or activities before ?</a>
 								</h6>
 								<div id="faqthree" class="collapse">
 									<div class="faq-detail">
-										<p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.</p>
-										<p>If several languages coalesce, the grammar of the resulting language is more simple and regular than that of the individual languages. The new common language will be more simple and regular than the existing European languages.</p>
+										<p>{{ adhesion.questionThree }}</p>
+									</div>
+								</div>
+							</div>
+
+							<div class="faq-card">
+								<h6 class="faq-title">
+									<a class="collapsed" data-bs-toggle="collapse" href="#faqfour" aria-expanded="false">Do you have any ideas or suggestions for club activities or initiatives ?</a>
+								</h6>
+								<div id="faqfour" class="collapse">
+									<div class="faq-detail">
+										<p>{{ adhesion.questionFour }}</p>
+									</div>
+								</div>
+							</div>
+
+							<div class="faq-card">
+								<h6 class="faq-title">
+									<a class="collapsed" data-bs-toggle="collapse" href="#faqfive" aria-expanded="false">Are you willing to commit to attending regular club meetings/events ?</a>
+								</h6>
+								<div id="faqfive" class="collapse">
+									<div class="faq-detail">
+										<p>{{ adhesion.questionFive }}</p>
 									</div>
 								</div>
 							</div>
@@ -102,46 +115,70 @@
 							<!-- Faq -->							
 							<div class="faq-card">
 								<h6 class="faq-title">
-									<a class="collapsed" data-bs-toggle="collapse" href="#faqfour" aria-expanded="false">What’s the benefits of the Premium Membership?</a>
-								</h6>
-								<div id="faqfour" class="collapse">
-									<div class="faq-detail">
-										<p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.</p>
-										<p>If several languages coalesce, the grammar of the resulting language is more simple and regular than that of the individual languages. The new common language will be more simple and regular than the existing European languages.</p>
-									</div>
-								</div>
-							</div>
-							
-														
-							<div class="faq-card">
-								<h6 class="faq-title">
-									<a class="collapsed" data-bs-toggle="collapse" href="#faqfive" aria-expanded="false">Are there any free tutorials available?</a>
-								</h6>
-								<div id="faqfive" class="collapse">
-									<div class="faq-detail">
-										<p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.</p>
-										<p>If several languages coalesce, the grammar of the resulting language is more simple and regular than that of the individual languages. The new common language will be more simple and regular than the existing European languages.</p>
-									</div>
-								</div>
-							</div>
-							
-														
-							<div class="faq-card">
-								<h6 class="faq-title">
-									<a class="collapsed" data-bs-toggle="collapse" href="#faqsix" aria-expanded="false">How can I cancel my subscription plan?</a>
+									<a class="collapsed" data-bs-toggle="collapse" href="#faqsix" aria-expanded="false">How many hours per week can you commit to the club ?</a>
 								</h6>
 								<div id="faqsix" class="collapse">
 									<div class="faq-detail">
-										<p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.</p>
-										<p>If several languages coalesce, the grammar of the resulting language is more simple and regular than that of the individual languages. The new common language will be more simple and regular than the existing European languages.</p>
+										<p>{{ adhesion.questionSix }}</p>
+									</div>
+								</div>
+							</div>
+							
+														
+							<div class="faq-card">
+								<h6 class="faq-title">
+									<a class="collapsed" data-bs-toggle="collapse" href="#faqseven" aria-expanded="false">Are there any specific days/times you are unavailable ?</a>
+								</h6>
+								<div id="faqseven" class="collapse">
+									<div class="faq-detail">
+										<p>{{ adhesion.questionSeven }}</p>
+									</div>
+								</div>
+							</div>
+							
+														
+							<div class="faq-card">
+								<h6 class="faq-title">
+									<a class="collapsed" data-bs-toggle="collapse" href="#faqeight" aria-expanded="false">Is there anything else you would like us to know about you ?</a>
+								</h6>
+								<div id="faqeight" class="collapse">
+									<div class="faq-detail">
+										<p>{{ adhesion.questionEight }}</p>
+									</div>
+								</div>
+							</div>
+
+
+							<div class="faq-card">
+								<h6 class="faq-title">
+									<a class="collapsed" data-bs-toggle="collapse" href="#faqnine" aria-expanded="false">Do you have any special requirements or accommodations that we should be aware of ?</a>
+								</h6>
+								<div id="faqnine" class="collapse">
+									<div class="faq-detail">
+										<p>{{ adhesion.questionNine }}</p>
 									</div>
 								</div>
 							</div>
 							<!-- /Faq -->
 						
+							<div class="go-dashboard text-center d-flex justify-content-between">
+								<p>application date : {{ adhesion.dateAdhesion }}</p>
+								<select class="form-select select country-select" [(ngModel)]="adhesion.status" style="text-align: center;">
+									<option value="Make Decision">Make Decision</option>
+									<option *ngFor="let decision of Decisions" [value]="decision">{{ decision }}</option>
+								  </select>
+								<a class="btn btn-primary" (click)="updateAdd(adhesion)">Save</a>
+							  </div>
+
+
 						</div>	
+						<div style="margin-top: 20px; margin-bottom: 50px; border-top: 1px solid #ccc;"></div>
 					</div>
+					
+					
+					
 				</div>
+				
 			</div>
 			<!-- /Help Details -->
 			

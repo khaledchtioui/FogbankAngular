@@ -162,6 +162,10 @@ setFormValues(): void {
   navigateToDeleteConfirmation(id: string): void {
     this.router.navigate(['/admin/club/delete', id]);
   }
+
+  navigateToApplyConfirmation(id: string): void {
+    this.router.navigate(['/admin/club/apply', id]);
+  }
   
 
 }

@@ -77,16 +77,24 @@
 									<div class="course-box course-design list-course d-flex">
 										<div class="product">
 											<div class="product-img">
-												<a href="course-details.html">
+												
 													<img class="img-fluid" alt="" src="{{ club.image }}">
-												</a>
+												
 												<div class="price">
 													<h3>{{club.cat}}</h3>
 												</div>
 											</div>
 											<div class="product-content">
 												<div class="head-course-title">
-													<h3 class="title"><a href="course-details.html">{{club.nom}}</a></h3>
+													<h3 class="title">
+														<a *ngIf="club.idclub !== undefined && isMembershipApplied(club.idclub) && getAdhesionStatus(club.idclub) === 'APPROVED'"
+
+															[routerLink]="['/student/club/details', club.idclub]">{{club.nom}}</a>
+															<ng-container *ngIf="club.idclub === undefined || !isMembershipApplied(club.idclub) || getAdhesionStatus(club.idclub) !== 'APPROVED'">
+
+															{{club.nom}}
+														</ng-container>
+													</h3>
 													
 													<div class="all-btn all-category d-flex align-items-center">
 														<!-- Conditionally display the button based on adhesion status -->
