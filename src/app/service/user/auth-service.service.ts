@@ -64,6 +64,11 @@ export class AuthServiceService {
     return `${this.baseUrluser}/users/${userId}/photo`;
   }
 
-
+  uploadUserPhoto(userId: number, photo: Uint8Array): Observable<any> {
+    const formData = new FormData();
+    const blob = new Blob([photo], { type: 'image/jpeg' }); // Adjust the image type as needed
+    formData.append('photo', blob);
+    return this.http.post(`${this.baseUrluser}/${userId}/photo`, formData);
+  }
 
 }
