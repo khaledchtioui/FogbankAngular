@@ -39,7 +39,7 @@
                               <div class="col-md-6 col-item">
                                 <div class=" search-group">
                                   <i class="feather-search"></i>
-                                  <input type="text" class="form-control" placeholder="Search specific club" >
+                                  <input type="text" class="form-control" placeholder="Search specific club" name="researchh" [(ngModel)]="searchQuery" (input)="filterClubsBySearch()">
                                 </div>
                               </div>
                               <div class="col-md-6 col-lg-6 col-item">

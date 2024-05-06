@@ -16,6 +16,7 @@ export class ClubbackComponent implements OnInit{
   clubs: Club[] = [];
   selectedCategory: string = 'All Clubs';
   originalClubs!: Club[];
+  searchQuery: string = '';
 
   constructor(private clubService: ClubService,private router: Router) { }
 
@@ -55,6 +56,22 @@ export class ClubbackComponent implements OnInit{
     } else {
       // Filter clubs based on selected category from the original list
       this.clubs = this.originalClubs.filter(club => club.cat === this.selectedCategory);
+    }
+  }
+
+
+  filterClubsBySearch(): void {
+    if (!this.originalClubs) {
+      // Initialize originalClubs with the current clubs array
+      this.originalClubs = [...this.clubs];
+    }
+    
+    if (this.searchQuery.trim() === '') {
+      // If search query is empty, show all clubs from the original list
+      this.clubs = [...this.originalClubs];
+    } else {
+      // Filter clubs based on search query from the original list
+      this.clubs = this.originalClubs.filter(club => club.nom.toLowerCase().includes(this.searchQuery.toLowerCase()));
     }
   }
 
