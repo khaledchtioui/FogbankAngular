@@ -36,6 +36,11 @@ import {DeleteEventsComponent} from "./event/delete-events/delete-events.compone
 import {UpdateEventsComponent} from "./event/update-events/update-events.component";
 import {UserEventComponent} from "./user-event/user-event.component";
 import {AddArticleComponent} from "./article/add-article/add-article.component";
+import {AjouterProductComponent} from "./LostAndFoundTemplate/AjouterProduct/AjouterProduct.component";
+import {ProductlistComponent} from "./LostAndFoundTemplate/AfficherProduct/Productlist.Component";
+import {UserproductComponent} from "./LostAndFoundTemplate/userproduct/userproduct.component";
+import {MapComponent} from "./LostAndFoundTemplate/map/map.component";
+import {UpdateproductComponent} from "./LostAndFoundTemplate/updateproduct/updateproduct.component";
 
 
 
@@ -77,6 +82,17 @@ const appRoutes: Routes = [
   { path: "admin/edit", component: EditprofileComponent },
   {path:"signin",component:SigninComponent},
 
+  {path:"AjouterProducts",component:AjouterProductComponent},
+  {path:"Product",component:ProductlistComponent},
+  {path:"userproduct",component:UserproductComponent},
+  {path:"updateproducts/:id",component:UpdateproductComponent},
+  { path: 'map/:productId', component: MapComponent },
+  { path: 'map/:longitude/:latitude', component: MapComponent },
+
+
+
+
+
   {path:"article",component:ArticlefrontComponent},
   {path:"article/list",component:ArticlelistComponent},
   {path:"article/grid",component:ArticlegridComponent},
@@ -85,6 +101,8 @@ const appRoutes: Routes = [
   {path:"admin/allarticle",component:AllarticleComponent},
   { path: 'admin/articledetails/:id', component: ArticledetailsComponent },
   { path: 'admin/articleadd', component: AddArticleComponent },
+
+
 
 
 

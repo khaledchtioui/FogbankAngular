@@ -49,6 +49,11 @@ import {UpdateEventsComponent} from "./event/update-events/update-events.compone
 import {GetEventsComponent} from "./event/get-events/get-events.component";
 import {DeleteEventsComponent} from "./event/delete-events/delete-events.component";
 import {AddArticleComponent} from "./article/add-article/add-article.component";
+import {ProductlistComponent} from "./LostAndFoundTemplate/AfficherProduct/Productlist.Component";
+import {AjouterProductComponent} from "./LostAndFoundTemplate/AjouterProduct/AjouterProduct.component";
+import {UserproductComponent} from "./LostAndFoundTemplate/userproduct/userproduct.component";
+import {MapComponent} from "./LostAndFoundTemplate/map/map.component";
+import {UpdateproductComponent} from "./LostAndFoundTemplate/updateproduct/updateproduct.component";
 
 @NgModule({
   declarations: [
@@ -93,7 +98,12 @@ import {AddArticleComponent} from "./article/add-article/add-article.component";
     DeleteEventsComponent,
     AdmineditprofileComponent,
     UserEventComponent,
-    AddArticleComponent
+    AddArticleComponent,
+    ProductlistComponent,
+    AjouterProductComponent,
+    UserproductComponent,
+    UpdateproductComponent,
+    MapComponent
 
   ],
   imports: [
@@ -104,7 +114,9 @@ import {AddArticleComponent} from "./article/add-article/add-article.component";
     FormsModule,
     MatSnackBarModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]
