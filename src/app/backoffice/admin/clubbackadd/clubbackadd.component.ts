@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Club } from 'src/app/models/club';
 import { ClubService } from '../../../service/Club/club.service';
 import ImageCompressor from 'image-compressor.js';
+import { ClubSpace } from 'src/app/models/ClubSpace';
 
 
 @Component({
@@ -23,7 +24,8 @@ export class ClubbackaddComponent implements OnInit{
     cat: 'Select Category',
     image: '',
     Adhésions: [],
-    users: []
+    users: [],
+    clubSpace: undefined 
   };
 
   categories: string[] = [
@@ -74,6 +76,10 @@ export class ClubbackaddComponent implements OnInit{
       return; 
     }
     this.club = this.clubForm.value;
+    const clubSpace: ClubSpace = {
+      spaceid: 1, 
+    };
+    this.club.clubSpace = clubSpace;
 
     this.clubService.addClub(this.club).subscribe(
       (response) => {

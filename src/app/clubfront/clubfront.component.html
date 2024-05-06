@@ -89,7 +89,7 @@
 													<h3 class="title">
 														<a *ngIf="club.idclub !== undefined && isMembershipApplied(club.idclub) && getAdhesionStatus(club.idclub) === 'APPROVED'"
 
-															[routerLink]="['/student/club/details', club.idclub]">{{club.nom}}</a>
+															[routerLink]="['/admin/clubs/clubspace', club.idclub,club.clubSpace?.spaceid]">{{club.nom}}</a>
 															<ng-container *ngIf="club.idclub === undefined || !isMembershipApplied(club.idclub) || getAdhesionStatus(club.idclub) !== 'APPROVED'">
 
 															{{club.nom}}

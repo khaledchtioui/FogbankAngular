@@ -104,7 +104,7 @@
                     </div>
                     <div class="go-dashboard text-center d-flex justify-content-between">
                       <a (click)="navigateToApplyConfirmation(clubId)" class="btn btn-primary">Manage {{ clubForm.get('nom')?.value }} Memberships</a>
-                      <a href="add-course.html" class="btn btn-primary" title="Enter Club">Enter Club</a>
+                      <a [routerLink]="['/admin/clubs/clubspace', clubId, club.clubSpace?.spaceid]" class="btn btn-primary" title="Enter Club">Enter Club</a>
                     </div>
 
                   </form>

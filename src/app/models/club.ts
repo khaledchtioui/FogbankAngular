@@ -1,3 +1,5 @@
+import { ClubSpace } from "./ClubSpace";
+
 export interface Club {
     idclub?: number;
     description: string;
@@ -8,6 +10,7 @@ export interface Club {
     image?: string;
     Adhésions: Adhésion[]; // Assuming Adhésion is another entity/interface
     users: User[]; // Assuming User is another entity/interface
+    clubSpace?: ClubSpace;
   }
   
   interface Adhésion {

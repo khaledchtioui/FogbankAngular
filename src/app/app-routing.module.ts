@@ -33,6 +33,7 @@ import { ClubbackdeleteComponent } from './backoffice/admin/clubbackdelete/clubb
 import { ClubfrontComponent } from './clubfront/clubfront.component';
 import { AdhesionfrontComponent } from './adhesionfront/adhesionfront.component';
 import { AdhesionbackComponent } from './backoffice/admin/adhesionback/adhesionback.component';
+import { ClubspaceComponent } from './backoffice/admin/clubspace/clubspace.component';
 
 
 
@@ -84,6 +85,7 @@ const appRoutes: Routes = [
   {path:"admin/club/edit/:id",component:ClubbackeditComponent},
   {path:"admin/club/delete/:id",component:ClubbackdeleteComponent},
   {path:"admin/club/apply/:id",component:AdhesionbackComponent},
+  { path: 'admin/clubs/clubspace/:clubId/:clubSpaceId', component: ClubspaceComponent },
   {path:"student/club",component:ClubfrontComponent},
   {path:"student/club/apply/:id",component:AdhesionfrontComponent},
 

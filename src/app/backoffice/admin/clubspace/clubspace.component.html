@@ -1,0 +1,200 @@
+
+
+		<!-- Main Wrapper -->
+		<div class="main-wrapper">
+            <app-navbar3></app-navbar3>
+			<!-- Header -->
+			
+			<!-- /Header -->
+			
+			<!-- Breadcrumb -->
+			<div class="breadcrumb-bar">
+				<div class="container">
+					<div class="row">
+						
+					</div>
+				</div>
+			</div>
+			<!-- /Breadcrumb -->
+			
+			<!-- Inner Banner -->
+			<div class="inner-banner">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-8">
+							
+								
+									<h2 style="display: inline-block;">{{club.nom}}</h2><br>
+							<p style="display: inline-block;">{{club.description}}</p><br>
+                            <span class="web-badge mb-3" style="display: inline-block;">{{club.cat}}</span>							
+									
+								
+								
+							
+							
+							<div class="course-info d-flex align-items-center border-bottom-0 m-0 p-0">
+								<div class="cou-info">
+									<img src="assets/img/net-icon-01.png" alt="">
+									<p>{{club.email}}</p>
+								</div>
+								<div class="cou-info">
+                                    <a [href]="club.rs" target="_blank" rel="noopener noreferrer">
+									<img src="assets/img/net-icon-02.png" alt=""></a>
+									<p>Facebook Page</p>
+								</div>
+							</div>							
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /Inner Banner -->
+			
+			<!-- Course Content -->
+			
+				
+				
+					<div class="row justify-content-center">
+						<div class="col-lg-8">
+
+                            <section class="course-content">
+                                
+                                    
+                                        
+                
+                                            <!-- Blog Post -->
+                                            <div class="container-fluid">
+                                                <div class="blog-image">
+                                                    <a href="blog-details.html"><img class="img-fluid" src="assets/img/blog-banner.jpg" alt="Post Image"></a>
+                                                </div>
+                                                <div class="blog-info clearfix">
+                                                    <div class="post-left">
+                                                        <ul>
+                                                            
+                                                            <li><img class="img-fluid" src="assets/img/icon/icon-22.svg" alt="">April 20, 2022</li>
+                                                            <li><img class="img-fluid" src="assets/img/icon/icon-23.svg" alt="">Programming, Web Design</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <h3 class="blog-title"><a href="blog-details.html">Learn Webs Applications Development from Experts</a></h3>
+                                                <div class="blog-content">
+                                                    <p>When working on a new piece of software, it’s essential to craft a software design document to create a clear and precise vision of the client’s problem and your proposed solution. Software design documents are important for detailing expectations between the software engineer and the client. They help to streamline the coding process before any code is written.</p>
+                                                    <p>Read on to learn how to write great software design documents that improve communication between you and your client, ensuring that everyone is on the same page when working on a project together.</p>
+                                                </div>
+                                            </div>
+                                            <!-- /Blog Post -->
+                                            
+                                        
+                                        
+                                        <!-- Blog Sidebar -->
+                                        
+                                        <!-- /Blog Sidebar -->
+                                        
+                                    
+                                
+                            </section>
+						
+							<!-- Overview -->
+							
+							<!-- /Overview -->
+							
+							<!-- Course Content -->
+							
+							<!-- /Course Content -->
+							
+							<!-- Instructor -->
+							
+							<!-- /Instructor -->
+							
+							<!-- Reviews -->
+							<div class="card review-sec">
+								<div class="card-body">
+									<h5 class="subs-title">Comments</h5>
+									<div class="instructor-wrap">
+										<div class="about-instructor">
+											<div class="abt-instructor-img">
+												<a href="instructor-profile.html"><img src="assets/img/user/user1.jpg" alt="img" class="img-fluid"></a>
+											</div>
+											<div class="instructor-detail">
+												<h5><a href="instructor-profile.html">Nicole Brown</a></h5>
+												<p>UX/UI Designer</p>
+											</div>
+										</div>
+										
+									</div>
+									<p class="rev-info">“ This is the second Photoshop course I have completed with Cristian. Worth every penny and recommend it highly. To get the most out of this course, its best to to take the Beginner to Advanced course first. The sound and video quality is of a good standard. Thank you Cristian. “</p>
+									<a href="javascript:void(0);" class="btn btn-reply"><i class="feather-corner-up-left"></i> Reply</a>
+								</div>
+							</div>
+							<!-- /Reviews -->
+							
+							<!-- Comment -->
+							<div class="card comment-sec">
+								<div class="card-body">
+									<h5 class="subs-title">Post A comment</h5>
+									<form>
+										<div class="row">
+											<div class="col-md-6">
+												<div class="input-block">
+													<input type="text" class="form-control" placeholder="Full Name">
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="input-block">
+													<input type="email" class="form-control" placeholder="Email">
+												</div>
+											</div>
+										</div>
+										<div class="input-block">
+											<input type="email" class="form-control" placeholder="Subject">
+										</div>
+										<div class="input-block">
+											<textarea rows="4" class="form-control" placeholder="Your Comments"></textarea>
+										</div>
+										<div class="submit-section">
+											<button class="btn submit-btn" type="submit">Submit</button>
+										</div>
+									</form>
+								</div>
+							</div>
+							<!-- /Comment -->
+							
+						</div>	
+						
+						<div class="col-lg-4">
+							<div class="sidebar-sec">
+							
+								<!-- Video -->
+								<div class="video-sec vid-bg">
+									<div class="card">
+										<div class="card-body">
+											
+												
+												<img class="" src="{{ club.image }}" alt="">
+											
+											
+										</div>
+									</div>
+								</div>
+								<!-- /Video -->
+								
+								<!-- Include -->
+								
+								<!-- /Include -->
+								
+								<!-- Features -->
+								
+								<!-- /Features -->
+								
+							</div>
+						</div>
+					</div>	
+				
+			
+			<!-- /Pricing Plan -->
+			
+			<app-footer></app-footer>
+		   
+		</div>
+	   <!-- /Main Wrapper -->
+	  
+		
