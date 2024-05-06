@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import {AuthServiceService} from "../../service/user/auth-service.service";
 import {SignUpRequest} from "../../models/SignUpRequest";
 import {HttpClient} from "@angular/common/http";
-import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-signup',
@@ -23,14 +22,12 @@ export class SignupComponent {
 
 
 
-  constructor(private http: HttpClient, private authService: AuthServiceService,private router:Router) { }
+  constructor(private http: HttpClient, private authService: AuthServiceService) { }
 
   signup() {
     this.authService.signup(this.signUpRequest).subscribe(
       (response) => {
         console.log('Inscription réussie :', response);
-        this.router.navigateByUrl('/login');
-
       },
       (error) => {
         console.error('Erreur lors de linscription :', error);

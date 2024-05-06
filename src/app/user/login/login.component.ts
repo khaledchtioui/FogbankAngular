@@ -2,7 +2,6 @@ import {Component} from "@angular/core";
 import {SigninRequest} from "../../models/SigninRequest";
 import {AuthServiceService} from "../../service/user/auth-service.service";
 import {TokenStorageService} from "../../service/user/token-storage.service";
-import {Router} from "@angular/router";
 
 @Component( {
   selector: 'app-login',
@@ -10,7 +9,6 @@ import {Router} from "@angular/router";
   styleUrls: ['login.component.css']
 })
 export class LoginComponent {
-  currentUser: any;
 
 
 
@@ -21,7 +19,7 @@ export class LoginComponent {
     password: ''
   };
 
-  constructor(private router :Router, private authService: AuthServiceService , private tokenStorageService : TokenStorageService) { }
+  constructor(private authService: AuthServiceService , private tokenStorageService : TokenStorageService) { }
 
   signin() {
     this.authService.signin(this.signinRequest).subscribe(
@@ -29,24 +27,6 @@ export class LoginComponent {
         console.log('Connexion réussie :', response);
         this.authService.handleAuthentication(response);
         console.log("test",this.tokenStorageService.getAccessToken() );
-    this.currentUser=this.authService.getCurrentUser()
-        switch (true)
-        {
-          case (this.currentUser.role=='USER'):
-            console.log("USER");
-            this.router.navigateByUrl('/admin/users');
-
-            break;
-          case (this.currentUser.role=="ADMIN")  :
-            console.log("ADMIN") ;
-            this.router.navigateByUrl('/admin/users');
-
-            break;
-          default:
-            console.log("failed")  ;
-        }
-
-
 
       },
       (error) => {

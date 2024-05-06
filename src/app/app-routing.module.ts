@@ -30,12 +30,11 @@ import { ClubbackaddComponent } from './backoffice/admin/clubbackadd/clubbackadd
 import { ClubbackeditComponent } from './backoffice/admin/clubbackedit/clubbackedit.component';
 import { ClubbackdeleteComponent } from './backoffice/admin/clubbackdelete/clubbackdelete.component';
 import {VerifyotpComponent} from "./user/verifyotp/verifyotp.component";
-import {GetEventsComponent} from "./event/get-events/get-events.component";
-import {AddEventsComponent} from "./event/add-events/add-events.component";
-import {DeleteEventsComponent} from "./event/delete-events/delete-events.component";
-import {UpdateEventsComponent} from "./event/update-events/update-events.component";
-import {UserEventComponent} from "./user-event/user-event.component";
-import {AddArticleComponent} from "./article/add-article/add-article.component";
+import {AjouterProductComponent} from "./LostAndFoundTemplate/AjouterProduct/AjouterProduct.component";
+import {ProductlistComponent} from "./LostAndFoundTemplate/AfficherProduct/Productlist.Component";
+import {UserproductComponent} from "./LostAndFoundTemplate/userproduct/userproduct.component";
+import {UpdateproductComponent} from "./LostAndFoundTemplate/updateproduct/updateproduct.component";
+import {MapComponent} from "./LostAndFoundTemplate/map/map.component";
 
 
 
@@ -71,11 +70,9 @@ const appRoutes: Routes = [
   {path:"admin/dahboard",component:DashboardAdminComponent},
   {path:"admin/users",component:UserlistComponent,canActivate: [AuthGuard] },
   {path:"student/edit",component:EditprofileComponent},
-  {path:"admin/edit",component:EditprofileComponent},
+  {path:"admin/edit",component:AdmineditprofileComponent},
   {path:"student/delete",component:DeleteprofileComponent},
   {path:"admin/usersgrid",component:UsergridComponent},
-  { path: "admin/edit", component: EditprofileComponent },
-  {path:"signin",component:SigninComponent},
 
   {path:"article",component:ArticlefrontComponent},
   {path:"article/list",component:ArticlelistComponent},
@@ -83,11 +80,6 @@ const appRoutes: Routes = [
   {path:"article/details",component:ArticledetailsComponent},
   {path:"student/myarticle",component:MyarticleComponent},
   {path:"admin/allarticle",component:AllarticleComponent},
-  { path: 'admin/articledetails/:id', component: ArticledetailsComponent },
-  { path: 'admin/articleadd', component: AddArticleComponent },
-
-
-
   { path: "otp", component: VerifyotpComponent }, // Assuming 'OtpComponent' is the component for the OTP page
 
 
@@ -95,26 +87,19 @@ const appRoutes: Routes = [
   {path:"admin/club/add",component:ClubbackaddComponent},
   {path:"admin/club/edit/:id",component:ClubbackeditComponent},
   {path:"admin/club/delete/:id",component:ClubbackdeleteComponent},
-
-
-
-  {path:"admin/events",component:GetEventsComponent },
-  {path: "admin/events/createEvents",component:AddEventsComponent },
-  {path: "admin/events/delete/:id",component: DeleteEventsComponent },
-  {path: "admin/events/edit/:id",component: UpdateEventsComponent },
-  {path: "user/events", component: UserEventComponent },
-  {path: "user/events/participate/:id", component: UserEventComponent },
-
-
-
-
+  {path:"AjouterProduct",component:AjouterProductComponent},
+  {path:"Product",component:ProductlistComponent},
+  {path:"userproduct",component:UserproductComponent},
+  {path:"updateproduct/:id",component:UpdateproductComponent},
+  { path: 'map/:productId', component: MapComponent },
+  { path: 'map/:longitude/:latitude', component: MapComponent },
 
   {path:"error404",component:Error404Component},
   {path:"error500",component:Error500Component},
   {path:"comesoon",component:ComingsoonComponent},
 
   {path:"", redirectTo:"/home", pathMatch:"full"},
-  {path:"**", redirectTo:"/comesoon", pathMatch:"full"}
+  {path:"**", redirectTo:"/comesoon", pathMatch:"full"},
 
 
 

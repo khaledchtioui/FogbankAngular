@@ -43,12 +43,11 @@ import { ClubbackeditComponent } from './backoffice/admin/clubbackedit/clubbacke
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {VerifyotpComponent} from "./user/verifyotp/verifyotp.component";
-import {AddEventsComponent} from "./event/add-events/add-events.component";
-import { UserEventComponent } from './user-event/user-event.component';
-import {UpdateEventsComponent} from "./event/update-events/update-events.component";
-import {GetEventsComponent} from "./event/get-events/get-events.component";
-import {DeleteEventsComponent} from "./event/delete-events/delete-events.component";
-import {AddArticleComponent} from "./article/add-article/add-article.component";
+import {UserproductComponent} from "./LostAndFoundTemplate/userproduct/userproduct.component";
+import {UpdateproductComponent} from "./LostAndFoundTemplate/updateproduct/updateproduct.component";
+import {AjouterProductComponent} from "./LostAndFoundTemplate/AjouterProduct/AjouterProduct.component";
+import {ProductlistComponent} from "./LostAndFoundTemplate/AfficherProduct/Productlist.Component";
+import { MapComponent } from './LostAndFoundTemplate/map/map.component';
 
 @NgModule({
   declarations: [
@@ -87,13 +86,12 @@ import {AddArticleComponent} from "./article/add-article/add-article.component";
     ClubbackdeleteComponent,
     ClubbackeditComponent,
     VerifyotpComponent,
-    AddEventsComponent,
-    UpdateEventsComponent,
-    GetEventsComponent,
-    DeleteEventsComponent,
     AdmineditprofileComponent,
-    UserEventComponent,
-    AddArticleComponent
+    UserproductComponent,
+    UpdateproductComponent,
+    AjouterProductComponent,
+    ProductlistComponent,
+    MapComponent
 
   ],
   imports: [
