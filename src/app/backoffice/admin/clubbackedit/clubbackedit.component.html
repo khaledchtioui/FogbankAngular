@@ -114,6 +114,82 @@
             </div>
           </div>
 
+
+
+
+
+
+
+
+          <div class="row">
+            <div class="settings-widget profile-details">
+              <div class="settings-menu p-0">
+                <div class="profile-heading">
+                  <h3>Add Event</h3>
+                  <p>You Can Add event to {{ clubForm.get('nom')?.value }} From Here.</p>
+                </div>
+                <div class="profile-heading">
+                  <label class="add-course-label">Image Here</label>
+                  <div class="file-drop">
+                    <form action="#" class="dropzone">
+                      <p >Drag & Drop files </p>
+                    </form>
+                  </div>
+                  <div class="accept-drag-file">
+                    <p>Accept File Type: jpg,jpeg,png</p>
+                  </div>
+                </div>
+                <div class="checkout-form personal-address add-course-info">
+                  <div class="personal-info-head">
+                    <h4>Event Details</h4>
+                    <p>Edit Event Informations Here.</p>
+                  </div>
+                  <form [formGroup]="clubeventForm" (submit)="addEvent()">
+                    <div class="row">
+                      <div class="col-lg-6">
+                        <div class="input-block">
+                          <label class="form-control-label">Title</label>
+                          <input type="text" class="form-control" placeholder="Enter Title" formControlName="title">
+
+                          
+
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div class="input-block">
+                          <label class="form-control-label">Key Words</label>
+                          <input type="text" class="form-control" placeholder="Enter Some Key Words" formControlName="mc">
+
+                          
+                        </div>
+                      </div>
+                      
+                      
+                      
+                      
+                      
+                      
+                        <div class="input-block">
+                          <label class="form-control-label" >Description</label>
+                          <input type="text" class="form-control" placeholder="Enter Description" style="width: 910px;height: 150px;padding-bottom: 100px;" formControlName="description">
+                          
+                        </div>
+                      
+                      
+                      
+                      
+                    </div>
+                    <div class="go-dashboard text-center d-flex justify-content-between">
+                      <button type="submit" class="btn btn-primary">SAVE</button>
+                    </div>
+
+                  </form>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+
             
 
           

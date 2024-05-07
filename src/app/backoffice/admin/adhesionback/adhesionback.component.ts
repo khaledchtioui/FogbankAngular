@@ -8,6 +8,8 @@ import { Club } from 'src/app/models/club';
 import { AuthServiceService } from 'src/app/service/user/auth-service.service';
 
 
+
+
 @Component({
   selector: 'app-adhesionback',
   templateUrl: './adhesionback.component.html',

@@ -6,6 +6,9 @@ import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators }
 import { Adhésion } from 'src/app/models/adhésion';
 import { AdhésionService } from 'src/app/service/Adhésion/adhésion.service';
 import ImageCompressor from 'image-compressor.js';
+import { ClubEvent } from 'src/app/models/ClubEvent';
+import { ClubEventService } from 'src/app/service/club-event/club-event.service';
+import { ClubSpace } from 'src/app/models/ClubSpace';
 
 @Component({
   selector: 'app-clubbackedit',
@@ -15,6 +18,7 @@ import ImageCompressor from 'image-compressor.js';
 
 export class ClubbackeditComponent implements OnInit{
   clubForm!: FormGroup;
+  clubeventForm!: FormGroup;
   adhesions: Adhésion[] = [];
 
   clubId: string = '';
@@ -27,7 +31,19 @@ export class ClubbackeditComponent implements OnInit{
     cat: '',
     image: '',
     Adhésions: [],
-    users: []
+    users: [],
+    clubSpace: undefined 
+  };
+
+  clubEvent: ClubEvent = {
+    id: 0,
+    title: '',
+    description: '',
+    date: '',
+    mc: '',
+    img: '',
+    comments: [],
+    clubSpace: undefined
   };
 
   categories: string[] = [
@@ -40,7 +56,7 @@ export class ClubbackeditComponent implements OnInit{
     'OTHER'
   ];
 
-  constructor(private route: ActivatedRoute,private router: Router,private adhesionService: AdhésionService,private clubService: ClubService,private formBuilder: FormBuilder) {}
+  constructor(private clubEventService:ClubEventService,private route: ActivatedRoute,private router: Router,private adhesionService: AdhésionService,private clubService: ClubService,private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
   this.route.paramMap.subscribe(params => {
@@ -54,6 +70,7 @@ export class ClubbackeditComponent implements OnInit{
     }
   });
   this.initForm();
+  this.initFormm();
 }
 
 initForm(): void {
@@ -64,6 +81,14 @@ initForm(): void {
     rs:  ['', Validators.required],
     cat: ['Select Category', Validators.required],
     image:  ['', Validators.required]
+  });
+}
+
+initFormm(): void {
+  this.clubeventForm = this.formBuilder.group({
+    title: ['', [Validators.required]],
+    mc: ['', [Validators.required]],
+    description: ['', [Validators.required]]
   });
 }
 
@@ -114,6 +139,7 @@ setFormValues(): void {
       (club: Club) => {
         this.club = club;
         this.initForm();
+        this.initFormm();
         this.setFormValues();
       },
       (error) => {
@@ -166,6 +192,45 @@ setFormValues(): void {
   navigateToApplyConfirmation(id: string): void {
     this.router.navigate(['/admin/club/apply', id]);
   }
+
+
+
+  
+
+  addEvent() {
+    if (this.clubeventForm.invalid) {
+      return; 
+    }
+  
+    this.clubEvent.title = this.clubeventForm.get('title')?.value ?? '';
+    this.clubEvent.description = this.clubeventForm.get('description')?.value ?? '';
+    this.clubEvent.date = this.clubeventForm.get('date')?.value ?? '';
+    this.clubEvent.mc = this.clubeventForm.get('mc')?.value ?? '';
+  
+    // Check if clubSpace is null or not
+    if (this.club.clubSpace) {
+      // If clubSpace is not null, assign its spaceid to clubEvent
+      this.clubEvent.clubSpace = this.club.clubSpace;
+    } else {
+      // If clubSpace is null, handle it according to your application's logic
+      console.error('Error: clubSpace is null');
+      // Optionally, you can set a default value or display an error message
+      return;
+    }
+  
+    this.clubEventService.addEvent(this.clubEvent).subscribe(
+      (response) => {
+        console.log('Club event added successfully:', response);
+        console.log(this.clubEvent);
+        // Optionally, navigate to another page after adding the club event
+        this.router.navigate(['/admin/clubs']);
+      },
+      (error) => {
+        console.error('Error adding club event:', error);
+      }
+    );
+  }
+  
   
 
 }
