@@ -26,9 +26,6 @@ export class AjouterReponseComponent implements OnInit{
       sujet: ['', [Validators.required]]
     });
 
-    this.reponseSurUnePublication.publicationInitiale=this.publicationInitiale;
-
-
 
   }
 
@@ -41,16 +38,23 @@ export class AjouterReponseComponent implements OnInit{
 
       // @ts-ignore
       this.reponseSurUnePublication.description=this.myForm.get('sujet').value;
+      this.reponseSurUnePublication.publicationInitiale=new PublicationInitiale();
 
-      console.log(this.reponseSurUnePublication)
+      this.reponseSurUnePublication.publicationInitiale.idPublication=this.publicationInitiale.idPublication;
+
       this.reponseSurUnePublication.user=this.serviceUser.getCurrentUser()
+
+
+
+
+      console.log(JSON.stringify(this.reponseSurUnePublication))
 
       this.crudService.ajouter(this.reponseSurUnePublication,"/ReponsePublication").subscribe(
         (data) => {
           if (data !=null)
           {
             console.log("succes")
-            window.location.reload();
+           window.location.reload();
 
           }
           else console.log("fail");

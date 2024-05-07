@@ -19,8 +19,9 @@
       <p class="rev-info">{{post.description}}</p>
       <div class="course-share d-flex  justify-content-center">
         <p>{{post.likePublicationList.length}}</p>
-        <button button (click)="like()"><i class="fa-regular fa-heart"></i></button>
-      </div>
+        <button (click)="like()"  [style.background-color]="buttonColor" style="background-color: #3498db; color: #fff; border: none; padding: 8px 20px; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease;">
+          <i class="fa-regular fa-heart"></i> {{likeDescription}}
+        </button>      </div>
       <p>Nombre de réponse:{{post.reponsePublicationList.length}}</p>
 
       <p class="rev-info">nombre de vue:{{post.vue}}</p>

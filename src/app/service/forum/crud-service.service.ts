@@ -39,6 +39,11 @@ export class CrudServiceService {
     return this.http.get<any[]>(`${baseUrl}`+gestionApi)
   }
 
+  supprimer(id:number,gestionApi:string):Observable<any>{
+    // return this.http.get<any>(`${baseUrl}`+gestionApi+id.toString(),this.header);
+
+    return this.http.delete<any>(`${baseUrl}`+gestionApi+id.toString());
+  }
 
 
 }

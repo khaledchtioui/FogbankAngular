@@ -1,24 +1,31 @@
-<div class="comman-space bdr-bottom-line">
-  <div class="instruct-review-blk ">
-    <div class="review-item">
-      <div class="instructor-wrap border-0 m-0">
+<div class="comman-space bdr-bottom-line" style="padding: 20px; background-color: #f9f9f9;">
+  <div class="instruct-review-blk" style="background-color: #fff; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+    <div class="review-item" style="padding: 20px;">
+      <div class="instructor-wrap border-0 m-0" style="display: flex; align-items: center;">
         <div class="about-instructor">
           <div class="abt-instructor-img">
+            <!-- Add instructor image here -->
+            <img src="path_to_image" alt="Instructor Image" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; margin-right: 15px;">
           </div>
           <div class="instructor-detail">
+            <!-- Add instructor details here -->
+            <p>{{reponseSurUnePublication.user.firstname}}</p>
+            <p>Instructor Description</p>
           </div>
         </div>
-
       </div>
 
       <!-- <h1>{{reponseSurUnePublication.user.firstname}}</h1> -->
 
-      <p class="rev-info">{{reponseSurUnePublication.description}}</p>
-      <div class="course-share d-flex  justify-content-center">
+      <p class="rev-info" style="margin-bottom: 10px;">{{reponseSurUnePublication.description}}</p>
+      <div class="course-share d-flex justify-content-center">
         <p>{{reponseSurUnePublication.likePublicationList.length}}</p>
-        <button button (click)="like()"><i class="fa-regular fa-heart"></i></button>
-      </div>
+        <button (click)="like()"  [style.background-color]="buttonColor" style="background-color: #3498db; color: #fff; border: none; padding: 8px 20px; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease;">
+          <i class="fa-regular fa-heart"></i> {{likeDescription}}
+        </button>
+        <button mat-button (click)="openPopup()">Signaler</button>
 
+      </div>
     </div>
   </div>
 </div>

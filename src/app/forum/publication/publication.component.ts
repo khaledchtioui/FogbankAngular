@@ -14,6 +14,11 @@ import {SingalerPublicationComponent} from "../singaler-publication/singaler-pub
 export class PublicationComponent implements OnInit{
   @Input() post!: PublicationInitiale;
   likePost:LikePublication=new LikePublication();
+  liked!: boolean
+  buttonColor="white"
+
+  likeDescription="like";
+
 
 
 
@@ -21,6 +26,12 @@ export class PublicationComponent implements OnInit{
 
   ngOnInit() {
     console.log(this.post)
+    for (let i in this.post.likePublicationList)
+      if (this.post.likePublicationList[i].user.id == this.userService.getCurrentUser().id){
+        this.liked = true;
+        this.buttonColor="red"
+        this.likeDescription="liked"
+      }
   }
 constructor( private crudService :CrudServiceService,private userService: AuthServiceService,private dialog: MatDialog) {
 }
@@ -28,24 +39,50 @@ constructor( private crudService :CrudServiceService,private userService: AuthSe
     this.dialog.open(SingalerPublicationComponent, {
       data: { post: this.post }
     });  }
+
+
+
+
   like() {
-    this.likePost.publication=this.post;
-    this.likePost.user=this.userService.getCurrentUser()
-    console.log(this.likePost)
+    this.liked = false
+    for (let i in this.post.likePublicationList) {
+      if (this.post.likePublicationList[i].user.id == this.userService.getCurrentUser().id) {
+        this.liked = true;
+        this.crudService.supprimer(this.post.likePublicationList[i].idLike,
+          "/LikePublication/").subscribe(
+          (data) => {
 
-    this.crudService.ajouter(this.likePost,"/LikePublication").subscribe(
-      (data) => {
-        if (data !=null)
-        {
-          console.log("succes")
-          window.location.reload();
+            window.location.reload();
+
+          },
+        );
+        break;
+      }
+    }
+
+    if (!this.liked) {
+      this.likePost.publication = new PublicationInitiale();
+
+      this.likePost.publication.idPublication = this.post.idPublication;
+      this.likePost.user = this.userService.getCurrentUser();
+      console.log(this.likePost)
+      this.crudService.ajouter(this.likePost, "/LikePublication").subscribe(
+        (data) => {
+          if (data != null) {
+            console.log("succes")
+            window.location.reload();
 
 
-        }
-        else console.log("fail");
-      },
+          } else console.log("fail");
+        },
+      );
 
-    );
+    } else if (this.liked) {
+
+
+    }
 
   }
+
+
 }

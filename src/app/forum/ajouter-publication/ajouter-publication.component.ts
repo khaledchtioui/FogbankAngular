@@ -38,6 +38,8 @@ export class AjouterPublicationComponent implements OnInit{
       // @ts-ignore
       this.publication.description=this.myForm.get('sujet').value;
       this.publication.user=this.userService.getCurrentUser()
+      console.log(this.publication)
+
       this.crudService.ajouter(this.publication,"/PublicationInitiale").subscribe(
         (data) => {
           if (data !=null)

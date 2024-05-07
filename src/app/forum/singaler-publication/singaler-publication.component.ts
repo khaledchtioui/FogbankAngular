@@ -41,7 +41,9 @@ export class SingalerPublicationComponent {
       this.singalement.commentaire=this.myForm.get('commentaire').value;
       // @ts-ignore
       this.singalement.user=this.userService.getCurrentUser()
-      this.singalement.publication=this.data.post
+      this.singalement.publication=new PublicationInitiale()
+
+      this.singalement.publication.idPublication=this.data.post.idPublication
       this.crudService.ajouter(this.singalement,"/Signalement").subscribe(
         (data) => {
           if (data !=null)
