@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {catchError, Observable, throwError} from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { Article } from 'src/app/models/Article';
-import {User} from "../../models/User";
 
 @Injectable({
   providedIn: 'root',
 })
 export class ArticleService {
   private baseUrl = 'http://localhost:8087/Articles';
+
+  private baseUrl2 = 'http://localhost:8087/Likes';
 
   constructor(private http: HttpClient) {}
 
@@ -24,45 +25,49 @@ export class ArticleService {
     return this.http.delete<void>(`${this.baseUrl}/${articleId}`);
   }
 
-
-  getArticlePhotoUrl(articleId: string | undefined): string | null {
-    if (!articleId) {
-      return null; // Return null if userId is not defined
-    }
-    return `${this.baseUrl}/article/${articleId}/photo`;
+  addArticle(data: any, userId: any): Observable<Article> {
+    console.log('data');
+    console.log(data);
+    return this.http.post<Article>(`${this.baseUrl}/${userId}`, data);
   }
 
+  uploadImage(id: any, file: File): Observable<Article> {
+    const formData: FormData = new FormData();
+    formData.append('fileImage', file);
 
-
-
-
-
-
-
-
-
-  addArticleWithUser(formData: FormData, userId: number): Observable<any> {
-    const headers = new HttpHeaders();
-    headers.append('Content-Type', 'multipart/form-data');
-    return this.http.post<any>(`${this.baseUrl}/addArticleWithUser/${userId}`, formData, { headers })
-      .pipe(
-        catchError(this.handleError)
-      );
+    return this.http.post<Article>(
+      `${this.baseUrl}/uploadImage/${id}`,
+      formData
+    );
   }
 
-
-  private handleError(error: any) {
-    console.error('Error occurred:', error);
-    return throwError('Something went wrong; please try again later.');
+  updateArticle(data: any): Observable<Article> {
+    console.log('data');
+    console.log(data);
+    return this.http.put<Article>(this.baseUrl, data);
   }
 
+  shareFb(id: any): Observable<String> {
+    console.log('data');
+    return this.http.post<String>(`${this.baseUrl}/shareFb/${id}`, 'shared');
+  }
 
+  getAllArticlesByUserId(userId: any): Observable<Article[]> {
+    return this.http.get<Article[]>(`${this.baseUrl}/user/${userId}`);
+  }
 
+  checkIfUserLike(userId: any, articleId: any): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl2}/${userId}/${articleId}`);
+  }
 
+  addLike(userId: any, articleId: any): Observable<any> {
+    return this.http.post<any>(
+      `${this.baseUrl2}/${userId}/${articleId}`,
+      'liked'
+    );
+  }
 
-
-
-
-
-
+  deleteLike(id: any): Observable<void> {
+    return this.http.delete<void>(`${this.baseUrl2}/${id}`);
+  }
 }

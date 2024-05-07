@@ -1,0 +1,12 @@
+.addNewArticle--user {
+  background-color: #f6697b;
+  border-color: #f6697b;
+  color: #fff;
+  padding: 1rem 2rem;
+  border-radius: 10rem;
+}
+
+.addNewArticle--user__container {
+  margin-bottom: 3rem;
+  margin-top: -2rem;
+}

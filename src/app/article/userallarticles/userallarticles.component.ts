@@ -1,27 +1,37 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Article } from 'src/app/models/Article';
 import { ArticleService } from 'src/app/service/Article/article.service';
-import { Router } from '@angular/router';
+import { AuthServiceService } from 'src/app/service/user/auth-service.service';
 
 @Component({
-  selector: 'app-allarticle',
-  templateUrl: './allarticle.component.html',
-  styleUrls: ['./allarticle.component.css'],
+  selector: 'app-userallarticles',
+  templateUrl: './userallarticles.component.html',
+  styleUrls: ['./userallarticles.component.css'],
 })
-export class AllarticleComponent implements OnInit {
+export class UserallarticlesComponent implements OnInit {
   articles: any[] = [];
+  userId: any;
+  currentUser: any;
 
-  constructor(private articleService: ArticleService, private router: Router) {}
-
+  constructor(
+    private articleService: ArticleService,
+    private authService: AuthServiceService,
+    private router: Router
+  ) {}
   ngOnInit(): void {
+    this.currentUser = this.authService.getCurrentUser();
+    this.userId = this.currentUser.id;
+
     this.loadArticles();
   }
 
   loadArticles(): void {
-    this.articleService.getAllArticles().subscribe(
+    this.articleService.getAllArticlesByUserId(this.userId).subscribe(
       (articles) => {
         console.log(articles);
         this.articles = articles;
+        this.userId = this.currentUser.id;
       },
       (error) => {
         console.log(
@@ -31,10 +41,9 @@ export class AllarticleComponent implements OnInit {
       }
     );
   }
-
   showArticleDetails(article: Article): void {
     if (article.id) {
-      this.router.navigate(['/articledetails', article.id]);
+      this.router.navigate(['/user/updatearticle', article.id]);
     }
   }
 
@@ -45,7 +54,6 @@ export class AllarticleComponent implements OnInit {
       this.ngOnInit();
     });
   }
-
   shareFb(id: any): void {
     this.articleService.shareFb(id).subscribe(
       (res) => {

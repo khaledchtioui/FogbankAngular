@@ -11,11 +11,10 @@
         <!-- Sidebar -->
         <div class="col-xl-3 col-lg-4 col-md-12 theiaStickySidebar">
           <!-- <app-sidebar2></app-sidebar2> -->
-
-          <app-side-bar-article
+          <app-user-side-bar
             [buttonName]="'Creat new article'"
-            [buttonLink]="'/admin/addArticle'"
-          ></app-side-bar-article>
+            [buttonLink]="'/user/addArticle'"
+          ></app-user-side-bar>
         </div>
 
         <!-- /Sidebar -->
@@ -148,7 +147,7 @@
                                   </a>
                                   <a
                                     [routerLink]="[
-                                      '/admin/updateArticle/',
+                                      '/user/updatearticle/',
                                       article.id
                                     ]"
                                     style="margin-right: 10px; font-size: 20px"

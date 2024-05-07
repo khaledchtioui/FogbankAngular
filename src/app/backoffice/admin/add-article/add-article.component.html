@@ -1,0 +1,299 @@
+<!-- Main Wrapper -->
+<div class="main-wrapper">
+  <!-- Header -->
+  <app-navbar3></app-navbar3>
+  <!-- /Header -->
+
+  <!--Dashbord Student -->
+  <div class="page-content">
+    <div class="container">
+      <div class="row">
+        <!-- sidebar -->
+        <div class="col-xl-3 col-md-4 theiaStickySidebar">
+          <app-side-bar-article
+            [buttonName]="'Articles'"
+            [buttonLink]="'/admin/allarticle'"
+          ></app-side-bar-article>
+          <!-- <app-sidebar2></app-sidebar2> -->
+        </div>
+        <!-- /sidebar -->
+
+        <!-- Profile Details -->
+        <div class="col-xl-9 col-md-8">
+          <div class="settings-widget profile-details">
+            <div class="settings-menu p-0">
+              <div class="profile-heading">
+                <h3>Add New Article</h3>
+              </div>
+              <div class="checkout-form personal-address add-course-info">
+                <form #f="ngForm" (ngSubmit)="submitForm(f.value)">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="input-block">
+                        <label class="form-control-label">Title</label>
+                        <input
+                          #nomField="ngModel"
+                          type="text"
+                          class="form-control"
+                          placeholder="Title"
+                          id="title"
+                          name="titre"
+                          ngModel
+                          required
+                          minlength="3"
+                          pattern="[a-zA-Z]+[a-zA-Z ]*"
+                          [ngClass]="{
+                            inputError: nomField.invalid && nomField.touched
+                          }"
+                        />
+                        <div
+                          *ngIf="
+                            nomField.invalid &&
+                            (nomField.dirty || nomField.touched)
+                          "
+                        >
+                          <span
+                            class="errorField"
+                            *ngIf="nomField.errors?.['required']"
+                            >Title is required.</span
+                          >
+                          <span
+                            class="errorField"
+                            *ngIf="nomField.errors?.['pattern']"
+                            >Title must contain only letters.</span
+                          >
+                          <span
+                            class="errorField"
+                            *ngIf="nomField.errors?.['minlength']"
+                            >title can't be shorter than 3 characters
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-12">
+                      <div class="input-block">
+                        <label class="form-control-label">Content</label>
+                        <textarea
+                          class="form-control"
+                          #contenuField="ngModel"
+                          placeholder="Enter Your content"
+                          id="contenu"
+                          name="contenu"
+                          ngModel
+                          required
+                          minlength="3"
+                          [ngClass]="{
+                            inputError:
+                              contenuField.invalid && contenuField.touched
+                          }"
+                        ></textarea>
+                        <div
+                          *ngIf="
+                            contenuField.invalid &&
+                            (contenuField.dirty || contenuField.touched)
+                          "
+                        >
+                          <span
+                            class="errorField"
+                            *ngIf="contenuField.errors?.['required']"
+                            >Contenu is required.</span
+                          >
+                          <span
+                            class="errorField"
+                            *ngIf="contenuField.errors?.['minlength']"
+                            >contenu can't be shorter than 10 characters
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-12">
+                      <div class="input-block">
+                        <div class="article_imageInput_container">
+                          <div class="article-input__image__container">
+                            <img
+                              class="article-input__image"
+                              [src]="imageUrl"
+                              alt="Image Preview"
+                            />
+                          </div>
+
+                          <input
+                            type="file"
+                            accept="image/*"
+                            id="Image"
+                            name="image"
+                            ngModel
+                            #fileInput
+                            style="display: none"
+                            (change)="onFileSelected($event)"
+                          />
+
+                          <button
+                            type="button"
+                            mat-flat-button
+                            class="Extended-Fab"
+                            (click)="triggerFileInputClick()"
+                          >
+                            Select Image
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="update-profile">
+                      <button type="submit" class="btn btn-primary">
+                        Add New Article
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Profile Details -->
+      </div>
+    </div>
+  </div>
+  <!-- /Dashbord Student -->
+
+  <!-- Footer -->
+  <footer class="footer">
+    <!-- Footer Top -->
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 col-md-6">
+            <!-- Footer Widget -->
+            <div class="footer-widget footer-about">
+              <div class="footer-logo">
+                <img src="assets/img/logo.svg" alt="logo" />
+              </div>
+              <div class="footer-about-content">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
+                  consequat mauris Lorem ipsum dolor sit amet, consectetur
+                  adipiscing elit. Ut consequat mauris
+                </p>
+              </div>
+            </div>
+            <!-- /Footer Widget -->
+          </div>
+
+          <div class="col-lg-2 col-md-6">
+            <!-- Footer Widget -->
+            <div class="footer-widget footer-menu">
+              <h2 class="footer-title">For Instructor</h2>
+              <ul>
+                <li><a href="instructor-profile.html">Profile</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="register.html">Register</a></li>
+                <li><a href="instructor-list.html">Instructor</a></li>
+                <li>
+                  <a href="deposit-instructor-dashboard.html"> Dashboard</a>
+                </li>
+              </ul>
+            </div>
+            <!-- /Footer Widget -->
+          </div>
+
+          <div class="col-lg-2 col-md-6">
+            <!-- Footer Widget -->
+            <div class="footer-widget footer-menu">
+              <h2 class="footer-title">For Student</h2>
+              <ul>
+                <li><a href="student-profile.html">Profile</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="register.html">Register</a></li>
+                <li><a href="students-list.html">Student</a></li>
+                <li><a href="deposit-student-dashboard.html"> Dashboard</a></li>
+              </ul>
+            </div>
+            <!-- /Footer Widget -->
+          </div>
+
+          <div class="col-lg-4 col-md-6">
+            <!-- Footer Widget -->
+            <div class="footer-widget footer-contact">
+              <h2 class="footer-title">News letter</h2>
+              <div class="news-letter">
+                <form>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Enter your email address"
+                    name="email"
+                  />
+                </form>
+              </div>
+              <div class="footer-contact-info">
+                <div class="footer-address">
+                  <img
+                    src="assets/img/icon/icon-20.svg"
+                    alt=""
+                    class="img-fluid"
+                  />
+                  <p>
+                    3556 Beech Street, San Francisco,<br />
+                    California, CA 94108
+                  </p>
+                </div>
+                <p>
+                  <img
+                    src="assets/img/icon/icon-19.svg"
+                    alt=""
+                    class="img-fluid"
+                  />
+                  <a
+                    href="https://dreamslms.dreamstechnologies.com/cdn-cgi/l/email-protection"
+                    class="__cf_email__"
+                    data-cfemail="d5b1a7b0b4b8a6b9b8a695b0adb4b8a5b9b0fbb6bab8"
+                    >[email&#160;protected]</a
+                  >
+                </p>
+                <p class="mb-0">
+                  <img
+                    src="assets/img/icon/icon-21.svg"
+                    alt=""
+                    class="img-fluid"
+                  />
+                  +19 123-456-7890
+                </p>
+              </div>
+            </div>
+            <!-- /Footer Widget -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /Footer Top -->
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <div class="container">
+        <!-- Copyright -->
+        <div class="copyright">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="privacy-policy">
+                <ul>
+                  <li><a href="term-condition.html">Terms</a></li>
+                  <li><a href="privacy-policy.html">Privacy</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="copyright-text">
+                <p class="mb-0">&copy; 2023 DreamsLMS. All rights reserved.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /Copyright -->
+      </div>
+    </div>
+    <!-- /Footer Bottom -->
+  </footer>
+  <!-- /Footer -->
+</div>
+<!-- /Main Wrapper -->

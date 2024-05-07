@@ -1,8 +1,5 @@
-
-
 <!-- Main Wrapper -->
 <div class="main-wrapper">
-
   <app-navbar2></app-navbar2>
   <!-- /Breadcrumb -->
 
@@ -11,12 +8,16 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-9 col-md-12">
-
           <!-- Blog Post -->
           <div class="blog">
             <div class="blog-image">
-              <a href="blog-details.html">
-                <img class="img-fluid"   [src]="getArticlePhoto(article.id)"  alt="Post Image"></a>
+              <a href="blog-details.html"
+                ><img
+                  class="img-fluid"
+                  [src]="
+                    'http://localhost:8087/upload-directory/' + article?.image
+                  "
+              /></a>
             </div>
             <div class="blog-info clearfix">
               <div class="post-left">
@@ -25,12 +26,41 @@
                     <div class="post-author">
                       <a href="instructor-profile.html">
                         <!-- Vous pouvez utiliser la propriété auteur de l'article ici -->
-                        <img src="../../../assets/img/user/user.jpg" alt="Post Author"> <span>{{ article?.auteur }}</span>
+                        <img
+                          src="../../../assets/img/user/user.jpg"
+                          alt="Post Author"
+                        />
+                        <span>{{
+                          article?.auteur.firstname +
+                            " " +
+                            article?.auteur.lastname
+                        }}</span>
                       </a>
                     </div>
                   </li>
                   <!-- Utilisez la propriété date de l'article ici -->
-                  <li><img class="img-fluid" src="../../../assets/img/icon/icon-22.svg" alt="">{{ article?.date | date }}</li>
+                  <li>
+                    <img
+                      class="img-fluid"
+                      src="../../../assets/img/icon/icon-22.svg"
+                      alt=""
+                    />{{ article?.date | date }}
+                  </li>
+                  <li class="likeArticle__container">
+                    <i
+                      class="far fa-heart cursorP"
+                      *ngIf="like == null"
+                      (click)="addLike()"
+                    ></i>
+                    <i
+                      class="fas fa-heart cursorP"
+                      *ngIf="like != null"
+                      (click)="deleteLike()"
+                    ></i>
+                    <div>
+                      {{ article.likes ? article.likes.length : 0 }} Likes
+                    </div>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -43,11 +73,165 @@
           </div>
           <!-- /Blog Post -->
 
+          <!-- Reviews -->
+          <div class="card review-sec">
+            <div class="card-body">
+              <h5 class="subs-title">Reviews</h5>
+              <div class="oneReview" *ngFor="let comment of article?.comments">
+                <div class="instructor-wrap">
+                  <div class="about-instructor">
+                    <div class="abt-instructor-img">
+                      <a href="instructor-profile.html"
+                        ><img
+                          src="assets/img/user/user1.jpg"
+                          alt="img"
+                          class="img-fluid"
+                      /></a>
+                    </div>
+                    <div class="instructor-detail">
+                      <h5>
+                        <a href="instructor-profile.html">{{
+                          comment.user.firstname + "" + comment.user.lastname
+                        }}</a>
+                      </h5>
+                      <!-- <p>UX/UI Designer</p> -->
+                    </div>
+                  </div>
+                </div>
+                <p class="rev-info">
+                  {{ "“" + comment.comment + "“" }}
+                </p>
+
+                <div class="reviewDate-Btns">
+                  <div class="cmt-date">
+                    <b>Created at :</b> {{ comment.datec | date }}
+                  </div>
+                  <!-- <div
+                    (click)="analyzeSentiment(comment.comment)"
+                    class="sentimentAnalysis"
+                  >
+                    seeentiment
+                  </div> -->
+                  <div *ngIf="currentUser.role === 'ADMIN'">
+                    <!-- {{ currentUser.role }} -->
+                    <app-sentiment-analysis
+                      [comment]="comment.comment"
+                    ></app-sentiment-analysis>
+                  </div>
+                  <div
+                    class="cmt--btns btn-group"
+                    *ngIf="userId === comment.user.id"
+                  >
+                    <a
+                      (click)="isEditing = !isEditing"
+                      (click)="getCommentDetails(comment.idc)"
+                      class="cmt--btn update"
+                      style="margin-right: 10px; font-size: 20px"
+                    >
+                      <i class="feather feather-edit"></i
+                    ></a>
+                    <a
+                      (click)="onDeleteComment(comment.idc)"
+                      class="cmt--btn delete"
+                      style="margin-right: 10px; font-size: 20px"
+                    >
+                      <i class="feather feather-trash-2"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <!-- -->
+            </div>
+          </div>
+          <!-- /Reviews -->
+
+          <!-- Comment -->
+          <div class="card comment-sec">
+            <div class="card-body">
+              <h5 *ngIf="!isEditing" class="subs-title">Post A comment</h5>
+              <form
+                *ngIf="!isEditing"
+                #f="ngForm"
+                (ngSubmit)="submitForm(f.value)"
+              >
+                <div class="input-block">
+                  <textarea
+                    rows="4"
+                    class="form-control"
+                    #contenuField="ngModel"
+                    placeholder="Enter Your comment"
+                    id="contenu"
+                    name="comment"
+                    ngModel
+                    required
+                    [ngClass]="{
+                      inputError: contenuField.invalid && contenuField.touched
+                    }"
+                  ></textarea>
+                  <div
+                    *ngIf="
+                      contenuField.invalid &&
+                      (contenuField.dirty || contenuField.touched)
+                    "
+                  >
+                    <span
+                      class="errorField"
+                      *ngIf="contenuField.errors?.['required']"
+                      >Contenu is required.</span
+                    >
+                  </div>
+                </div>
+                <div class="submit-section">
+                  <button class="btn submit-btn" type="submit">Submit</button>
+                </div>
+              </form>
+
+              <!-- end add form && start update form -->
+              <h5 *ngIf="isEditing" class="subs-title">Update A comment</h5>
+              <form
+                *ngIf="isEditing"
+                #uf="ngForm"
+                (ngSubmit)="submitFormUpdate(uf.value)"
+              >
+                <div class="input-block">
+                  <textarea
+                    rows="4"
+                    class="form-control"
+                    #contenuField="ngModel"
+                    placeholder="Enter Your comment"
+                    id="contenu"
+                    name="comment"
+                    ngModel
+                    required
+                    [ngClass]="{
+                      inputError: contenuField.invalid && contenuField.touched
+                    }"
+                    [(ngModel)]="comment"
+                  ></textarea>
+                  <div
+                    *ngIf="
+                      contenuField.invalid &&
+                      (contenuField.dirty || contenuField.touched)
+                    "
+                  >
+                    <span
+                      class="errorField"
+                      *ngIf="contenuField.errors?.['required']"
+                      >Contenu is required.</span
+                    >
+                  </div>
+                </div>
+                <div class="submit-section">
+                  <button class="btn submit-btn" type="submit">Update</button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <!-- /Comment -->
         </div>
 
         <!-- Blog Sidebar -->
         <div class="col-lg-3 col-md-12 sidebar-right theiaStickySidebar">
-
           <!-- Tags -->
           <div class="card tags-widget blog-widget tags-card">
             <div class="card-header">
@@ -56,18 +240,19 @@
             <div class="card-body">
               <ul class="tags">
                 <li><a href="javascript:void(0);" class="tag">HTML</a></li>
-                <li><a href="javascript:void(0);" class="tag">Java Script</a></li>
+                <li>
+                  <a href="javascript:void(0);" class="tag">Java Script</a>
+                </li>
                 <li><a href="javascript:void(0);" class="tag">Css</a></li>
                 <li><a href="javascript:void(0);" class="tag">Jquery</a></li>
                 <li><a href="javascript:void(0);" class="tag">Java</a></li>
                 <li><a href="javascript:void(0);" class="tag">React</a></li>
               </ul>
             </div>
-          </div>          <!-- /Tags -->
-
+          </div>
+          <!-- /Tags -->
         </div>
         <!-- /Blog Sidebar -->
-
       </div>
     </div>
   </section>
@@ -75,5 +260,4 @@
 
   <!-- Footer -->
   <!-- /Footer -->
-
 </div>
