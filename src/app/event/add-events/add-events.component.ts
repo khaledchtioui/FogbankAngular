@@ -10,6 +10,8 @@ import {EventService} from "../../service/event/event.service";
 export class AddEventsComponent {
   constructor(private eventService: EventService,private router: Router) { }
 
+  imageUrl: string | ArrayBuffer | null = null;
+
   newEvent: Event = {
     id: 0,
     titre: '',
@@ -44,4 +46,17 @@ export class AddEventsComponent {
       }
     );
   }
+
+  onFileSelected(event: any) {
+    const file: File = event.target.files[0];
+    const reader = new FileReader();
+
+    reader.onload = (e: any) => {
+        this.imageUrl = e.target.result; // Stocke l'URL de l'image dans une variable du composant
+    };
+
+    reader.readAsDataURL(file);
 }
+}
+
+

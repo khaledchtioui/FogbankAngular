@@ -8,6 +8,9 @@ import { Event } from 'src/app/models/event';
 })
 export class EventService {
   private baseUrl = 'http://localhost:8087/admin/events';
+  private userUrl = 'http://localhost:8087/user/events';
+
+
 
   constructor(private http: HttpClient) { }
 
@@ -30,5 +33,8 @@ export class EventService {
 
   getEvent(id: number): Observable<Event> {
     return this.http.get<Event>(`${this.baseUrl}/${id}`);
+  }
+  sendSms(eventId: number, phoneNumber: string): Observable<any> {
+    return this.http.post<any>(`${this.userUrl}/sendsms`, { phoneNumber });
   }
 }

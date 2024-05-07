@@ -28,6 +28,9 @@
   background-color: #c82333; 
 }
 
+.event-info {
+  margin-top: 20px;
+}
 
 
 .event-wrapper {
@@ -36,7 +39,7 @@
 }
 
 .event-item {
-  width: calc(100% - 20px); 
+  width: calc(110% - 20px); 
   margin: 10px;
   padding: 20px;
   border: 1px solid #ccc;
@@ -58,9 +61,6 @@
   border-radius: 5px;
 }
 
-.event-info {
-  margin-top: 20px;
-}
 
 .event-info h5 {
   font-size: 20px;
@@ -75,4 +75,7 @@
 .event-info button {
   margin-top: 10px;
   cursor: pointer;
+  padding: 8px 15px;
+  font-size: 14px; 
+
 }

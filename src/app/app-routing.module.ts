@@ -98,6 +98,8 @@ const appRoutes: Routes = [
   {path: "admin/events/edit/:id",component: UpdateEventsComponent },
   {path: "user/events", component: UserEventComponent },
   {path: "user/events/participate/:id", component: UserEventComponent },
+  {path: "user/events/sendsms", component: UserEventComponent },
+
 
 
 
