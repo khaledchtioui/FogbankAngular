@@ -41,6 +41,7 @@ import {ProductlistComponent} from "./LostAndFoundTemplate/AfficherProduct/Produ
 import {UserproductComponent} from "./LostAndFoundTemplate/userproduct/userproduct.component";
 import {MapComponent} from "./LostAndFoundTemplate/map/map.component";
 import {UpdateproductComponent} from "./LostAndFoundTemplate/updateproduct/updateproduct.component";
+import {ChangepasswordComponent} from "./changepassword/changepassword.component";
 
 
 
@@ -79,8 +80,9 @@ const appRoutes: Routes = [
   {path:"admin/edit",component:EditprofileComponent},
   {path:"student/delete",component:DeleteprofileComponent},
   {path:"admin/usersgrid",component:UsergridComponent},
-  { path: "admin/edit", component: EditprofileComponent },
+  {path: "admin/edit", component: EditprofileComponent },
   {path:"signin",component:SigninComponent},
+  {path:"changepassword",component:ChangepasswordComponent},
 
   {path:"AjouterProducts",component:AjouterProductComponent},
   {path:"Product",component:ProductlistComponent},

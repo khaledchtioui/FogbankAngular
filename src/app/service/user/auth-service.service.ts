@@ -11,9 +11,9 @@ import {TokenStorageService} from "./token-storage.service";
 })
 export class AuthServiceService {
 
-  private baseUrl = 'http://localhost:8087/api/v1/auth'; // Remplacez par l'URL de votre backend
-  private baseUrluser = 'http://localhost:8087/api/v1/user'; // Remplacez par l'URL de votre backend
-
+  private baseUrl = 'http://localhost:8087/api/v1/auth';
+  private baseUrluser = 'http://localhost:8087/api/v1/user';
+  private base = 'http://localhost:8087';
   constructor(private http: HttpClient, private tokenStorageService: TokenStorageService) { }
 
   signup(signUpRequest: any): Observable<User> {
@@ -70,5 +70,11 @@ export class AuthServiceService {
     formData.append('photo', blob);
     return this.http.post(`${this.baseUrluser}/${userId}/photo`, formData);
   }
+
+  changePassword(email: string, changePassword: {password: string, repeatpassword: string}): Observable<string> {
+    return this.http.post<string>(`${this.base}/forgetpassword/changePassword/${email}`, changePassword);
+  }
+
+
 
 }

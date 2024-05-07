@@ -54,6 +54,7 @@ import {AjouterProductComponent} from "./LostAndFoundTemplate/AjouterProduct/Ajo
 import {UserproductComponent} from "./LostAndFoundTemplate/userproduct/userproduct.component";
 import {MapComponent} from "./LostAndFoundTemplate/map/map.component";
 import {UpdateproductComponent} from "./LostAndFoundTemplate/updateproduct/updateproduct.component";
+import { ChangepasswordComponent } from './changepassword/changepassword.component';
 
 @NgModule({
   declarations: [
@@ -103,7 +104,8 @@ import {UpdateproductComponent} from "./LostAndFoundTemplate/updateproduct/updat
     AjouterProductComponent,
     UserproductComponent,
     UpdateproductComponent,
-    MapComponent
+    MapComponent,
+    ChangepasswordComponent
 
   ],
   imports: [
