@@ -26,15 +26,16 @@
               </div>
               <div class="course-group mb-0 d-flex">
                 <div class="course-group-img d-flex align-items-center">
-                  <a href="instructor-profile.html"><img src="assets/img/user/user11.jpg" alt="" class="img-fluid"></a>
+                  <a href="instructor-profile.html"><img [src]="userPhotoUrl || 'assets/img/instructor/profile-avatar.jpg'"></a>
                   <div class="course-name">
                     <h4><a href="instructor-profile.html">Your avatar</a></h4>
-                    <p>PNG or JPG no bigger than 800px wide and tall.</p>
-                  </div>
+                    </div>
                 </div>
                 <div class="profile-share d-flex align-items-center justify-content-center">
-                  <a href="javascript:void(0);" class="btn btn-success">Update</a>
-                  <a href="javascript:void(0);" class="btn btn-danger">Delete</a>
+                  <a class="btn btn-success" (click)="onUpdate()">Update</a>
+
+                  <input type="file" id="imageUpload" (change)="onFileSelected($event)" hidden>
+                  <button type="button" class="btn btn-success" (click)="onUploadButtonClick()">Upload Image</button>
                 </div>
               </div>
               <div class="checkout-form personal-address add-course-info">

@@ -58,6 +58,13 @@ import { AjouterReponseComponent } from './forum/ajouter-reponse/ajouter-reponse
 import { SingalerPublicationComponent } from './forum/singaler-publication/singaler-publication.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { SingalementListComponent } from './forum/singalement-list/singalement-list.component';
+import {AddArticleComponent} from "./article/add-article/add-article.component";
+import {ProductlistComponent} from "./LostAndFoundTemplate/AfficherProduct/Productlist.Component";
+import {AjouterProductComponent} from "./LostAndFoundTemplate/AjouterProduct/AjouterProduct.component";
+import {UserproductComponent} from "./LostAndFoundTemplate/userproduct/userproduct.component";
+import {MapComponent} from "./LostAndFoundTemplate/map/map.component";
+import {UpdateproductComponent} from "./LostAndFoundTemplate/updateproduct/updateproduct.component";
+import { ChangepasswordComponent } from './changepassword/changepassword.component';
 
 @NgModule({
   declarations: [
@@ -111,6 +118,14 @@ import { SingalementListComponent } from './forum/singalement-list/singalement-l
     DeleteEventsComponent,
     AdmineditprofileComponent,
     UserEventComponent,
+    AddArticleComponent,
+    ProductlistComponent,
+    AjouterProductComponent,
+    UserproductComponent,
+    UpdateproductComponent,
+    MapComponent,
+    ChangepasswordComponent
+    UserEventComponent,
     SingalementListComponent
 
   ],
@@ -124,6 +139,9 @@ import { SingalementListComponent } from './forum/singalement-list/singalement-l
     BrowserAnimationsModule,
     ReactiveFormsModule,
     MatDialogModule
+    ReactiveFormsModule,
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]

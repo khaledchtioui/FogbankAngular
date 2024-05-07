@@ -14,6 +14,8 @@ export class EditprofileComponent implements OnInit {
 
   currentUser:any;
   userForm!: FormGroup;
+  userPhotoUrl!: string;
+
 
   public user: User={
     id: this.authService.getCurrentUser().id ,
@@ -31,6 +33,7 @@ export class EditprofileComponent implements OnInit {
     this.currentUser = this.authService.getCurrentUser();
     this.authService.getUser(this.currentUser.id).subscribe(user => {
       this.user = user;
+      this.getUserPhoto() ;
       this.userForm.patchValue(user)
 
       console.log("user: " + this.user)
@@ -50,6 +53,64 @@ export class EditprofileComponent implements OnInit {
 
 
 
+  }
+
+  onFileSelected(event: any) {
+    if (event.target.files && event.target.files[0]) {
+      const file = event.target.files[0];
+      // Convert the file to a blob and store it in the user object
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        this.currentUser.photo = new Uint8Array(e.target.result);
+      };
+      reader.readAsArrayBuffer(file);
+    }
+  }
+
+  onUploadButtonClick() {
+    // Trigger the file input click event to open the file chooser dialog
+    document.getElementById('imageUpload')?.click();
+  }
+
+
+
+
+  onUpdate() {
+    if (this.userForm.valid) {
+      this.authService.updateUser(this.userForm.value).subscribe(
+        (updatedUser) => {
+          // After the user is updated, upload the photo
+          this.authService.uploadUserPhoto(this.currentUser.id, this.currentUser.photo).subscribe(
+            (response) => {
+              console.log('Photo uploaded successfully');
+            },
+            (error) => {
+              console.error('Error uploading photo:', error);
+            }
+          );
+
+          window.location.reload();
+
+
+        },
+        (error) => {
+          console.error('Error updating User:', error);
+        }
+      );
+    } else {
+      // Handle form invalid case
+    }
+  }
+
+  getUserPhoto(): void {
+    this.authService.getUserPhoto(this.currentUser.id)
+      .subscribe((photoBlob: Blob) => {
+        const reader = new FileReader();
+        reader.onloadend = () => {
+          this.userPhotoUrl = reader.result as string;
+        };
+        reader.readAsDataURL(photoBlob);
+      });
   }
 
 

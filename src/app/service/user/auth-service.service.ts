@@ -11,9 +11,9 @@ import {TokenStorageService} from "./token-storage.service";
 })
 export class AuthServiceService {
 
-  private baseUrl = 'http://localhost:8087/api/v1/auth'; // Remplacez par l'URL de votre backend
-  private baseUrluser = 'http://localhost:8087/api/v1/user'; // Remplacez par l'URL de votre backend
-
+  private baseUrl = 'http://localhost:8087/api/v1/auth';
+  private baseUrluser = 'http://localhost:8087/api/v1/user';
+  private base = 'http://localhost:8087';
   constructor(private http: HttpClient, private tokenStorageService: TokenStorageService) { }
 
   signup(signUpRequest: any): Observable<User> {
@@ -62,6 +62,17 @@ export class AuthServiceService {
       return null; // Return null if userId is not defined
     }
     return `${this.baseUrluser}/users/${userId}/photo`;
+  }
+
+  uploadUserPhoto(userId: number, photo: Uint8Array): Observable<any> {
+    const formData = new FormData();
+    const blob = new Blob([photo], { type: 'image/jpeg' }); // Adjust the image type as needed
+    formData.append('photo', blob);
+    return this.http.post(`${this.baseUrluser}/${userId}/photo`, formData);
+  }
+
+  changePassword(email: string, changePassword: {password: string, repeatpassword: string}): Observable<string> {
+    return this.http.post<string>(`${this.base}/forgetpassword/changePassword/${email}`, changePassword);
   }
 
 

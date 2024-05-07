@@ -1,0 +1,123 @@
+
+
+<!-- Main Wrapper -->
+<div class="main-wrapper">
+
+  <!-- Header -->
+  <app-navbar3></app-navbar3>
+  <!-- /Header -->
+
+  <!--Dashbord Student -->
+  <div class="page-content">
+    <div class="container">
+      <div class="row">
+
+        <!-- Sidebar -->
+        <div class="col-xl-3 col-lg-4 col-md-12 theiaStickySidebar">
+          <app-sidebar2></app-sidebar2>
+        </div>
+        <!-- /Sidebar -->
+
+        <div class="col-xl-9 col-md-8">
+          <form   (ngSubmit)="onSubmit()"  >
+          <div class="settings-widget profile-details">
+            <div class="settings-menu p-0">
+              <div class="profile-heading">
+                <h3>Product Details</h3>
+              </div>
+              <div class="course-group mb-0 d-flex">
+                <div class="course-group-img d-flex align-items-center">
+                  <div class="course-name">
+                    <div class="text-center">
+
+                    <h4><a href="instructor-profile.html">choose  picture</a></h4>
+
+                    <input  type="file" id="fileInput" class="form-control" style="display: none" (change)="onFileSelected($event)">
+                    <label for="fileInput">
+                      <img src="{{formData.picture}}" alt="Choose Picture" class="img-fluid">
+                    </label>
+                  </div>
+                  </div>
+
+
+
+                </div>
+                <div class="profile-share d-flex align-items-center justify-content-center">
+                </div>
+              </div>
+              <div class="checkout-form personal-address add-course-info">
+                <div class="personal-info-head">
+                  <h4>Product Details</h4>
+                </div>
+
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input type="text" id="name" class="form-control" name="name" [(ngModel)]="formData.name" placeholder="Enter your Name" required>
+                  <div *ngIf="errorMessageName" class="error-message" style="color: red;">
+                    {{ errorMessageName }}
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="description">Description</label>
+                  <input id="description" class="form-control" name="description" [(ngModel)]="formData.description" placeholder="Enter product description" rows="4">
+                  <div *ngIf="errorMessageDescription" class="error-message" style="color: red;">
+                    {{ errorMessageDescription }}
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="address">Address</label>
+                  <input type="text" id="address" class="form-control" name="address" [(ngModel)]="formData.address" placeholder="Enter your Address" required>
+                  <div *ngIf="errorMessageAddress" class="error-message" style="color: red;">
+                    {{ errorMessageAddress }}
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="phone">Phone</label>
+                  <input type="text" id="phone" class="form-control" name="phone" [(ngModel)]="formData.phone" placeholder="Enter your Phone" required>
+                  <div *ngIf="errorMessagePhone" class="error-message" style="color: red;">
+                    {{ errorMessagePhone }}
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" class="form-control" name="email" [(ngModel)]="formData.email" placeholder="Enter your Email" required>
+                  <div *ngIf="errorMessageEmail" class="error-message" style="color: red;">
+                    {{ errorMessageEmail }}
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="type">Type</label>
+                  <select id="type" class="form-control" name="type" [(ngModel)]="formData.type" required>
+                    <option value="">Select Type</option>
+                    <option value="info">Info</option>
+                    <option value="education">Education</option>
+                    <option value="accessoire">accessoire </option>
+                    <option value="vetement">vetement </option>
+                    <option value="cle">cle </option>
+
+                  </select>
+                  <div *ngIf="errorMessageType" class="error-message" style="color: red;">
+                    {{ errorMessageType }}
+                  </div>
+                </div>
+                <br>
+                <div class="text-center">
+
+                <button type="submit" class="btn btn-success mb-2">Ajouter</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /Dashbord Student -->
+
+  <!-- Footer -->
+  <app-footer></app-footer>
+  <!-- /Footer -->
+
+</div>
+<!-- /Main Wrapper -->

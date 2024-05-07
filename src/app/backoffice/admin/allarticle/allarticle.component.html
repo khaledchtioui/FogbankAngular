@@ -1,8 +1,5 @@
-
-
 <!-- Main Wrapper -->
 <div class="main-wrapper">
-
   <!-- Header -->
   <app-navbar3></app-navbar3>
   <!-- /Header -->
@@ -11,7 +8,6 @@
   <div class="page-content">
     <div class="container">
       <div class="row">
-
         <!-- Sidebar -->
         <div class="col-xl-3 col-lg-4 col-md-12 theiaStickySidebar">
           <app-sidebar2></app-sidebar2>
@@ -25,8 +21,11 @@
               <div class="settings-widget">
                 <div class="settings-inner-blk p-0">
                   <div class="sell-course-head comman-space">
-                    <h3>Courses</h3>
-                    <p>Manage your courses and its update like live, draft and insight.</p>
+                    <h3>Articles</h3>
+                    <p>
+                      Manage your articles and their updates like live, draft,
+                      and insights.
+                    </p>
                   </div>
                   <div class="comman-space pb-0">
                     <div class="instruct-search-blk">
@@ -34,14 +33,21 @@
                         <form action="#">
                           <div class="row gx-2 align-items-center">
                             <div class="col-md-6 col-item">
-                              <div class=" search-group">
+                              <div class="search-group">
                                 <i class="feather-search"></i>
-                                <input type="text" class="form-control" placeholder="Search our courses" >
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  placeholder="Search our articles"
+                                />
                               </div>
                             </div>
                             <div class="col-md-6 col-lg-6 col-item">
                               <div class="input-block select-form mb-0">
-                                <select class="form-select select"  name="sellist1">
+                                <select
+                                  class="form-select select"
+                                  name="sellist1"
+                                >
                                   <option>Choose</option>
                                   <option>Angular</option>
                                   <option>React</option>
@@ -53,48 +59,69 @@
                         </form>
                       </div>
                     </div>
-                    <div class="settings-tickets-blk course-instruct-blk table-responsive">
-
+                    <div
+                      class="settings-tickets-blk course-instruct-blk table-responsive"
+                    >
                       <!-- Referred Users-->
-                      <table class="table table-nowrap mb-2">
-                        <thead>
+                      <div class="container">
+                        <h2>Liste des Articles</h2>
+
+                        <table class="table table-nowrap mb-2">
+                          <thead>
                           <tr>
-                            <th>COURSES</th>
-                            <th>STUDENTS</th>
-                            <th>STATUS</th>
+                            <th>Articles</th>
+                            <th>Action</th>
                           </tr>
-                        </thead>
-                        <tbody>
+                          </thead>
+                          <tbody>
                           <tr *ngFor="let article of articles">
                             <td>
                               <div class="sell-table-group d-flex align-items-center">
                                 <div class="sell-group-img">
                                   <a href="course-details.html">
-                                    <img [src]="'assets/img/course/' " class="img-fluid" alt="">
+                                    <img  [src]="article.id ? getArticlePhoto(article.id) : 'assets/img/instructor/profile-avatar.jpg'" class="img-fluid" alt="">
+
+
+
+
                                   </a>
                                 </div>
                                 <div class="sell-tabel-info">
-                                  <p><a href="course-details.html">{{ article.titre }}</a></p>
+                                  <p>
+                                    <a href="course-details.html">{{ article.titre.length > 73 ? article.titre.substring(0, 73) + '...' : article.titre }}</a>
+                                  </p>
                                   <div class="course-info d-flex align-items-center border-bottom-0 pb-0">
                                     <div class="rating-img d-flex align-items-center">
                                       <img src="assets/img/icon/icon-01.svg" alt="">
-                                      <p>{{ article.auteur }}+ Lesson</p>
+                                      <p>{{ article.auteur }}</p>
                                     </div>
                                     <div class="course-view d-flex align-items-center">
                                       <img src="assets/img/icon/timer-start.svg" alt="">
-                                      <p>{{ article.contenu }}</p>
+                                      <p>{{ article.date | date }}</p>
                                     </div>
                                   </div>
                                 </div>
                               </div>
                             </td>
-                            <td>{{ article.date }}</td>
-                            <td><span class="badge info-low">{{ article.date }}</span></td>
+                            <td>
+                              <div class="btn-group" role="group">
+                                <a style="margin-right: 10px; font-size: 20px" role="button">
+                                  <i class="feather feather-edit"></i>
+                                </a>
+                                <a style="margin-right: 10px; font-size: 20px" role="button" (click)="showArticleDetails(article)">
+                                  <i class="feather feather-eye"></i>
+                                </a>
+                                <a style="font-size: 20px" role="button" (click)="deleteUser(article)">
+                                  <i class="feather feather-trash-2"></i>
+                                </a>
+                              </div>
+                            </td>
                           </tr>
-                        </tbody>
-                      </table>
-                             <!-- /Referred Users-->
+                          </tbody>
+                        </table>
 
+                      </div>
+                      <!-- /Referred Users-->
                     </div>
                   </div>
                 </div>
@@ -103,13 +130,9 @@
           </div>
         </div>
         <!-- /Instructor Dashboard -->
-
       </div>
     </div>
   </div>
   <!-- /Page Wrapper -->
-
-  <!-- Footer -->
-  <!-- /Footer -->
-
 </div>
+<!-- /Main Wrapper -->
