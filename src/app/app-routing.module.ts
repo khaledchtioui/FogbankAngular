@@ -39,6 +39,7 @@ import {AddEventsComponent} from "./event/add-events/add-events.component";
 import {DeleteEventsComponent} from "./event/delete-events/delete-events.component";
 import {UpdateEventsComponent} from "./event/update-events/update-events.component";
 import {UserEventComponent} from "./user-event/user-event.component";
+import {SingalementListComponent} from "./forum/singalement-list/singalement-list.component";
 
 
 
@@ -84,6 +85,8 @@ const appRoutes: Routes = [
   { path: 'publication/:id', component: DetailsPublicationComponent },
   { path: 'modifierPublication/:id', component: ModifierPublicationComponent },
   {path:'ajouterPublication',component:AjouterPublicationComponent},
+  {path:'admin/singalement',component:SingalementListComponent},
+
 
   {path:"article",component:ArticlefrontComponent},
   {path:"article/list",component:ArticlelistComponent},

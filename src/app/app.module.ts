@@ -57,6 +57,7 @@ import { ReponsePublicationDetailsComponent } from './forum/reponse-publication-
 import { AjouterReponseComponent } from './forum/ajouter-reponse/ajouter-reponse.component';
 import { SingalerPublicationComponent } from './forum/singaler-publication/singaler-publication.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { SingalementListComponent } from './forum/singalement-list/singalement-list.component';
 
 @NgModule({
   declarations: [
@@ -109,7 +110,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     GetEventsComponent,
     DeleteEventsComponent,
     AdmineditprofileComponent,
-    UserEventComponent
+    UserEventComponent,
+    SingalementListComponent
 
   ],
   imports: [
