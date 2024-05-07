@@ -92,7 +92,7 @@ export class AdhesionfrontComponent implements OnInit{
         console.log('Club added successfully:', response);
         console.log(this.adhesion.club);
         console.log(this.adhesion.user);
-        this.router.navigate(['/admin/clubs']);
+        this.router.navigate(['/student/club']);
       },
       (error) => {
         console.error('Error adding club:', error);

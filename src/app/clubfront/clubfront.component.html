@@ -78,7 +78,7 @@
 										<div class="product">
 											<div class="product-img">
 												
-													<img class="img-fluid" alt="" src="{{ club.image }}">
+													<img class="img-fluid" alt="" src="{{ club.image }}" (click)="resetRating(club.idclub)">
 												
 												<div class="price">
 													<h3>{{club.cat}}</h3>
@@ -127,18 +127,35 @@
 														<p>{{club.email}}</p>
 													</div>
 												</div>
-												<div class="rating">							
-													<i class="fas fa-star filled"></i>
-													<i class="fas fa-star filled"></i>
-													<i class="fas fa-star filled"></i>
-													<i class="fas fa-star filled"></i>
-													<i class="fas fa-star"></i>
-													<span class="d-inline-block average-rating"><span>4.0</span> (15)</span>
+												<div>
+													<div class="rating">		
+														<!-- Filled stars -->
+														<ng-container *ngFor="let filledStar of filledStarsArrays[clubId]">
+														  <i class="fas fa-star filled"></i>
+														</ng-container>
+														
+														<!-- Empty stars -->
+														<ng-container *ngFor="let emptyStar of emptyStarsArrays[clubId]">
+														  <i class="fas fa-star"></i>
+														</ng-container>
+														
+														<!-- Display rating and number of adhesions -->
+														<span class="d-inline-block average-rating"><span>{{ rating }}</span> ({{ numAdhesions }})</span>
+													  </div>
+													  
+													  
+													  
+												<div class="d-flex align-items-center justify-content-end" style="margin-left: auto;">
+													<a (click)="rateClub(club?.idclub || 0)"><i class="fa-regular fa-heart"></i></a>
 												</div>
+											</div>
 												
 											</div>
+											
 										</div>
+										
 									</div>
+									
 								</div>
 							</div>
 							

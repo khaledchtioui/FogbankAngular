@@ -13,6 +13,7 @@ export class AdhésionService {
   private baseUrl = 'http://localhost:8087/api/v1/admin/retrieveAllAdhésion';
   private addUrl  = 'http://localhost:8087/api/v1/admin/addAdhésion'; 
   private getUrl  = 'http://localhost:8087/api/v1/admin/adhesions/user'; 
+  private gettUrl  = 'http://localhost:8087/api/v1/admin/adhesions/userr'; 
   private upUrl  = 'http://localhost:8087/api/v1/admin/updateAdhesion';
 
 
@@ -62,6 +63,11 @@ export class AdhésionService {
         throw error; // Rethrow the error to the caller
       })
     );
+  }
+
+
+  retrieveAdhesionsByClubId(clubId: number): Observable<Adhésion[]> {
+    return this.http.get<Adhésion[]>(`${this.gettUrl}/${clubId}`);
   }
 
 

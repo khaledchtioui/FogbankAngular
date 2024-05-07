@@ -85,7 +85,7 @@ export class ClubbackaddComponent implements OnInit{
       (response) => {
         console.log('Club added successfully:', response);
         // Optionally, navigate to another page after adding the club
-        this.router.navigate(['/admin/clubs']);
+        this.router.navigate(['/admin/club']);
       },
       (error) => {
         console.error('Error adding club:', error);

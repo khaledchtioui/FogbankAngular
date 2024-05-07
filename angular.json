@@ -49,7 +49,8 @@
               "src/assets/plugins/select2/js/select2.min.js",
               "src/assets/plugins/slick/slick.js",
               "src/assets/plugins/swiper/js/swiper.min.js",
-              "src/assets/js/script.js"
+              "src/assets/js/script.js",
+              "node_modules/chart.js/dist/Chart.min.js"
             ]
           },
           "configurations": {

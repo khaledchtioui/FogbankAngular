@@ -1,4 +1,4 @@
-import { Component ,OnInit} from '@angular/core';
+import { Component ,OnInit, ViewChild} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder } from '@angular/forms';
 import { ClubService } from 'src/app/service/Club/club.service';
@@ -87,10 +87,13 @@ export class AdhesionbackComponent implements OnInit{
       );
     }
 
+
+    @ViewChild('statusUpdateModal') statusUpdateModal: any;
     updateAdd(adhesion:Adhésion): void {
       this.adhesionService.updateAdhésion(adhesion).subscribe(
         (updatedAdhesion: Adhésion) => {
             console.log('Adhesion updated successfully:', updatedAdhesion);
+            this.statusUpdateModal.nativeElement.show();
         },
         (error) => {
             console.error('Error updating adhesion:', error);

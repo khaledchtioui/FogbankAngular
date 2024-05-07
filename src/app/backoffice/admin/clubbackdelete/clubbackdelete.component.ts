@@ -23,7 +23,7 @@ export class ClubbackdeleteComponent implements OnInit{
   deleteClub(): void {
     this.clubService.deleteClub(this.clubId).subscribe(() => {
       // Club deleted successfully, navigate to another page
-      this.router.navigate(['/admin/clubs']);
+      this.router.navigate(['/admin/club']);
     }, error => {
       console.error('Error deleting club:', error);
     });

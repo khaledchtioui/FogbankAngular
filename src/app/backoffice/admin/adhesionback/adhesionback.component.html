@@ -167,12 +167,16 @@
 									<option value="Make Decision">Make Decision</option>
 									<option *ngFor="let decision of Decisions" [value]="decision">{{ decision }}</option>
 								  </select>
-								<a class="btn btn-primary" (click)="updateAdd(adhesion)">Save</a>
+								<a class="btn btn-primary" (click)="updateAdd(adhesion)" data-bs-toggle="modal" data-bs-target="#statusUpdateModal">Save</a>
 							  </div>
 
 
 						</div>	
 						<div style="margin-top: 20px; margin-bottom: 50px; border-top: 1px solid #ccc;"></div>
+					</div>
+
+					<div class="go-to-admin-club text-center" style="display: flex; justify-content: center; align-items: center; height: 8vh;">
+						<a class="btn btn-primary" routerLink="/admin/club" style="width: 400px; height: 50px; justify-content: center;">BACK</a>
 					</div>
 					
 					
@@ -188,5 +192,24 @@
 		   
 		</div>
 	   <!-- /Main Wrapper -->
+
+
+
+	   <div class="modal fade" id="statusUpdateModal" tabindex="-1" aria-labelledby="statusUpdateModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+		  <div class="modal-content">
+			<div class="modal-header">
+			  <h5 class="modal-title" id="statusUpdateModalLabel">Status Update</h5>
+			  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+			  Status updated successfully!
+			</div>
+			<div class="modal-footer">
+			  <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+			</div>
+		  </div>
+		</div>
+	  </div>
 	  
 	

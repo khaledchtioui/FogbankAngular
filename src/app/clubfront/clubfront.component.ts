@@ -14,8 +14,14 @@ import { AuthServiceService } from '../service/user/auth-service.service';
 export class ClubfrontComponent implements OnInit{
   clubs: Club[] = [];
   userAdhesions: Adhésion[] = [];
+  
+  
   constructor(private clubService: ClubService, private adhesionService: AdhésionService,private authService: AuthServiceService,private router: Router) { }
   
+  
+  
+
+
   ngOnInit(): void {
     this.retrieveClubs();
     this.retrieveUserAdhesions();
@@ -81,6 +87,86 @@ export class ClubfrontComponent implements OnInit{
     }
     return '';
 }
+
+
+
+
+  
+
+
+
+
+  filledStarsArrays: { [key: number]: string[] } = {};
+  emptyStarsArrays: { [key: number]: string[] } = {};
+  rating: number = 0;
+  numAdhesions: number = 0;
+  clubId!: number;
+  filledStars: number = 0;
+  emptyStars: number = 0;
+  
+rateClub(clubId: number): void {
+  if (clubId !== undefined) {
+    this.clubId = clubId;
+    // Get the click count for this club from localStorage
+    const clickCountString = localStorage.getItem(`clickCount_${clubId}`);
+    let clickCount = clickCountString ? +clickCountString : 0;
+
+    // Increment the click count for this club
+    clickCount++;
+    
+    // Update the click count for this club in localStorage
+    localStorage.setItem(`clickCount_${clubId}`, clickCount.toString());
+
+    console.log('Club ID:', clubId); // Log club ID to confirm it's not undefined
+    this.adhesionService.retrieveAdhesionsByClubId(clubId).subscribe(
+      (adhesions: Adhésion[]) => {
+        const numAdhesions = adhesions.length;
+        const rating = numAdhesions > 0 ? clickCount / numAdhesions : 0;
+        const filledStars = Math.min(Math.floor(rating), 5);
+        const emptyStars = Math.max(5 - filledStars, 0);
+        this.filledStars = filledStars;
+        this.emptyStars = emptyStars;
+        this.filledStarsArrays [clubId]= Array(filledStars).fill('');
+        this.emptyStarsArrays[clubId] = Array(emptyStars).fill('');
+        console.log('Filled Stars:', this.filledStars);
+        console.log('Empty Stars:', this.emptyStars);
+        console.log('Rating:', rating); // Log the rating
+      },
+      (error) => {
+        console.error('Error fetching adhesions:', error); // Log any errors
+      }
+    );
+  } else {
+    console.error('Club ID is undefined');
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+resetRating(clubId: number | undefined): void {
+  
+    localStorage.removeItem(`clickCount_${clubId}`); // Remove the specific rating count
+    console.log('Rating count for club', clubId, 'reset successfully.');
+  
+}
+
+
+
+
+
+
+
+
+
 
 
   

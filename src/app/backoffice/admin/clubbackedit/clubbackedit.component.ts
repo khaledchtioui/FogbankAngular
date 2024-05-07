@@ -178,7 +178,7 @@ setFormValues(): void {
       (updatedClub: Club) => {
         console.log('Club updated successfully:', updatedClub);
         // Optionally, navigate to another page after updating the club
-        this.router.navigate(['/admin/clubs']);
+        this.router.navigate(['/admin/club']);
       },
       (error) => {
         console.error('Error updating club:', error);
