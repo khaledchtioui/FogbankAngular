@@ -15,9 +15,27 @@
         <h4><a href="instructor-profile.html">{{ currentUser.firstname }} {{ currentUser.lastname }}</a></h4>
         <p>{{ currentUser.role }}</p>
       </div>
+
+
       <div class="go-dashboard text-center">
-        <a href="add-course.html" class="btn btn-primary">Create New Course</a>
+        <ng-container *ngIf="router.url === '/admin/allarticle'">
+          <a [routerLink]="['/admin/articleadd']"  class="btn btn-primary">Create New Article</a>
+        </ng-container>
+        <ng-container *ngIf="router.url === '/admin/usersgrid'">
+          <!-- Mettez le contenu pour '/admin/allarticle' ici -->
+        </ng-container>
+        <ng-container *ngIf="router.url === '/admin/events'">
+          <a  [routerLink]="['/admin/events/createEvents']" class="btn btn-primary">Create New Event</a>
+
+          <!-- Mettez le contenu pour '/admin/usersgrid' ici -->
+        </ng-container>
+        <ng-container *ngIf="router.url === '/admin/events'">
+          <!-- Mettez le contenu pour '/admin/events' ici -->
+        </ng-container>
       </div>
+
+
+
     </div>
   </div>
 </div>
@@ -26,23 +44,23 @@
   <div class="settings-menu">
     <h3>DASHBOARD</h3>
     <ul>
-      <li class="nav-item ">
+      <li class="nav-item " routerLinkActive="active">
         <a [routerLink]="['/admin/dahboard']" class="nav-link">
           <i class="feather-home"></i> My Dashboard
         </a>
       </li>
-      <li class="nav-item active">
-        <a [routerLink]="['/admin/allarticle']"class="nav-link">
+      <li class="nav-item" routerLinkActive="active">
+        <a [routerLink]="['/admin/allarticle']" class="nav-link">
           <i class="feather-book"></i> Articles
         </a>
       </li>
 
-      <li class="nav-item">
+      <li class="nav-item" routerLinkActive="active">
         <a [routerLink]="['/admin/usersgrid']" class="nav-link">
           <i class="feather-users"></i> Users
         </a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" routerLinkActive="active">
         <a [routerLink]="['/admin/events']" class="nav-link">
           <i class="feather-calendar"></i> Events
         </a>
