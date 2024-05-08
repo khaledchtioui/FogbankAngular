@@ -14,6 +14,7 @@ import { AuthServiceService } from '../service/user/auth-service.service';
 export class ClubfrontComponent implements OnInit{
   clubs: Club[] = [];
   userAdhesions: Adhésion[] = [];
+  adhesions: Adhésion[] = [];
   
   
   constructor(private clubService: ClubService, private adhesionService: AdhésionService,private authService: AuthServiceService,private router: Router) { }
@@ -25,7 +26,57 @@ export class ClubfrontComponent implements OnInit{
   ngOnInit(): void {
     this.retrieveClubs();
     this.retrieveUserAdhesions();
+    this.retrieveAdhesion();
   }
+
+  retrieveAdhesion():void{
+    this.adhesionService.retrieveAllAdhésion().subscribe(
+      (adhesion: Adhésion[])=>{
+        this.adhesions = adhesion;
+        this.displayTopClubsOfMonth();
+        console.log(adhesion);
+      },
+      (error) => {
+        console.error('Error fetching clubs:', error);
+      }
+    );
+  }
+
+  displayTopClubsOfMonth(): void {
+    // Filter adhesions for the current month
+    const currentMonth = new Date().getMonth() + 1; // Months are zero-based in JavaScript
+    const adhesionsThisMonth = this.adhesions.filter(adhesion => {
+      const adhesionDate = new Date(adhesion.dateAdhesion);
+      return adhesionDate.getMonth() + 1 === currentMonth && !isNaN(adhesionDate.getTime()); // Check if date is valid
+    });
+  
+    // Get the unique club IDs from adhesionsThisMonth
+    const clubIdsThisMonth = Array.from(new Set(adhesionsThisMonth.map(adhesion => adhesion.club?.idclub)));
+  
+    // Filter clubs based on the club IDs with adhesions this month
+    const clubsThisMonth = this.clubs.filter(club => clubIdsThisMonth.includes(club.idclub));
+  
+    // Calculate adhesion numbers for each club
+    const clubAdhesionCounts: { [clubId: number]: number } = {};
+    adhesionsThisMonth.forEach(adhesion => {
+      const clubId = adhesion.club?.idclub !== undefined && adhesion.club?.idclub !== null ? adhesion.club.idclub : -1;
+      if (clubId !== -1) {
+        clubAdhesionCounts[clubId] = (clubAdhesionCounts[clubId] || 0) + 1;
+      }
+    });
+  
+    // Sort clubs based on adhesion numbers
+    const sortedClubs = clubsThisMonth.slice().sort((a, b) => (clubAdhesionCounts[b.idclub !== undefined && b.idclub !== null ? b.idclub : -1] || 0) - (clubAdhesionCounts[a.idclub !== undefined && a.idclub !== null ? a.idclub : -1] || 0));
+  
+    // Display top 3 clubs
+    this.clubs = sortedClubs.slice(0, 3);
+  }
+  
+  
+  
+  
+
+  
 
   retrieveClubs(): void {
     this.clubService.retrieveAllClubs().subscribe(
