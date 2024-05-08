@@ -42,13 +42,19 @@
                   <div class="blog-content blog-read">
                     <p>{{ product.description }}</p>
                     <div class="button-container">
-                      <a [routerLink]="['/updateproduct', product.id]" class="btn btn-success">Update</a>
+                      <a [routerLink]="['/updateproducts', product.id]" class="btn btn-success">Update</a>
                       <span style="margin-right: 10px;"></span>
                       <a (click)="deleteProduct(product.id)" class="btn btn-danger">Delete</a>
                       <span style="margin-right: 10px;"></span>
                       <a (click)="openMap(product.id)" class="btn" style="background-color: #007bff; color: #fff; border-color: #007bff;">Map</a>
                     </div>
-
+                    <div  *ngIf="isUser()">
+                      <ngx-qrcode
+                        [value] = "value"
+                        cssClass = "aclass"
+                      >
+                      </ngx-qrcode>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -88,7 +94,7 @@
           </div>
           <!-- /Blog pagination -->
 
-        </div>
+          </div>
 
         <!-- Blog Sidebar -->
         <div class="col-lg-3 col-md-12 sidebar-right theiaStickySidebar">

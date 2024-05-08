@@ -1,0 +1,78 @@
+
+.event-info a,
+.event-info button {
+  margin-top: 10px;
+  cursor: pointer;
+  display: inline-block;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #fff; 
+  background-color: #e4750e; 
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.event-info a {
+  margin-right: 10px; 
+}
+
+.event-info button {
+  margin-right: 0; 
+  background-color: #dc3545; 
+}
+
+.event-info button:hover {
+  background-color: #c82333; 
+}
+
+
+
+.event-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.event-item {
+  width: calc(100% - 20px); 
+  margin: 10px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.event-img img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.price-amt {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.event-info {
+  margin-top: 20px;
+}
+
+.event-info h5 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.event-details p {
+  margin-bottom: 5px;
+}
+
+.event-info a,
+.event-info button {
+  margin-top: 10px;
+  cursor: pointer;
+}

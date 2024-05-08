@@ -1,8 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import * as L from 'leaflet';
 import 'leaflet-draw';
+import { ActivatedRoute, Router } from '@angular/router';
 import {MapService} from "../../service/LostFoundServices/Map.service";
-import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-map',

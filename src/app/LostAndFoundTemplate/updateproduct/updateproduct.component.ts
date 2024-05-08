@@ -1,10 +1,9 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
-import {ProductService} from "../../service/LostFoundServices/product.service";
 import ImageCompressor from "image-compressor.js";
 import {HttpClient} from "@angular/common/http";
-import {AuthServiceService} from "../../service/user/auth-service.service";
 import {NgForm} from "@angular/forms";
+import {ProductService} from "../../service/LostFoundServices/product.service";
 
 @Component({
   selector: 'app-updateproduct',

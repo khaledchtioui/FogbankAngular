@@ -1,0 +1,19 @@
+.oneReview {
+  margin-bottom: 3rem;
+}
+
+.reviewDate-Btns {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.likeArticle__container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cursorP {
+  cursor: pointer;
+}

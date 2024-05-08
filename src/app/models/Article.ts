@@ -1,10 +1,8 @@
-
 export interface Article {
-    id: number;
-    auteur: string;
-    titre: string;
-    contenu: string;
-    date: Date
-  }
-  
-  
+  id: string;
+  auteur: string;
+  titre: string;
+  contenu: string;
+  date: Date;
+  image: string;
+}

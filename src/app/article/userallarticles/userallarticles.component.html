@@ -1,0 +1,192 @@
+<!-- Main Wrapper -->
+<div class="main-wrapper">
+  <!-- Header -->
+  <app-navbar3></app-navbar3>
+  <!-- /Header -->
+
+  <!-- Page Wrapper -->
+  <div class="page-content">
+    <div class="container">
+      <div class="row">
+        <!-- Sidebar -->
+        <div class="col-xl-3 col-lg-4 col-md-12 theiaStickySidebar">
+          <!-- <app-sidebar2></app-sidebar2> -->
+          <app-user-side-bar
+            [buttonName]="'Creat new article'"
+            [buttonLink]="'/user/addArticle'"
+          ></app-user-side-bar>
+        </div>
+
+        <!-- /Sidebar -->
+
+        <!-- Instructor Dashboard -->
+        <div class="col-xl-9 col-lg-8 col-md-12">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="settings-widget">
+                <div class="settings-inner-blk p-0">
+                  <div class="sell-course-head comman-space">
+                    <h3>Articles</h3>
+                    <p>
+                      Manage your articles and their updates like live, draft,
+                      and insights.
+                    </p>
+                  </div>
+                  <div class="comman-space pb-0">
+                    <div class="instruct-search-blk">
+                      <div class="show-filter choose-search-blk">
+                        <form action="#">
+                          <div class="row gx-2 align-items-center">
+                            <div class="col-md-6 col-item">
+                              <div class="search-group">
+                                <i class="feather-search"></i>
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  placeholder="Search our articles"
+                                />
+                              </div>
+                            </div>
+                            <div class="col-md-6 col-lg-6 col-item">
+                              <div class="input-block select-form mb-0">
+                                <select
+                                  class="form-select select"
+                                  name="sellist1"
+                                >
+                                  <option>Choose</option>
+                                  <option>Angular</option>
+                                  <option>React</option>
+                                  <option>Node</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                    <div
+                      class="settings-tickets-blk course-instruct-blk table-responsive"
+                    >
+                      <!-- Referred Users-->
+                      <div class="container">
+                        <h2>Liste des Articles</h2>
+
+                        <table class="table table-nowrap mb-2">
+                          <thead>
+                            <tr>
+                              <th>Articles</th>
+                              <th>Action</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let article of articles">
+                              <td>
+                                <div
+                                  class="sell-table-group d-flex align-items-center"
+                                >
+                                  <div class="sell-group-img">
+                                    <a href="course-details.html">
+                                      <img
+                                        [src]="
+                                          'http://localhost:8087/upload-directory/' +
+                                          article.image
+                                        "
+                                        class="img-fluid img__article-list"
+                                        alt=""
+                                      />
+                                    </a>
+                                  </div>
+                                  <div class="sell-tabel-info">
+                                    <p>
+                                      <a href="course-details.html">{{
+                                        article.titre.length > 50
+                                          ? article.titre.substring(0, 50) +
+                                            "..."
+                                          : article.titre
+                                      }}</a>
+                                    </p>
+                                    <div
+                                      class="course-info d-flex align-items-center border-bottom-0 pb-0"
+                                    >
+                                      <div
+                                        class="rating-img d-flex align-items-center"
+                                      >
+                                        <img
+                                          src="assets/img/icon/icon-01.svg"
+                                          alt=""
+                                        />
+                                        <p>
+                                          {{
+                                            article.auteur.firstname +
+                                              " " +
+                                              article.auteur.lastname
+                                          }}
+                                        </p>
+                                      </div>
+                                      <div
+                                        class="course-view d-flex align-items-center"
+                                      >
+                                        <img
+                                          src="assets/img/icon/timer-start.svg"
+                                          alt=""
+                                        />
+                                        <p>{{ article.date | date }}</p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </td>
+                              <td>
+                                <div class="btn-group" role="group">
+                                  <a
+                                    (click)="shareFb(article.id)"
+                                    style="margin-right: 10px; font-size: 20px"
+                                    role="button"
+                                  >
+                                    <i class="feather feather-facebook"></i>
+                                  </a>
+                                  <a
+                                    [routerLink]="[
+                                      '/user/updatearticle/',
+                                      article.id
+                                    ]"
+                                    style="margin-right: 10px; font-size: 20px"
+                                    role="button"
+                                  >
+                                    <i class="feather feather-edit"></i>
+                                  </a>
+                                  <a
+                                    style="margin-right: 10px; font-size: 20px"
+                                    role="button"
+                                    (click)="showArticleDetails(article)"
+                                  >
+                                    <i class="feather feather-eye"></i>
+                                  </a>
+                                  <a
+                                    style="font-size: 20px"
+                                    role="button"
+                                    (click)="deleteUser(article)"
+                                  >
+                                    <i class="feather feather-trash-2"></i>
+                                  </a>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <!-- /Referred Users-->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /Instructor Dashboard -->
+      </div>
+    </div>
+  </div>
+  <!-- /Page Wrapper -->
+</div>
+<!-- /Main Wrapper -->

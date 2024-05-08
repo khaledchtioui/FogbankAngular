@@ -2,14 +2,14 @@
 import {Component, OnInit} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import ImageCompressor from 'image-compressor.js';
-import {AuthServiceService} from "../../service/user/auth-service.service";
 import {Router} from "@angular/router";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {AuthServiceService} from "../../service/user/auth-service.service";
 
 @Component({
   selector: 'app-product-form',
-  templateUrl: './AjouterProduct.Component.html',
-  styleUrls: ['./AjouterProduct.Component.css']
+  templateUrl: './AjouterProduct.component.html',
+  styleUrls: ['./AjouterProduct.component.css']
 })
 export class AjouterProductComponent  {
   products: any[] = []; // Tableau pour stocker les produits

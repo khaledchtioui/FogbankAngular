@@ -1,0 +1,43 @@
+.article_imageInput_container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  .article-input__image__container {
+    width: 8rem;
+    height: 8rem;
+    /* background-color: red; */
+    border-radius: 0.6rem;
+    margin-right: 2rem;
+  }
+  
+  .article-input__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .Extended-Fab {
+    font-size: 16px;
+    padding: 7px 15px;
+    font-weight: 700;
+    border: 1px solid #ff875a;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #ff875a;
+  }
+  
+  .Extended-Fab:hover {
+    border: 1px solid #ff875a;
+    background-color: #ff875a;
+    color: #fff;
+  }
+  
+  .inputError {
+    border-color: #fa896b !important;
+  }
+  
+  .errorField {
+    color: red;
+  }
+  
