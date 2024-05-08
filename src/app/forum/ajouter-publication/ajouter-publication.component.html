@@ -5,10 +5,17 @@
     <form [formGroup]="myForm" (ngSubmit)="ajouter()">
          <div class="input-block">
         <input type="text" formControlName="titre" class="form-control" placeholder="Titre">
+           <div *ngIf="myForm.get('titre')?.invalid && (myForm.get('titre')?.dirty || myForm.get('titre')?.touched)" class="text-danger">
+             Le titre est requis et doit avoir au moins 5 caractères.
+           </div>
       </div>
       <div class="input-block">
         <textarea rows="4" class="form-control"  formControlName="sujet" placeholder="Contenu"></textarea>
       </div>
+      <div *ngIf="myForm.get('sujet')?.invalid && (myForm.get('sujet')?.dirty || myForm.get('sujet')?.touched)" class="text-danger">
+        Le contenu est requis et doit avoir au moins 20 caractères.
+      </div>
+
       <div class="submit-section">
         <button class="btn submit-btn" type="submit">publier</button>
       </div>

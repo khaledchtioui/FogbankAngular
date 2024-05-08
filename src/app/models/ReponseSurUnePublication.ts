@@ -9,4 +9,6 @@ export class ReponseSurUnePublication{
   likePublicationList!:LikePublication[];
   user!:User;
   publicationInitiale!:PublicationInitiale;
+  visibility!:boolean
+
 }

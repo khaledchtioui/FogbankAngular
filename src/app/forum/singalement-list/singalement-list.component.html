@@ -1,1 +1,19 @@
-<p>singalement-list works!</p>
+<app-navbar3></app-navbar3>
+
+<div class="page-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-3 col-lg-4 col-md-12" style="position: -webkit-sticky; position: sticky; top: 20px;">
+        <app-sidebar2></app-sidebar2>
+      </div>
+
+      <div class="col-xl-9 col-lg-8 col-md-12">
+        <div class="posts-container" style="overflow-y: auto; max-height: calc(100vh - 60px);"> <!-- Adjust max-height as needed -->
+          <app-signalement-details *ngFor="let signalementPost of signalements" [signalementPost]="signalementPost"></app-signalement-details>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

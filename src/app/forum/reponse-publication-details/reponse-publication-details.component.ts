@@ -19,11 +19,23 @@ export class ReponsePublicationDetailsComponent implements OnInit {
   liked!: boolean
   buttonColor="white"
   likeDescription="like";
+
+  currentUser: any;
+  userPhotoUrl!: string;
   constructor(private crudService: CrudServiceService, private auth: AuthServiceService,private dialog: MatDialog) {
 
   }
 
-
+  getUserPhoto(): void {
+    this.auth.getUserPhoto(this.currentUser.id)
+      .subscribe((photoBlob: Blob) => {
+        const reader = new FileReader();
+        reader.onloadend = () => {
+          this.userPhotoUrl = reader.result as string;
+        };
+        reader.readAsDataURL(photoBlob);
+      });
+  }
 
   openPopup() {
     this.dialog.open(SingalerPublicationComponent, {

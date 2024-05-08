@@ -65,6 +65,8 @@ import {UserproductComponent} from "./LostAndFoundTemplate/userproduct/userprodu
 import {MapComponent} from "./LostAndFoundTemplate/map/map.component";
 import {UpdateproductComponent} from "./LostAndFoundTemplate/updateproduct/updateproduct.component";
 import { ChangepasswordComponent } from './changepassword/changepassword.component';
+import { SignalementDetailsComponent } from './forum/signalement-details/signalement-details.component';
+import { SupprimerPublicationComponent } from './forum/supprimer-publication/supprimer-publication.component';
 
 @NgModule({
   declarations: [
@@ -124,9 +126,11 @@ import { ChangepasswordComponent } from './changepassword/changepassword.compone
     UserproductComponent,
     UpdateproductComponent,
     MapComponent,
-    ChangepasswordComponent
+    ChangepasswordComponent,
     UserEventComponent,
-    SingalementListComponent
+    SingalementListComponent,
+    SignalementDetailsComponent,
+    SupprimerPublicationComponent
 
   ],
   imports: [
@@ -138,7 +142,7 @@ import { ChangepasswordComponent } from './changepassword/changepassword.compone
     MatSnackBarModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    MatDialogModule
+    MatDialogModule,
     ReactiveFormsModule,
 
 

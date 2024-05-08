@@ -24,7 +24,7 @@ export class SingalerPublicationComponent {
 
   ngOnInit(): void {
     this.myForm = this.fb.group({
-      commentaire: ['', Validators.required],
+      commentaire: ['', [Validators.required, Validators.minLength(5)]],
     });
 
 
@@ -48,11 +48,10 @@ export class SingalerPublicationComponent {
         (data) => {
           if (data !=null)
           {
-            console.log("succes")
+            alert("signal envoyé! ")
 
 
           }
-          else console.log("fail");
         },
 
       );

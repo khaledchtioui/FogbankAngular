@@ -11,4 +11,5 @@ export class PublicationInitiale{
   user!:User;
   titre!:string;
   vue!:number
+  visibility!:boolean
 }

@@ -23,7 +23,7 @@ export class AjouterReponseComponent implements OnInit{
 
   ngOnInit(): void {
     this.myForm = this.fb.group({
-      sujet: ['', [Validators.required]]
+      sujet: ['', [Validators.required, Validators.minLength(5)]]
     });
 
 
@@ -53,7 +53,7 @@ export class AjouterReponseComponent implements OnInit{
         (data) => {
           if (data !=null)
           {
-            console.log("succes")
+            alert("reponse ajouté! ")
            window.location.reload();
 
           }

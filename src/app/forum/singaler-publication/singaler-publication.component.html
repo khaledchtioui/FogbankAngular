@@ -6,6 +6,9 @@
       <div class="input-block">
         <input type="text" formControlName="commentaire" class="form-control" placeholder="commentaire">
       </div>
+      <div *ngIf="myForm.get('commentaire')?.invalid && (myForm.get('commentaire')?.dirty || myForm.get('commentaire')?.touched)" class="text-danger">
+        La raison est requise et doit avoir au moins 5 caractères.
+      </div>
 
       <div class="submit-section">
         <button class="btn submit-btn" type="submit">Signaler</button>

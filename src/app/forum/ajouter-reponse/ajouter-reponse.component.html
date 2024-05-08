@@ -6,6 +6,9 @@
       <div class="input-block">
         <textarea rows="4" class="form-control"  formControlName="sujet" placeholder="Contenu"></textarea>
       </div>
+      <div *ngIf="myForm.get('sujet')?.invalid && (myForm.get('sujet')?.dirty || myForm.get('sujet')?.touched)" class="text-danger">
+        La reponse est requise et doit avoir au moins 5 caractères.
+      </div>
       <div class="submit-section">
         <button class="btn submit-btn" type="submit">Repondre</button>
       </div>
