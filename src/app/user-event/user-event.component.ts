@@ -41,7 +41,6 @@ export class UserEventComponent implements OnInit {
   }
 
   
-
   showFormAlert() {
     const phoneNumber = prompt("Veuillez saisir votre numéro de téléphone :");
     if (phoneNumber) {
@@ -56,7 +55,7 @@ export class UserEventComponent implements OnInit {
 
     this.eventService.sendSms(eventId,this.phoneNumber)
     .subscribe(
-        (response: any) => { // Typage explicite de response
+        (response: any) => { 
           if (response) {
             console.log('SMS envoyé avec succès !', response);
             alert('Votre participation a été enregistrée avec succès !');
@@ -66,16 +65,12 @@ export class UserEventComponent implements OnInit {
             alert('Votre participation a été enregistrée avec succès !');
           }
         },
-        (error: any) => { // Typage explicite de error
+        (error: any) => { 
           console.error('Erreur lors de l\'envoi du SMS:', error);
           alert('Une erreur s\'est produite lors de l\'envoi du SMS.');
         }
       );
   }
-
-
-
-
 
   }
 

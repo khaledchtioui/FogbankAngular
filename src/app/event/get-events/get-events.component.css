@@ -79,3 +79,79 @@
   font-size: 14px; 
 
 }
+
+
+/* Styles pour la section de chat */
+/* Style du wrapper du chat */
+.chat-wrapper {
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center; /* Centrage du contenu */
+}
+
+/* Style du formulaire pour envoyer un message */
+.chat-wrapper form {
+  margin-top: 20px;
+}
+
+/* Style du champ de texte */
+.chat-wrapper input[type="text"] {
+  width: calc(100% - 120px); /* Largeur du champ de texte */
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.chat-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.chat-wrapper form {
+  margin-top: 80px;
+  width: 120%; /* Ajustez la largeur selon vos besoins */
+  max-width: 800px; /* Définissez une largeur maximale pour le formulaire */
+  border-radius: 50px;
+
+}
+
+.chat-wrapper input[type="text"] {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+.chat-wrapper button {
+  width: 100%;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #e4750e;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.chat-wrapper button:hover {
+  background-color: #c82333;
+}
+
+.chat-title {
+  font-weight: bold; /* Mettez le titre "Chat" en gras */
+  font-size: 24px; /* Ajustez la taille de la police selon vos préférences */
+  margin-bottom: 20px; /* Ajoutez de l'espace sous le titre */
+}

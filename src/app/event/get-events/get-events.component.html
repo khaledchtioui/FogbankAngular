@@ -47,11 +47,28 @@
                   </div>
                 </section>
 
+                 <!-- Chat -->
+                 <div class="col-xl-3 col-lg-12 col-md-12">
+                  <div class="chat-wrapper">
+                    <h2 class="chat-title">Chat</h2> <!-- Ajoutez le titre "Chat" en gras -->
+
+                    <div *ngFor="let message of messages">
+                      <p>{{ message.sender }}: {{ message.content }}</p>
+                    </div>
+                    <!-- Formulaire pour envoyer un message -->
+                    <form (ngSubmit)="sendMessage()">
+                      <input type="text" [(ngModel)]="newMessage" name="newMessage" placeholder="Entrez votre message...">
+                      <button type="submit">Envoyer</button>
+                    </form>
+                  </div>
+                </div>
+
+        <!-- /Chat -->
+
               </div>
             </div>
           </div>
         </div>
-        <!-- /Instructor Dashboard -->
 
       </div>
     </div>

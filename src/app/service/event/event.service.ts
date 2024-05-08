@@ -3,13 +3,14 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Event } from 'src/app/models/event';
 
+
+
 @Injectable({
   providedIn: 'root'
 })
 export class EventService {
   private baseUrl = 'http://localhost:8087/admin/events';
   private userUrl = 'http://localhost:8087/user/events';
-
 
 
   constructor(private http: HttpClient) { }
@@ -37,4 +38,10 @@ export class EventService {
   sendSms(eventId: number, phoneNumber: string): Observable<any> {
     return this.http.post<any>(`${this.userUrl}/sendsms`, { phoneNumber });
   }
+
 }
+
+
+
+
+

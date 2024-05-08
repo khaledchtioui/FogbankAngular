@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {EventService} from "../../service/event/event.service";
+import { WebSocketService } from 'src/app/service/websocket/web-socket.service';
+import { Message } from 'src/app/models/message';
+
 
 
 @Component({
@@ -11,11 +14,29 @@ export class GetEventsComponent implements OnInit {
 
   events: any[] = []; // Vous devez définir la structure appropriée pour les événements
   newEvent: any = {}; // Pour stocker les données d'un nouvel événement
+  messages: Message[] = [];
+  newMessage: string = ''; // Pour stocker le nouveau message à envoyer
 
-  constructor(private eventService: EventService) { }
+
+  constructor(private eventService: EventService, private webSocketService: WebSocketService, ) { }
 
   ngOnInit(): void {
     this.loadEvents();
+        // Connect to WebSocket when component initializes
+        this.webSocketService.connect('YourUsername');
+        // Subscribe to WebSocket messages
+        this.messages = this.webSocketService.getMessagesFromLocalStorage();
+        this.webSocketService.connect('YourUsername');
+        this.webSocketService.getMessageSubject().subscribe((message: any) => {
+          this.messages.push(message);
+
+
+        });    
+  }
+
+  ngOnDestroy(): void {
+    // Disconnect from WebSocket when component is destroyed
+    this.webSocketService.disconnect();
   }
 
   loadEvents() {
@@ -69,5 +90,19 @@ export class GetEventsComponent implements OnInit {
       }
     );
   }
+
+ 
+  sendMessage() {
+    if (this.newMessage) {
+      // Ajoutez le message à la liste des messages localement
+      this.messages.push({ sender: 'YourUsername',content: this.newMessage });
+      
+      // Envoi du message via WebSocket
+      this.webSocketService.sendMessage({ sender: 'YourUsername', content: this.newMessage });
+
+      this.newMessage = ''; // Effacer l'entrée après l'envoi du message
+    }
+  }
+
 
 }

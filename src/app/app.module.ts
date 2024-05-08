@@ -92,6 +92,7 @@ import {DeleteEventsComponent} from "./event/delete-events/delete-events.compone
     DeleteEventsComponent,
     AdmineditprofileComponent,
     UserEventComponent
+    
 
   ],
   imports: [
@@ -102,7 +103,8 @@ import {DeleteEventsComponent} from "./event/delete-events/delete-events.compone
     FormsModule,
     MatSnackBarModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
